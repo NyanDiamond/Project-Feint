@@ -19,13 +19,17 @@ public class TeleporterBehavior : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Floor"))
         {
+            GetComponent<CircleCollider2D>().isTrigger = true;
             GetComponent<Rigidbody2D>().bodyType=RigidbodyType2D.Static;
+            
         }
         if (collision.gameObject.CompareTag("Enemy"))
         {
+            GetComponent<CircleCollider2D>().isTrigger = true;
             attached = true;
             transform.parent = collision.gameObject.transform;
             GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
+            
         }
     }
 }
