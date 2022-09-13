@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 0a2e2c1455341aa438f2ef6ac19d8f57
+guid: 7823e2e54803ce548828d08867e53429
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -116,169 +116,169 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Idle strip_0
+      name: spr_RoninIdle_strip_0
       rect:
         serializedVersion: 2
-        x: 18
-        y: 28
-        width: 39
+        x: 17
+        y: 19
+        width: 29
         height: 33
-      alignment: 9
-      pivot: {x: 0.54780656, y: 0.016743226}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1d47032823f5cdf458954e729f5bed1a
-      internalID: -1578822185
+      spriteID: 329a9f466ffa27f488dccd4987cfc92b
+      internalID: 2134546057
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Idle strip_1
+      name: spr_RoninIdle_strip_1
       rect:
         serializedVersion: 2
-        x: 114
-        y: 28
-        width: 39
-        height: 34
-      alignment: 9
-      pivot: {x: 0.5501674, y: 0.016250778}
+        x: 81
+        y: 19
+        width: 30
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8ad2635fed9f4ca448d7594490e13bcb
-      internalID: -561739749
+      spriteID: e8de95abddf4dbc41a07a98d6b2cd53f
+      internalID: -1746475072
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Idle strip_2
+      name: spr_RoninIdle_strip_2
       rect:
         serializedVersion: 2
-        x: 210
-        y: 28
-        width: 39
-        height: 36
-      alignment: 9
-      pivot: {x: 0.5478062, y: 0.015347958}
+        x: 145
+        y: 19
+        width: 30
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 95418e3a953e2da49ae7a276b6c535c5
-      internalID: 1590296746
+      spriteID: 88d9d4edadce97b4987afb447739a464
+      internalID: -303024944
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Idle strip_3
+      name: spr_RoninIdle_strip_3
       rect:
         serializedVersion: 2
-        x: 306
-        y: 28
-        width: 39
-        height: 37
-      alignment: 9
-      pivot: {x: 0.5478062, y: 0.014933148}
+        x: 209
+        y: 19
+        width: 29
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bcdd48bc2e2a6a34e86f4ca7a28acb3f
-      internalID: -125445583
+      spriteID: ea5fc3de3e047df4ba5031daf7c58b3f
+      internalID: -783082579
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Idle strip_4
+      name: spr_RoninIdle_strip_4
       rect:
         serializedVersion: 2
-        x: 402
-        y: 28
-        width: 39
-        height: 37
-      alignment: 9
-      pivot: {x: 0.5478062, y: 0.014933148}
+        x: 273
+        y: 19
+        width: 28
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0a0fba0560aec4c4c82ce92e100eacda
-      internalID: -688810501
+      spriteID: fb06ecf8595a04e4298d0e7008da9bd7
+      internalID: 2069978444
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Idle strip_5
+      name: spr_RoninIdle_strip_5
       rect:
         serializedVersion: 2
-        x: 498
-        y: 28
-        width: 39
-        height: 35
-      alignment: 9
-      pivot: {x: 0.55016774, y: 0.01578647}
+        x: 337
+        y: 19
+        width: 27
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9b16e8a7417c8e54a9881f0d00d73c8d
-      internalID: 1613151355
+      spriteID: a2a386187e255ee428f160caa2d23b83
+      internalID: 694107277
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Idle strip_6
+      name: spr_RoninIdle_strip_6
       rect:
         serializedVersion: 2
-        x: 594
-        y: 28
-        width: 39
-        height: 34
-      alignment: 9
-      pivot: {x: 0.5501662, y: 0.016250778}
+        x: 401
+        y: 19
+        width: 26
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c3befb4a94ffbef4da249b48a792dbd8
-      internalID: -997071930
+      spriteID: 7254debd0d7519b4ea319de57e42165f
+      internalID: 1110230250
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Idle strip_7
+      name: spr_RoninIdle_strip_7
       rect:
         serializedVersion: 2
-        x: 690
-        y: 28
-        width: 39
-        height: 35
-      alignment: 9
-      pivot: {x: 0.5478062, y: 0.01578647}
+        x: 465
+        y: 19
+        width: 28
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1cfec210718043f4db15181db593c100
-      internalID: 498158008
+      spriteID: bf01eac51ef81b84aad1f774f96b4083
+      internalID: -1878503837
       vertices: []
       indices: 
       edges: []
@@ -294,14 +294,14 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Idle strip_7: 498158008
-      Idle strip_4: -688810501
-      Idle strip_1: -561739749
-      Idle strip_5: 1613151355
-      Idle strip_0: -1578822185
-      Idle strip_2: 1590296746
-      Idle strip_6: -997071930
-      Idle strip_3: -125445583
+      spr_RoninIdle_strip_0: 2134546057
+      spr_RoninIdle_strip_5: 694107277
+      spr_RoninIdle_strip_3: -783082579
+      spr_RoninIdle_strip_6: 1110230250
+      spr_RoninIdle_strip_7: -1878503837
+      spr_RoninIdle_strip_1: -1746475072
+      spr_RoninIdle_strip_2: -303024944
+      spr_RoninIdle_strip_4: 2069978444
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
