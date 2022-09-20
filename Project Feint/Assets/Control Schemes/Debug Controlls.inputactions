@@ -1,0 +1,74 @@
+{
+    "name": "Debug Controlls",
+    "maps": [
+        {
+            "name": "Default",
+            "id": "00098bdb-42cd-4721-8728-cf10634ae165",
+            "actions": [
+                {
+                    "name": "Restart",
+                    "type": "Button",
+                    "id": "0311bdfb-d9b8-4a54-8e48-ba6cbf2baca4",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Spawn",
+                    "type": "Button",
+                    "id": "a47e83ad-49df-4e51-a6a5-3d71b786b8d8",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "StealthBreak",
+                    "type": "Button",
+                    "id": "7b3897ea-2628-4e52-911e-a0ab3b532843",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "6052e5c1-9011-414a-b558-aab30420634a",
+                    "path": "<Keyboard>/1",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Restart",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "40b4cc7a-aa47-4426-9b89-58ec4983456c",
+                    "path": "<Keyboard>/2",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Spawn",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "3cf53e63-b911-4084-9d91-55ca7f08eda7",
+                    "path": "<Keyboard>/3",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "StealthBreak",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}

@@ -24,6 +24,9 @@ public class PlayerMovement : MonoBehaviour
     private int attack = 1;
     private bool teleporterOut = false;
     private bool isAttacking = false;
+    private bool canTP = true;
+
+    public bool teleporting = false;
     private Coroutine combo;
     // Start is called before the first frame update
 
@@ -89,27 +92,35 @@ public class PlayerMovement : MonoBehaviour
 
     private void Teleport()
     {
-        if (!teleporterOut)
+        GameObject tp = GameObject.FindGameObjectWithTag("Teleporter");
+        if (canTP)
         {
-            Camera cam = GameObject.FindObjectOfType<Camera>();
-            Vector2 lookPos = cam.ScreenToWorldPoint(Mouse.current.position.ReadValue()) - throwPoint.transform.position;
-            //create teleporter and add a force to throw it
-            Instantiate(teleporter, throwPoint.transform.position, Quaternion.identity).GetComponent<Rigidbody2D>().AddForce(lookPos.normalized*throwPower);
-            teleporterOut = true;
-        }
-        else
-        {
-            GameObject tp = GameObject.FindGameObjectWithTag("Teleporter");
-            transform.position = tp.transform.position;
-            TeleporterBehavior temp = tp.GetComponent<TeleporterBehavior>();
-            //if TP is stuck to an enemy, destroy it
-            if (temp.attached)
+            
+            jumping = true;
+            if (tp == null)
             {
-                Destroy(tp.transform.parent.gameObject);
+                Camera cam = GameObject.FindObjectOfType<Camera>();
+                Vector2 lookPos = cam.ScreenToWorldPoint(Mouse.current.position.ReadValue()) - throwPoint.transform.position;
+                //create teleporter and add a force to throw it
+                Instantiate(teleporter, throwPoint.transform.position, Quaternion.identity).GetComponent<Rigidbody2D>().AddForce(lookPos.normalized * throwPower);
+                //teleporterOut = true;
             }
-            Destroy(tp);
-            teleporterOut = false;
-
+            else
+            {
+                teleporting = true;
+                canTP = false;
+                EnemyCounter.TeleporterCheck();
+                transform.position = tp.transform.position;
+                TeleporterBehavior temp = tp.GetComponent<TeleporterBehavior>();
+                //if TP is stuck to an enemy, destroy it
+                if (temp.attached)
+                {
+                    tp.transform.parent.GetComponent<EnemyHealthBehavior>().instantDeath();
+                }
+                Destroy(tp);
+                //teleporterOut = false;
+                teleporting = false;
+            }
         }
     }
 
@@ -121,6 +132,7 @@ public class PlayerMovement : MonoBehaviour
                 StopCoroutine(combo);
             canAttack = false;
             isAttacking = true;
+            hit = false;
             switch (attack)
             {
                 case 1:
@@ -153,14 +165,23 @@ public class PlayerMovement : MonoBehaviour
         canAttack = true;
     }
 
+    public void AttackHit()
+    {
+        hit = true;
+    }
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
         //if the player lands while jumping
-        if (jumping && collision.gameObject.CompareTag("Floor") && transform.position.y > collision.gameObject.transform.position.y);
+        if (jumping && collision.gameObject.CompareTag("Floor") && transform.position.y > collision.gameObject.transform.position.y)
         {
-            Debug.Log("landed");
+            //Debug.Log("landed");
             an.SetTrigger("Land");
             jumping = false;
+        }
+        if (!canTP && collision.gameObject.CompareTag("Floor") && transform.position.y > collision.gameObject.transform.position.y)
+        {
+            canTP = true;
         }
 
     }
@@ -177,7 +198,7 @@ public class PlayerMovement : MonoBehaviour
     IEnumerator ComboWindow()
     {
         yield return new WaitForSeconds(0.5f);
-        Debug.Log("Combo Reset");
+        //Debug.Log("Combo Reset");
         attack = 1;
     }
 }
