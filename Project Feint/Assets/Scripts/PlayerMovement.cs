@@ -109,8 +109,8 @@ public class PlayerMovement : MonoBehaviour
             {
                 teleporting = true;
                 canTP = false;
-                EnemyCounter.TeleporterCheck();
                 transform.position = tp.transform.position;
+                EnemyCounter.TeleporterCheck();
                 TeleporterBehavior temp = tp.GetComponent<TeleporterBehavior>();
                 //if TP is stuck to an enemy, destroy it
                 if (temp.attached)

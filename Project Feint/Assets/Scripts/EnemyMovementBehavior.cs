@@ -33,7 +33,7 @@ public class EnemyMovementBehavior : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        if (aware && !pm.teleporting)
+        if (aware)
         {
             Move();
         }
@@ -43,8 +43,7 @@ public class EnemyMovementBehavior : MonoBehaviour
 
     void LateUpdate()
     {
-        
-        if (aware && !pm.teleporting)
+        if (aware)
         {
             if (player.position.x < transform.position.x)
             {
