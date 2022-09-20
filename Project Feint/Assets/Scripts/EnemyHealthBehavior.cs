@@ -33,6 +33,12 @@ public class EnemyHealthBehavior : MonoBehaviour
         EnemyCounter.enemies.Add(gameObject);
     }
 
+    private void OnBecameInvisible()
+    {
+        EnemyCounter.downCount();
+        EnemyCounter.enemies.Remove(gameObject);
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Player_Attack"))
