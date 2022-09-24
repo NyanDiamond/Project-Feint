@@ -22,10 +22,10 @@ public class PlayerMovement : MonoBehaviour
     private bool canAttack = true;
     private bool hit = true;
     private int attack = 1;
-    private bool teleporterOut = false;
+    //private bool teleporterOut = false;
     private bool isAttacking = false;
     private bool canTP = true;
-
+    private bool isHit = false;
     public bool teleporting = false;
     private Coroutine combo;
     // Start is called before the first frame update
@@ -56,33 +56,37 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        movement = pc.Default.Move.ReadValue<float>();
-        //Check to see if the player is moving and set bool accordingly for animations
-        if (movement != 0)
+        if (!isHit)
         {
-            an.SetBool("isRunning", true);
-            //if moving left
-            if (movement < 0 && !isAttacking)
-                transform.rotation = Quaternion.Euler(0, 180, 0);
-            //if moving right
-            else if (movement > 0 && !isAttacking)
-                transform.rotation = Quaternion.Euler(0, 0, 0);
+            movement = pc.Default.Move.ReadValue<float>();
+            //Check to see if the player is moving and set bool accordingly for animations
+            if (movement != 0)
+            {
+                an.SetBool("isRunning", true);
+                //if moving left
+                if (movement < 0 && !isAttacking)
+                    transform.rotation = Quaternion.Euler(0, 180, 0);
+                //if moving right
+                else if (movement > 0 && !isAttacking)
+                    transform.rotation = Quaternion.Euler(0, 0, 0);
 
+            }
+            else
+                StartCoroutine(IdleCooldown());
+            Move();
         }
-        else
-            StartCoroutine(IdleCooldown());
-        Move();
     }
 
     private void Move()
     {
-        rb.velocity = new Vector2(maxSpeed * movement, rb.velocity.y);
+        if (!isHit)
+            rb.velocity = new Vector2(maxSpeed * movement, rb.velocity.y);
     }
 
     private void Jump()
     {
         
-        if (!jumping)
+        if (!jumping && !isHit)
         {
             jumping = true;
             an.SetTrigger("Jump");
@@ -93,7 +97,7 @@ public class PlayerMovement : MonoBehaviour
     private void Teleport()
     {
         GameObject tp = GameObject.FindGameObjectWithTag("Teleporter");
-        if (canTP)
+        if (canTP && !isHit)
         {
             
             jumping = true;
@@ -126,7 +130,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Attack()
     {
-        if (canAttack)
+        if (canAttack && !isHit)
         {
             if(combo != null)
                 StopCoroutine(combo);
@@ -200,5 +204,22 @@ public class PlayerMovement : MonoBehaviour
         yield return new WaitForSeconds(0.5f);
         //Debug.Log("Combo Reset");
         attack = 1;
+    }
+
+    public void Damaged()
+    {
+        isHit = true;
+        an.SetTrigger("Hit");
+        rb.velocity = (-transform.forward) * 0.1f;
+    }
+
+    public void Death()
+    {
+        an.SetTrigger("Death");
+        isHit = true;
+    }
+    private void OutOfHitstun()
+    {
+        isHit = false;
     }
 }

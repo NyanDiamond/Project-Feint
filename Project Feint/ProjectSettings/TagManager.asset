@@ -8,6 +8,8 @@ TagManager:
   - Teleporter
   - Enemy
   - Player_Attack
+  - Enemy_Attack
+  - Wall
   layers:
   - Default
   - TransparentFX

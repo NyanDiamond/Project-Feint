@@ -8,10 +8,12 @@ public class EnemyHealthBehavior : MonoBehaviour
     private int health = 3;
     private Animator ar;
     private bool lookingLeft;
+    private EnemyMovementBehavior em;
     // Start is called before the first frame update
     void Start()
     {
         ar = GetComponent<Animator>();
+        em = GetComponent<EnemyMovementBehavior>();
     }
 
     private void Update()
@@ -56,6 +58,7 @@ public class EnemyHealthBehavior : MonoBehaviour
             else
             {
                 health--;
+                em.Damaged();
             }
             if (health <= 0)
             {

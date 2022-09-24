@@ -10,8 +10,16 @@ public class EnemyMovementBehavior : MonoBehaviour
     public float movementSpeed = 3f;
     public float tooCloseRange = 4f;
     public float tooFarRange = 6f;
+    public GameObject bullet;
+    public GameObject shootPoint;
+    [Tooltip("Degrees of offset for specific bullet sprite to look correct")]
+    public float rotationFix;
+    [Tooltip("How long is the hitstun of the enemy")]
+    public float hitstun;
     private bool aware = false;
+    private bool alarmSounded = false;
     private bool lookingLeft;
+    private float attackCooldown = 0;
 
     
   
@@ -24,8 +32,9 @@ public class EnemyMovementBehavior : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         an = GetComponent<Animator>();
         playerObject = GameObject.Find("Player");
-        player = playerObject.transform;
+        player = playerObject.transform.Find("Target");
         pm = playerObject.GetComponent<PlayerMovement>();
+        StartCoroutine(ChargeAttack());
        
     }
 
@@ -56,7 +65,26 @@ public class EnemyMovementBehavior : MonoBehaviour
                 lookingLeft = false;
             }
         }
+
+        if (attackCooldown >= 2f)
+        {
+            an.SetBool("Attacking", true);
+        }
         
+    }
+
+ 
+
+    private void Attacked()
+    {
+        attackCooldown = 0;
+        an.SetBool("Attacking", false);
+    }
+
+    private void RangedAttack()
+    {
+        float angle = Mathf.Atan2(shootPoint.transform.position.y - player.position.y, shootPoint.transform.position.x - player.position.x) * Mathf.Rad2Deg + rotationFix;
+        Instantiate(bullet, shootPoint.transform.position, Quaternion.Euler(0,0,angle));
     }
 
     private void Move()
@@ -89,6 +117,7 @@ public class EnemyMovementBehavior : MonoBehaviour
     public void StealthBreak()
     {
         aware = true;
+        alarmSounded = true;
     }
 
     public void TeleporterCheck()
@@ -119,5 +148,28 @@ public class EnemyMovementBehavior : MonoBehaviour
         aware = true;
     }
 
+    public void Damaged()
+    {
+        StartCoroutine(HitStun());
+    }
+
+    private IEnumerator HitStun()
+    {
+        aware = false;
+        yield return new WaitForSeconds(hitstun);
+        aware = true;
+    }
+
+    private IEnumerator ChargeAttack()
+    {
+        while(true)
+        {
+            yield return new WaitForSeconds(0.1f);
+            if(aware && Vector2.Distance(player.position, transform.position)<tooFarRange)
+            {
+                attackCooldown += 0.1f;
+            }
+        }
+    }
   
 }
