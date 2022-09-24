@@ -12,7 +12,7 @@ public class TeleporterBehavior : MonoBehaviour
     {
         if (attached)
         {
-            transform.position = transform.parent.position;
+            transform.position = transform.parent.Find("Center Point Soldier").position;
         }
     }
     private void OnCollisionEnter2D(Collision2D collision)
@@ -29,7 +29,7 @@ public class TeleporterBehavior : MonoBehaviour
             attached = true;
             transform.parent = collision.gameObject.transform;
             GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
-            
+            transform.position = transform.parent.Find("Center Point Soldier").position;
         }
     }
 }

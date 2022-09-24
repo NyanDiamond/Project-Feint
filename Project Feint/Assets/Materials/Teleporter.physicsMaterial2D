@@ -8,4 +8,4 @@ PhysicsMaterial2D:
   m_PrefabAsset: {fileID: 0}
   m_Name: Teleporter
   friction: 300
-  bounciness: 0
+  bounciness: 1

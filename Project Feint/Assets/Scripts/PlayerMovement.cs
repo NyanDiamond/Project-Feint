@@ -177,13 +177,13 @@ public class PlayerMovement : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         //if the player lands while jumping
-        if (jumping && collision.gameObject.CompareTag("Floor") && transform.position.y > collision.gameObject.transform.position.y)
+        if (jumping && collision.gameObject.CompareTag("Floor") && transform.Find("Target").position.y > collision.gameObject.transform.position.y)
         {
             //Debug.Log("landed");
             an.SetTrigger("Land");
             jumping = false;
         }
-        if (!canTP && collision.gameObject.CompareTag("Floor") && transform.position.y > collision.gameObject.transform.position.y)
+        if (!canTP && collision.gameObject.CompareTag("Floor") && transform.Find("Target").position.y > collision.gameObject.transform.position.y)
         {
             canTP = true;
         }
