@@ -64,13 +64,12 @@ public class EnemyMovementBehavior : MonoBehaviour
                 transform.rotation = Quaternion.Euler(0, 0, 0);
                 lookingLeft = false;
             }
-        }
 
-        if (attackCooldown >= 2f)
-        {
-            an.SetBool("Attacking", true);
+            if (attackCooldown >= 2f)
+            {
+                an.SetBool("Attacking", true);
+            }
         }
-        
     }
 
  
@@ -93,21 +92,21 @@ public class EnemyMovementBehavior : MonoBehaviour
         //Debug.Log(distance);
         if (distance > tooFarRange)
         {
-            Debug.Log("Too far");
+           // Debug.Log("Too far");
             rb.velocity = new Vector2(movementSpeed * transform.right.x, rb.velocity.y);
             an.SetBool("Walking", true);
             an.SetBool("Forward", true);
         }
         else if (distance < tooCloseRange)
         {
-            Debug.Log("Too close");
+           // Debug.Log("Too close");
             rb.velocity = new Vector2(movementSpeed / 2 * -transform.right.x, rb.velocity.y);
             an.SetBool("Walking", true);
             an.SetBool("Forward", false);
         }
         else if (distance > tooCloseRange && distance < tooFarRange)
         {
-            Debug.Log("In range");
+            //Debug.Log("In range");
             rb.velocity = new Vector2(0, rb.velocity.y);
             an.SetBool("Walking", false);
             an.SetBool("Forward", true);
@@ -120,21 +119,26 @@ public class EnemyMovementBehavior : MonoBehaviour
         alarmSounded = true;
     }
 
+    private void Alarm()
+    {
+        EnemyCounter.StealthBreak();
+    }
+
     public void TeleporterCheck()
     {
         if (aware)
         {
 
-            Debug.Log("Teleporter Check");
+            //Debug.Log("Teleporter Check");
             if (lookingLeft && player.position.x > transform.position.x)
             {
-                Debug.Log("Dazed");
+                //Debug.Log("Dazed");
                 aware = false;
                 StartCoroutine(Dazed());
             }
             else if (!lookingLeft && player.position.x < transform.position.x)
             {
-                Debug.Log("Dazed");
+                //Debug.Log("Dazed");
                 aware = false;
                 StartCoroutine(Dazed());
             }

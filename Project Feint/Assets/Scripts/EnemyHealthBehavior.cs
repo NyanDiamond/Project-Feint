@@ -83,8 +83,8 @@ public class EnemyHealthBehavior : MonoBehaviour
 
     private void Dead()
     {
-        EnemyCounter.downCount();
-        EnemyCounter.enemies.Remove(gameObject);
+        //EnemyCounter.downCount();
+        //EnemyCounter.enemies.Remove(gameObject);
         Destroy(gameObject);
     }
 }
