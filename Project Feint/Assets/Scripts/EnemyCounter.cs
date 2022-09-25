@@ -7,11 +7,13 @@ public class EnemyCounter : MonoBehaviour
     public static int count=0;
     public static List<GameObject> enemies = new List<GameObject>();
     public static bool countChanged = false;
+    private GameObject[] doorsave;
 
     private void Awake()
     {
         enemies = new List<GameObject>();
         count = 0;
+        doorsave = GameObject.FindGameObjectsWithTag("Door");
     }
     private void LateUpdate()
     {
@@ -19,12 +21,21 @@ public class EnemyCounter : MonoBehaviour
         {
             Debug.Log("All enemies dead");
             countChanged = false;
+            foreach (GameObject temp in doorsave)
+            { 
+                temp.SetActive(false);
+            }
         }
         else if (countChanged)
         {
             Debug.Log("Enemy count: " + count);
             countChanged = false;
+            foreach (GameObject temp in doorsave)
+            {
+                temp.SetActive(true);
+            }
         }
+      
     }
 
     public static void upCount()

@@ -9,6 +9,7 @@ public class EnemyHealthBehavior : MonoBehaviour
     private Animator ar;
     private bool lookingLeft;
     private EnemyMovementBehavior em;
+   
     // Start is called before the first frame update
     void Start()
     {
@@ -65,6 +66,7 @@ public class EnemyHealthBehavior : MonoBehaviour
                 ar.SetTrigger("Dead");
                 GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
                 GetComponent<BoxCollider2D>().enabled = false;
+                em.Dead();
             }
             else
             {
