@@ -6,18 +6,33 @@ public class TeleporterBehavior : MonoBehaviour
 {
 
     public bool attached = false;
-    // Start is called before the first frame update
+    public float bounceVelocityDecay;
 
+    private Rigidbody2D rig;
+    private PlayerMovement playerMovement;
+    private Vector2 currentVel;
+    private bool hit = false;
+    private int bounceNum = 0;
+    private void Start()
+    {
+        rig = GetComponent<Rigidbody2D>();
+        playerMovement = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>();
+    }
     private void Update()
     {
         if (attached)
         {
             transform.position = transform.parent.Find("Center Point Soldier").position;
         }
+        else if (!hit)
+		{
+            currentVel = GetComponent<Rigidbody2D>().velocity;
+        }
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Floor"))
+        hit = true;
+        /*if (collision.gameObject.CompareTag("Floor"))
         {
             Vector3 safescale = transform.lossyScale;
             GetComponent<CircleCollider2D>().isTrigger = true;
@@ -26,7 +41,7 @@ public class TeleporterBehavior : MonoBehaviour
             transform.rotation = Quaternion.identity;
             transform.localScale = new Vector3(safescale.x * 1 / transform.parent.localScale.x, safescale.y * 1 / transform.parent.localScale.y);
             
-        }
+        }*/
         if (collision.gameObject.CompareTag("Enemy"))
         {
             GetComponent<CircleCollider2D>().isTrigger = true;
@@ -35,5 +50,15 @@ public class TeleporterBehavior : MonoBehaviour
             GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
             transform.position = transform.parent.Find("Center Point Soldier").position;
         }
+        if (collision.gameObject.CompareTag("Wall"))
+        {
+            Debug.Log("Hit Wall!");
+            //reverses the direction of the teleporter and
+            //gives it a speed based on throw power and the number of bouces since it was thrown
+            bounceNum++;
+            rig.AddForce(new Vector2(-currentVel.x, currentVel.y) * playerMovement.throwPower / 8 / Mathf.Pow(bounceNum, bounceVelocityDecay));
+
+        }
+        hit = false;
     }
 }
