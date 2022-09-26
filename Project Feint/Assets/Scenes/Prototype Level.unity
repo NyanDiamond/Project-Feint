@@ -3259,7 +3259,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1091940277}
   - component: {fileID: 1091940278}
-  m_Layer: 10
+  m_Layer: 2
   m_Name: Environment
   m_TagString: Untagged
   m_Icon: {fileID: 0}
