@@ -8,12 +8,14 @@ public class EnemyCounter : MonoBehaviour
     public static List<GameObject> enemies = new List<GameObject>();
     public static bool countChanged = false;
     private GameObject[] doorsave;
+    public static LightController mainLight;
 
     private void Awake()
     {
         enemies = new List<GameObject>();
         count = 0;
         doorsave = GameObject.FindGameObjectsWithTag("Door");
+        mainLight = GameObject.FindGameObjectWithTag("MainCamera").transform.Find("Light").GetComponent<LightController>();
     }
     private void LateUpdate()
     {
@@ -25,6 +27,7 @@ public class EnemyCounter : MonoBehaviour
             { 
                 temp.SetActive(false);
             }
+            mainLight.AllEnemiesDead();
         }
         else if (countChanged)
         {
@@ -42,6 +45,7 @@ public class EnemyCounter : MonoBehaviour
     {
         count++;
         countChanged = true;
+        mainLight.StealthStart();
     }
 
     public static void downCount()
@@ -56,6 +60,7 @@ public class EnemyCounter : MonoBehaviour
         {
             enemy.GetComponent<EnemyMovementBehavior>().StealthBreak();
         }
+		mainLight.StealthBreak();
     }
 
     public static void TeleporterCheck()

@@ -58,7 +58,7 @@ public class EnemyMovementBehavior : MonoBehaviour
         }
         else if (!stunned)
         {
-            Debug.Log("Check For Player");
+            //Debug.Log("Check For Player");
             CheckForPlayer();
         }
     }
@@ -94,7 +94,7 @@ public class EnemyMovementBehavior : MonoBehaviour
         if (Vector2.Distance(player.position, transform.position) < viewDistance)
         {
             //Debug.Log("In Distance")
-            Debug.Log(Vector2.Angle(viewPoint.transform.right, playerDirection));
+            //Debug.Log(Vector2.Angle(viewPoint.transform.right, playerDirection));
             //in field of view
             if(Vector2.Angle(viewPoint.transform.right, playerDirection) < viewAngle/2f)
             {
@@ -102,7 +102,7 @@ public class EnemyMovementBehavior : MonoBehaviour
                 RaycastHit2D ray = Physics2D.Raycast(viewPoint.transform.position, playerDirection, viewDistance);
                 if(ray.collider!= null)
                 {
-                    Debug.Log(ray.collider.gameObject.tag);
+                    //Debug.Log(ray.collider.gameObject.tag);
                     if (ray.collider.gameObject.CompareTag("Player"))
                     {
                         aware = true;
@@ -127,7 +127,7 @@ public class EnemyMovementBehavior : MonoBehaviour
         }
         else
         {
-            Debug.Log("Not in range");
+            //Debug.Log("Not in range");
             au.Safe();
         }
     }

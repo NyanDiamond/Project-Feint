@@ -23,4 +23,15 @@ public class DebugControlls : MonoBehaviour
     {
         EnemyCounter.StealthBreak();
     }
+    void OnTeleporterReturn()
+	{
+        GameObject teleporter = GameObject.FindGameObjectWithTag("Teleporter");
+        if (teleporter != null)
+		{
+            if (teleporter.GetComponent<TeleporterBehavior>().attached == false)
+			{
+                Destroy(teleporter);
+			}
+		}
+	}
 }

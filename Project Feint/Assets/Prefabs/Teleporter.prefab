@@ -96,7 +96,7 @@ CircleCollider2D:
   m_GameObject: {fileID: 4799860142897947029}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: e2bd8521eb38d764ca42cd47e92a0e1b, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -137,4 +137,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attached: 0
-  bounceVelocityDecay: 0.2
+  bounceVelocityDecay: 0.05
