@@ -79,7 +79,7 @@ public class EnemyMovementBehavior : MonoBehaviour
                 lookingLeft = false;
             }
 
-            if (attackCooldown >= 2f)
+            if (attackCooldown >= 2f && LOS())
             {
                 an.SetBool("Attacking", true);
             }
@@ -99,21 +99,18 @@ public class EnemyMovementBehavior : MonoBehaviour
             if(Vector2.Angle(viewPoint.transform.right, playerDirection) < viewAngle/2f)
             {
                 //check for inbetween
-                RaycastHit2D ray = Physics2D.Raycast(viewPoint.transform.position, playerDirection, viewDistance);
-                if(ray.collider!= null)
-                {
-                    //Debug.Log(ray.collider.gameObject.tag);
-                    if (ray.collider.gameObject.CompareTag("Player"))
-                    {
-                        aware = true;
-                        au.Spotted();
-                        StartCoroutine(RaiseAlarm());
-                    }
-                    else
-                    {
-                        au.Warning();
-                    }
+                bool seen = LOS();
+                if(seen)
+                { 
+                    aware = true;
+                    au.Spotted();
+                    StartCoroutine(RaiseAlarm());
                 }
+                else
+                {
+                    au.Warning();
+                }
+                
             }
         }
         //further than view distance but in extended view cone (walls don't matter here)
@@ -130,6 +127,26 @@ public class EnemyMovementBehavior : MonoBehaviour
             //Debug.Log("Not in range");
             au.Safe();
         }
+    }
+
+    private bool LOS()
+    {
+        Vector2 playerDirection = (player.position - viewPoint.transform.position).normalized;
+        RaycastHit2D ray = Physics2D.Raycast(viewPoint.transform.position, playerDirection, viewDistance);
+        if (ray.collider != null)
+        {
+            //Debug.Log(ray.collider.gameObject.tag);
+            if (ray.collider.gameObject.CompareTag("Player"))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+
+        }
+        return false;
     }
 
     private void Attacked()
@@ -246,9 +263,13 @@ public class EnemyMovementBehavior : MonoBehaviour
         while(true)
         {
             yield return new WaitForSeconds(0.1f);
-            if(aware && Vector2.Distance(player.position, transform.position)<tooFarRange)
+            if(aware && Vector2.Distance(player.position, transform.position)<tooFarRange && LOS())
             {
                 attackCooldown += 0.1f;
+            }
+            else if (attackCooldown>0)
+            {
+                attackCooldown -= 0.01f;
             }
         }
     }
