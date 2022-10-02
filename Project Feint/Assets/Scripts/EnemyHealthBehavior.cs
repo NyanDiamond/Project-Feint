@@ -8,13 +8,13 @@ public class EnemyHealthBehavior : MonoBehaviour
     private int health = 3;
     private Animator ar;
     private bool lookingLeft;
-    private EnemyMovementBehavior em;
+    private ExperimentalEnemyMovement em;
    
     // Start is called before the first frame update
     void Start()
     {
         ar = GetComponent<Animator>();
-        em = GetComponent<EnemyMovementBehavior>();
+        em = GetComponent<ExperimentalEnemyMovement>();
     }
 
     private void Update()
@@ -46,6 +46,7 @@ public class EnemyHealthBehavior : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player_Attack"))
         {
+            Debug.Log("hit");
             Vector2 playerposition = collision.gameObject.transform.parent.transform.position;
             //Debug.Log("Player position=" + playerposition.ToString() + "\nEnemy position=" + transform.position.ToString() + "\nIs Facing Left: " + lookingLeft);
             if (lookingLeft && playerposition.x > transform.position.x)

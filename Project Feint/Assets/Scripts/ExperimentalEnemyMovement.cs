@@ -197,7 +197,7 @@ public class ExperimentalEnemyMovement : MonoBehaviour
 
         if ((distance < tooFarRange) && LOS())
         {
-            Debug.Log("Has LOS");
+            //Debug.Log("Has LOS");
             rb.velocity = new Vector2(0, rb.velocity.y);
             an.SetBool("Walking", false);
             an.SetBool("Forward", true);
@@ -205,7 +205,7 @@ public class ExperimentalEnemyMovement : MonoBehaviour
         }
         else
         {
-            Debug.Log("Moving");
+            //Debug.Log("Moving");
             an.SetBool("Walking", true);
             an.SetBool("Forward", true);
             float wayPointDistance = Vector2.Distance(transform.position, path.vectorPath[currentWaypoint]);
@@ -225,13 +225,13 @@ public class ExperimentalEnemyMovement : MonoBehaviour
                 rb.velocity = new Vector2(movementSpeed * transform.right.x, rb.velocity.y);
                 if (direction.x < 0)
             {
-                Debug.Log("Look left");
+                //Debug.Log("Look left");
                 transform.rotation = Quaternion.Euler(0, 180, 0);
                 lookingLeft = true;
             }
             else if (direction.x > 0)
             {
-                Debug.Log("Look Right");
+                //Debug.Log("Look Right");
                 transform.rotation = Quaternion.Euler(0, 0, 0);
                 lookingLeft = false;
             }
@@ -281,7 +281,7 @@ public class ExperimentalEnemyMovement : MonoBehaviour
 
     private void FacePlayer()
     {
-        Debug.Log("called face player");
+        //Debug.Log("called face player");
         if (player.position.x < transform.position.x)
         {
             transform.rotation = Quaternion.Euler(0, 180, 0);
