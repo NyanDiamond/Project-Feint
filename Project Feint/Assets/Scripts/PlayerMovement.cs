@@ -79,8 +79,9 @@ public class PlayerMovement : MonoBehaviour
 
     private void Move()
     {
+        float yVel = rb.velocity.y;
         if (!isHit)
-            rb.velocity = new Vector2(maxSpeed * movement, rb.velocity.y);
+            rb.velocity = new Vector2(maxSpeed * movement,yVel);
     }
 
     private void Jump()

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Pathfinding;
 
 public class ExperimentalEnemyMovement : MonoBehaviour
 {
@@ -26,12 +27,20 @@ public class ExperimentalEnemyMovement : MonoBehaviour
     private bool aware = false;
     private bool alarmSounded = false;
     private bool alarmDestroyed = false;
-    private bool stunned = false;
-    private bool lookingLeft;
-    private float attackCooldown = 0;
     private AlarmUI au;
 
+    private bool stunned = false;
+    private bool jumping = false;
+    private bool lookingLeft;
+    private float attackCooldown = 0;
+    
 
+    //All variables for pathfinding
+    public float nextWaypointDistance = 3f;
+    private Path path;
+    private int currentWaypoint = 0;
+    private bool reachedEndOfPath = false;
+    private Seeker seeker;
 
 
     private Rigidbody2D rb;
@@ -46,12 +55,32 @@ public class ExperimentalEnemyMovement : MonoBehaviour
         pm = playerObject.GetComponent<PlayerMovement>();
         StartCoroutine(ChargeAttack());
         au = GetComponent<AlarmUI>();
+        seeker = GetComponent<Seeker>();
+        InvokeRepeating("UpdatePath", 0f, 0.5f);
+        
     }
 
-
+    void UpdatePath()
+    {
+        if(seeker.IsDone())
+        seeker.StartPath(transform.position, player.position, OnPathComplete);
+        currentWaypoint = 0;
+    }
     // Update is called once per frame
     void FixedUpdate()
     {
+
+        if (path != null)
+        {
+            if (currentWaypoint >= path.vectorPath.Count)
+            {
+                reachedEndOfPath = true;
+            }
+            else
+            {
+                reachedEndOfPath = false;
+            }
+        }
         if (aware)
         {
             Move();
@@ -68,16 +97,16 @@ public class ExperimentalEnemyMovement : MonoBehaviour
     {
         if (aware)
         {
-            if (player.position.x < transform.position.x)
-            {
-                transform.rotation = Quaternion.Euler(0, 180, 0);
-                lookingLeft = true;
-            }
-            else
-            {
-                transform.rotation = Quaternion.Euler(0, 0, 0);
-                lookingLeft = false;
-            }
+            //if (player.position.x < transform.position.x)
+            //{
+            //    transform.rotation = Quaternion.Euler(0, 180, 0);
+            //    lookingLeft = true;
+            //}
+            //else
+            //{
+            //    transform.rotation = Quaternion.Euler(0, 0, 0);
+            //    lookingLeft = false;
+            //}
 
             if (attackCooldown >= 2f && LOS())
             {
@@ -164,27 +193,124 @@ public class ExperimentalEnemyMovement : MonoBehaviour
     private void Move()
     {
         float distance = Vector2.Distance(player.position, transform.position);
-        //Debug.Log(distance);
-        if (distance > tooFarRange)
+        
+
+        if ((distance < tooFarRange) && LOS())
         {
-            // Debug.Log("Too far");
-            rb.velocity = new Vector2(movementSpeed * transform.right.x, rb.velocity.y);
-            an.SetBool("Walking", true);
-            an.SetBool("Forward", true);
-        }
-        else if (distance < tooCloseRange)
-        {
-            // Debug.Log("Too close");
-            rb.velocity = new Vector2(movementSpeed / 2 * -transform.right.x, rb.velocity.y);
-            an.SetBool("Walking", true);
-            an.SetBool("Forward", false);
-        }
-        else if (distance > tooCloseRange && distance < tooFarRange)
-        {
-            //Debug.Log("In range");
+            Debug.Log("Has LOS");
             rb.velocity = new Vector2(0, rb.velocity.y);
             an.SetBool("Walking", false);
             an.SetBool("Forward", true);
+            FacePlayer();
+        }
+        else
+        {
+            Debug.Log("Moving");
+            an.SetBool("Walking", true);
+            an.SetBool("Forward", true);
+            float wayPointDistance = Vector2.Distance(transform.position, path.vectorPath[currentWaypoint]);
+            if(wayPointDistance < nextWaypointDistance)
+            {
+                currentWaypoint++;
+            }
+            Vector2 direction = ((Vector2)path.vectorPath[currentWaypoint] - rb.position).normalized;
+            //Debug.Log(direction);
+            
+            
+            
+
+            //If not going to jump
+            if(direction.y < 0.9)
+            {
+                rb.velocity = new Vector2(movementSpeed * transform.right.x, rb.velocity.y);
+                if (direction.x < 0)
+            {
+                Debug.Log("Look left");
+                transform.rotation = Quaternion.Euler(0, 180, 0);
+                lookingLeft = true;
+            }
+            else if (direction.x > 0)
+            {
+                Debug.Log("Look Right");
+                transform.rotation = Quaternion.Euler(0, 0, 0);
+                lookingLeft = false;
+            }
+            }
+            //Will Jump
+            else if (direction.y>0.98)
+            {
+                float yVel = rb.velocity.y;
+                //horizontal movement speed slowed down drastically when jumping, but still somewhat there
+                rb.velocity = new Vector2(movementSpeed * transform.right.x / 10, yVel);
+                Jump();
+                FacePlayer();
+            }
+            else
+            {
+                float yVel = rb.velocity.y;
+                //horizontal movement speed slowed down drastically when jumping, but still somewhat there
+                rb.velocity = new Vector2(movementSpeed * transform.right.x, yVel);
+                Jump();
+                FacePlayer();
+            }
+        }
+        
+        //Debug.Log(distance);
+        //if (distance > tooFarRange)
+        //{
+        //    // Debug.Log("Too far");
+        //    rb.velocity = new Vector2(movementSpeed * transform.right.x, rb.velocity.y);
+        //    an.SetBool("Walking", true);
+        //    an.SetBool("Forward", true);
+        //}
+        //else if (distance < tooCloseRange)
+        //{
+        //    // Debug.Log("Too close");
+        //    rb.velocity = new Vector2(movementSpeed / 2 * -transform.right.x, rb.velocity.y);
+        //    an.SetBool("Walking", true);
+        //    an.SetBool("Forward", false);
+        //}
+        //else if (distance > tooCloseRange && distance < tooFarRange)
+        //{
+        //    //Debug.Log("In range");
+        //    rb.velocity = new Vector2(0, rb.velocity.y);
+        //    an.SetBool("Walking", false);
+        //    an.SetBool("Forward", true);
+        //}
+    }
+
+    private void FacePlayer()
+    {
+        Debug.Log("called face player");
+        if (player.position.x < transform.position.x)
+        {
+            transform.rotation = Quaternion.Euler(0, 180, 0);
+            lookingLeft = true;
+        }
+        else
+        {
+            transform.rotation = Quaternion.Euler(0, 0, 0);
+            lookingLeft = false;
+        }
+    }
+
+    private void Jump()
+    {
+        float jumpForce = 260;
+        if (!jumping && aware)
+        {
+            jumping = true;
+            //an.SetTrigger("Jump");
+            rb.AddForce(transform.up * jumpForce);
+        }
+    }
+
+    private void OnPathComplete(Path p)
+    {
+        if(!p.error)
+        {
+            path = p;
+            currentWaypoint = 0;
         }
     }
 
@@ -248,6 +374,16 @@ public class ExperimentalEnemyMovement : MonoBehaviour
         }
         StopAllCoroutines();
 
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (jumping && collision.gameObject.CompareTag("Floor")/* && transform.Find("Target").position.y > collision.gameObject.transform.position.y*/)
+        {
+            //Debug.Log("landed");
+            //an.SetTrigger("Land");
+            jumping = false;
+        }
     }
 
     private IEnumerator HitStun()

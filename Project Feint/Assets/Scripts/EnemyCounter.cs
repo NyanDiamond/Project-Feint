@@ -58,7 +58,7 @@ public class EnemyCounter : MonoBehaviour
     {
         foreach(GameObject enemy in enemies)
         {
-            enemy.GetComponent<EnemyMovementBehavior>().StealthBreak();
+            enemy.GetComponent<ExperimentalEnemyMovement>().StealthBreak();
         }
 		mainLight.StealthBreak();
     }
@@ -67,7 +67,7 @@ public class EnemyCounter : MonoBehaviour
     {
         foreach(GameObject enemy in enemies)
         {
-            enemy.GetComponent<EnemyMovementBehavior>().TeleporterCheck();
+            enemy.GetComponent<ExperimentalEnemyMovement>().TeleporterCheck();
         }
     }
 }
