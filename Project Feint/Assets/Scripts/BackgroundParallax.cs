@@ -13,20 +13,23 @@ using UnityEngine;
 
 public class BackgroundParallax : MonoBehaviour
 {
-    private float startPos;
-    //private GameObject cam;
-    private Camera cam;
-    [SerializeField] private float parallaxFX;
+    private float startPos;                         // Reference to object's original position
+    private Camera cam;                             // Reference to the main camera
+    [SerializeField] private float parallaxFX;      // Value to change how much each object moves
+                                                    // Current used values: 0.1, 0.3, 0.7, 0.9
 
-    // Start is called before the first frame update
+    /// <summary>
+    /// Initializes references to main cam and startPos
+    /// </summary>
     void Start()
     {
-        //cam = GameObject.Find("CM vcam1");
         cam = GameObject.FindObjectOfType<Camera>();
         startPos = transform.position.x;
     }
 
-    // Update is called once per frame
+    /// <summary>
+    /// Moves background object based on parallaxFX value
+    /// </summary>
     void Update()
     {
         float distance = (cam.transform.position.x * parallaxFX);

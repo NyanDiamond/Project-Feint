@@ -6,7 +6,7 @@ public class PlayerHealthBehavior : MonoBehaviour
 {
     public Color normal;
     public Color transparent;
-    private float health = 3;
+    [SerializeField] private float health = 3;
     [Tooltip("How many flashes the sprite makes to signify invulnerable (each flash is .4 seconds")]
     public int invulnerability;
     private PlayerMovement pm;
