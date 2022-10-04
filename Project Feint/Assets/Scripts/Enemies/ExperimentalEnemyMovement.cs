@@ -90,6 +90,11 @@ public class ExperimentalEnemyMovement : MonoBehaviour
             //Debug.Log("Check For Player");
             CheckForPlayer();
         }
+        else if (aware && stunned)
+        {
+            float velY = rb.velocity.y;
+            rb.velocity = new Vector2(0, velY);
+        }
     }
 
 

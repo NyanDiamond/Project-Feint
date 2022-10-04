@@ -30,13 +30,13 @@ public class EnemyHealthBehavior : MonoBehaviour
         }
     }
 
-    private void OnBecameVisible()
-    {
-        EnemyCounter.upCount();
-        EnemyCounter.enemies.Add(gameObject);
-    }
+    //private void OnBecameVisible()
+    //{
+    //    EnemyCounter.upCount();
+    //    EnemyCounter.enemies.Add(gameObject);
+    //}
 
-    private void OnBecameInvisible()
+    private void OnDestroy()
     {
         EnemyCounter.downCount();
         EnemyCounter.enemies.Remove(gameObject);
