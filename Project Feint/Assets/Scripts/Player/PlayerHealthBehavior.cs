@@ -24,7 +24,7 @@ public class PlayerHealthBehavior : MonoBehaviour
     {
         if(collision.gameObject.CompareTag("Enemy_Attack") && !invulnerable)
         {
-            Destroy(collision.gameObject);
+            //Destroy(collision.gameObject);
             invulnerable = true;
             health--;
             healthBox.text = "Health: " + health;

@@ -9,11 +9,13 @@ public class ExperimentalEnemyMovement : MonoBehaviour
     private PlayerMovement pm;
     private Transform player;
     public float movementSpeed = 3f;
-    public float tooCloseRange = 4f;
+    //public float tooCloseRange = 4f;
     public float tooFarRange = 6f;
+    public float attackSpeed = 2f;
     public GameObject bullet;
     public GameObject shootPoint;
     public GameObject viewPoint;
+    public Transform centerPoint;
     [Tooltip("Degrees of offset for specific bullet sprite to look correct")]
     public float rotationFix;
     [Tooltip("How long is the hitstun of the enemy")]
@@ -42,6 +44,7 @@ public class ExperimentalEnemyMovement : MonoBehaviour
     private bool reachedEndOfPath = false;
     private Seeker seeker;
 
+    private Coroutine stun;
 
     private Rigidbody2D rb;
     private Animator an;
@@ -63,7 +66,7 @@ public class ExperimentalEnemyMovement : MonoBehaviour
     void UpdatePath()
     {
         if(seeker.IsDone())
-        seeker.StartPath(transform.position, player.position, OnPathComplete);
+        seeker.StartPath(centerPoint.position, player.position, OnPathComplete);
         currentWaypoint = 0;
     }
     // Update is called once per frame
@@ -113,7 +116,7 @@ public class ExperimentalEnemyMovement : MonoBehaviour
             //    lookingLeft = false;
             //}
 
-            if (attackCooldown >= 2f && LOS())
+            if (attackCooldown >= attackSpeed && LOS() && Vector2.Distance(player.position, centerPoint.position) <= tooFarRange) 
             {
                 an.SetBool("Attacking", true);
             }
@@ -125,7 +128,7 @@ public class ExperimentalEnemyMovement : MonoBehaviour
         Vector2 playerDirection = (player.position - viewPoint.transform.position).normalized;
         //Debug.Log(playerDirection);
         //in view distance
-        if (Vector2.Distance(player.position, transform.position) < viewDistance)
+        if (Vector2.Distance(player.position, centerPoint.position) < viewDistance)
         {
             //Debug.Log("In Distance")
             //Debug.Log(Vector2.Angle(viewPoint.transform.right, playerDirection));
@@ -148,7 +151,7 @@ public class ExperimentalEnemyMovement : MonoBehaviour
             }
         }
         //further than view distance but in extended view cone (walls don't matter here)
-        else if (Vector2.Distance(player.position, transform.position) < viewDistance + 2f)
+        else if (Vector2.Distance(player.position, centerPoint.position) < viewDistance + 2f)
         {
             //Debug.Log("In Warning Distance");
             if (Vector2.Angle(transform.right, playerDirection) < viewAngle / 2f)
@@ -197,8 +200,12 @@ public class ExperimentalEnemyMovement : MonoBehaviour
 
     private void Move()
     {
-        float distance = Vector2.Distance(player.position, transform.position);
-        
+        float distance = Vector2.Distance(player.position, centerPoint.position);
+        if(stunned)
+        {
+            rb.velocity = Vector2.zero;
+            return;
+        }
 
         if ((distance < tooFarRange) && LOS())
         {
@@ -213,7 +220,7 @@ public class ExperimentalEnemyMovement : MonoBehaviour
             //Debug.Log("Moving");
             an.SetBool("Walking", true);
             an.SetBool("Forward", true);
-            float wayPointDistance = Vector2.Distance(transform.position, path.vectorPath[currentWaypoint]);
+            float wayPointDistance = Vector2.Distance(centerPoint.position, path.vectorPath[currentWaypoint]);
             if(wayPointDistance < nextWaypointDistance)
             {
                 currentWaypoint++;
@@ -287,7 +294,7 @@ public class ExperimentalEnemyMovement : MonoBehaviour
     private void FacePlayer()
     {
         //Debug.Log("called face player");
-        if (player.position.x < transform.position.x)
+        if (player.position.x < centerPoint.position.x)
         {
             transform.rotation = Quaternion.Euler(0, 180, 0);
             lookingLeft = true;
@@ -339,14 +346,14 @@ public class ExperimentalEnemyMovement : MonoBehaviour
         {
 
             //Debug.Log("Teleporter Check");
-            if (lookingLeft && player.position.x > transform.position.x)
+            if (lookingLeft && player.position.x > centerPoint.position.x)
             {
                 //Debug.Log("Dazed");
                 aware = false;
                 stunned = true;
                 StartCoroutine(Dazed());
             }
-            else if (!lookingLeft && player.position.x < transform.position.x)
+            else if (!lookingLeft && player.position.x < centerPoint.position.x)
             {
                 //Debug.Log("Dazed");
                 aware = false;
@@ -366,8 +373,9 @@ public class ExperimentalEnemyMovement : MonoBehaviour
 
     public void Damaged()
     {
-        StopCoroutine(HitStun());
-        StartCoroutine(HitStun());
+        if (stun != null)
+            StopCoroutine(stun);
+        stun = StartCoroutine(HitStun());
     }
 
     public void Dead()
@@ -397,6 +405,7 @@ public class ExperimentalEnemyMovement : MonoBehaviour
         stunned = true;
         yield return new WaitForSeconds(hitstun);
         stunned = false;
+        aware = true;
     }
 
     private IEnumerator ChargeAttack()
@@ -404,7 +413,7 @@ public class ExperimentalEnemyMovement : MonoBehaviour
         while (true)
         {
             yield return new WaitForSeconds(0.1f);
-            if (aware && Vector2.Distance(player.position, transform.position) < tooFarRange && LOS())
+            if (aware && LOS())
             {
                 attackCooldown += 0.1f;
             }

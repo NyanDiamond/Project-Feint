@@ -119,13 +119,14 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5451462094590933763}
+  - component: {fileID: 1544461792}
   m_Layer: 6
-  m_Name: ShootPoint
-  m_TagString: Untagged
+  m_Name: Attack
+  m_TagString: Enemy_Attack
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &5451462094590933763
 Transform:
   m_ObjectHideFlags: 0
@@ -141,6 +142,32 @@ Transform:
   m_Father: {fileID: 5179965857752857576}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &1544461792
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1482258612694509290}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.062461555, y: -0.042246163}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.104717135, y: 0.26590693}
+  m_EdgeRadius: 0
 --- !u!1 &2407746671680765805
 GameObject:
   m_ObjectHideFlags: 0
@@ -306,7 +333,7 @@ GameObject:
   - component: {fileID: 548293681}
   - component: {fileID: 548293692}
   m_Layer: 6
-  m_Name: Soldier
+  m_Name: Shield
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -372,7 +399,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 1995195521, guid: 942a0f5bd86c8fe4ab7c98973b47bb14, type: 3}
+  m_Sprite: {fileID: 1548019484, guid: 7f8e4bcfab006a24db921e23acc911a3, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -406,7 +433,7 @@ Animator:
   m_GameObject: {fileID: 5179965857752857570}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 321569575b010334d8e16e11192adc5e, type: 2}
+  m_Controller: {fileID: 9100000, guid: 0f0e1b920c961d949ad5deb02443cf54, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -432,7 +459,7 @@ Rigidbody2D:
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1
-  m_Material: {fileID: 6200000, guid: 9b923d479bb152e48b4e639e2df1bbda, type: 2}
+  m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
@@ -450,18 +477,18 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.07649832, y: 0.15143833}
+  m_Offset: {x: 0.08575117, y: 0.15143833}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.06571527, y: 0.011489259}
-    oldSize: {x: 0.22, y: 0.31}
+    pivot: {x: 0.07428255, y: 0.01814044}
+    oldSize: {x: 0.2, y: 0.29}
     newSize: {x: 0.22, y: 0.31}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.18191136, y: 0.31}
+  m_Size: {x: 0.20041706, y: 0.31}
   m_EdgeRadius: 0
 --- !u!114 &4460816336778399355
 MonoBehaviour:
@@ -520,8 +547,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movementSpeed: 1.5
-  tooCloseRange: 0
-  tooFarRange: 4
+  tooFarRange: 1
+  attackSpeed: 1
   bullet: {fileID: 2429738046576863917, guid: 3d0aabac98b0528488428dcf49ee627c, type: 3}
   shootPoint: {fileID: 1482258612694509290}
   viewPoint: {fileID: 2881424221114852466}

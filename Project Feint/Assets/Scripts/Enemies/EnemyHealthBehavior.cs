@@ -9,6 +9,7 @@ public class EnemyHealthBehavior : MonoBehaviour
     private Animator ar;
     private bool lookingLeft;
     private ExperimentalEnemyMovement em;
+    public bool shielded = false;
    
     // Start is called before the first frame update
     void Start()
@@ -46,7 +47,7 @@ public class EnemyHealthBehavior : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player_Attack"))
         {
-            Debug.Log("hit");
+            //Debug.Log("hit");
             Vector2 playerposition = collision.gameObject.transform.parent.transform.position;
             //Debug.Log("Player position=" + playerposition.ToString() + "\nEnemy position=" + transform.position.ToString() + "\nIs Facing Left: " + lookingLeft);
             if (lookingLeft && playerposition.x > transform.position.x)
@@ -57,9 +58,13 @@ public class EnemyHealthBehavior : MonoBehaviour
             {
                 health -= 3;
             }
-            else
+            else if (!shielded)
             {
                 health--;
+                em.Damaged();
+            }
+            else
+            {
                 em.Damaged();
             }
             if (health <= 0)
