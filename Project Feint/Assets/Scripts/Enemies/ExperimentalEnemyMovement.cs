@@ -32,7 +32,7 @@ public class ExperimentalEnemyMovement : MonoBehaviour
     private AlarmUI au;
 
     private bool stunned = false;
-    private bool jumping = false;
+    private bool grounded = true;
     private bool lookingLeft;
     private float attackCooldown = 0;
     
@@ -48,6 +48,7 @@ public class ExperimentalEnemyMovement : MonoBehaviour
 
     private Rigidbody2D rb;
     private Animator an;
+    private GroundChecker gr;
     // Start is called before the first frame update
     void Start()
     {
@@ -59,8 +60,8 @@ public class ExperimentalEnemyMovement : MonoBehaviour
         StartCoroutine(ChargeAttack());
         au = GetComponent<AlarmUI>();
         seeker = GetComponent<Seeker>();
-        InvokeRepeating("UpdatePath", 0f, 0.5f);
-        
+        InvokeRepeating("UpdatePath", 0f, 0.2f);
+        gr = transform.Find("GroundCheck").GetComponent<GroundChecker>();
     }
 
     void UpdatePath()
@@ -103,7 +104,19 @@ public class ExperimentalEnemyMovement : MonoBehaviour
 
     void LateUpdate()
     {
-        if (aware)
+        grounded = GroundCheck();
+        /*if (!grounded && rb.velocity.y > 0)
+        {
+            //Debug.Log("Jumping");
+            an.SetBool("Jumping", true);
+        }
+        if (grounded && rb.velocity.y <= 0)
+        {
+            //Debug.Log("Landed");
+            an.SetBool("Jumping", false);
+        }
+        */
+            if (aware)
         {
             //if (player.position.x < transform.position.x)
             //{
@@ -121,6 +134,11 @@ public class ExperimentalEnemyMovement : MonoBehaviour
                 an.SetBool("Attacking", true);
             }
         }
+    }
+
+    bool GroundCheck()
+    {
+        return gr.grounded;
     }
 
     void CheckForPlayer()
@@ -309,9 +327,9 @@ public class ExperimentalEnemyMovement : MonoBehaviour
     private void Jump()
     {
         float jumpForce = 260;
-        if (!jumping && aware)
+        if (grounded && aware && Vector2.Distance(centerPoint.position, player.position) > 2)
         {
-            jumping = true;
+            //jumping = true;
             //an.SetTrigger("Jump");
             rb.AddForce(transform.up * jumpForce);
         }
@@ -389,15 +407,16 @@ public class ExperimentalEnemyMovement : MonoBehaviour
 
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    /*private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (jumping && collision.gameObject.CompareTag("Floor")/* && transform.Find("Target").position.y > collision.gameObject.transform.position.y*/)
+        if (jumping && collision.gameObject.CompareTag("Floor") && transform.Find("Target").position.y > collision.gameObject.transform.position.y)
         {
             //Debug.Log("landed");
             //an.SetTrigger("Land");
             jumping = false;
         }
     }
+    */
 
     private IEnumerator HitStun()
     {

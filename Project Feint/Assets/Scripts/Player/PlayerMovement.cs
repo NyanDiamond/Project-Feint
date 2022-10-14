@@ -11,14 +11,15 @@ public class PlayerMovement : MonoBehaviour
     public float throwPower;
     public GameObject teleporter;
     public GameObject throwPoint;
-
+    private GroundChecker gr;
     private float movement;
     //player components
     private Animator an;
     private Rigidbody2D rb;
     private PlayerControls pc;
     //variables to keep track of certain aspects
-    private bool jumping = false;
+    //private bool jumping = false;
+    private bool grounded = true;
     private bool canAttack = true;
     private bool hit = true;
     private int attack = 1;
@@ -27,6 +28,7 @@ public class PlayerMovement : MonoBehaviour
     private bool canTP = true;
     private bool isHit = false;
     public bool teleporting = false;
+    
     private Coroutine combo;
     // Start is called before the first frame update
 
@@ -35,6 +37,7 @@ public class PlayerMovement : MonoBehaviour
         pc = new PlayerControls();
         rb = GetComponent<Rigidbody2D>();
         an = GetComponent<Animator>();
+        gr = transform.Find("GroundCheck").GetComponent<GroundChecker>();
         combo = null;
     }
 
@@ -75,6 +78,22 @@ public class PlayerMovement : MonoBehaviour
                 StartCoroutine(IdleCooldown());
             Move();
         }
+
+        grounded = GroundCheck();
+        if (!grounded && rb.velocity.y > 0)
+        {
+            //Debug.Log("Jumping");
+            an.SetBool("Jumping", true);
+        }
+        if (grounded && rb.velocity.y <= 0)
+        {
+            //Debug.Log("Landed");
+            an.SetBool("Jumping", false);
+            if(!canTP && !teleporting)
+            {
+                canTP = true;
+            }
+        }
     }
 
     private void Move()
@@ -87,12 +106,19 @@ public class PlayerMovement : MonoBehaviour
     private void Jump()
     {
         
-        if (!jumping && !isHit)
+        if (grounded && !isHit)
         {
-            jumping = true;
-            an.SetTrigger("Jump");
+            //jumping = true;
+            //an.SetBool("Jumping", true);
             rb.AddForce(transform.up * jumpForce);
         }
+    }
+
+    private bool GroundCheck()
+    {   
+        Debug.Log(gr.grounded);
+        return gr.grounded;
+        
     }
 
     private void Teleport()
@@ -101,7 +127,7 @@ public class PlayerMovement : MonoBehaviour
         if (canTP && !isHit)
         {
             
-            jumping = true;
+            //jumping = true;
             if (tp == null)
             {
                 Camera cam = GameObject.FindObjectOfType<Camera>();
@@ -187,16 +213,16 @@ public class PlayerMovement : MonoBehaviour
     private void OnCollisionStay2D(Collision2D collision)
     {
         //if the player lands while jumping
-        if (jumping && collision.gameObject.CompareTag("Floor")/* && transform.Find("Target").position.y > collision.gameObject.transform.position.y*/)
+        /*if (jumping && collision.gameObject.CompareTag("Floor") && transform.Find("Target").position.y > collision.gameObject.transform.position.y)
         {
-            //Debug.Log("landed");
+           
             an.SetTrigger("Land");
             jumping = false;
         }
-        if (!canTP && collision.gameObject.CompareTag("Floor")/* && transform.Find("Target").position.y > collision.gameObject.transform.position.y*/)
+        if (!canTP && collision.gameObject.CompareTag("Floor") && transform.Find("Target").position.y > collision.gameObject.transform.position.y)
         {
             canTP = true;
-        }
+        }*/
 
     }
 
