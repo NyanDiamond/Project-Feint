@@ -11,6 +11,7 @@ TagManager:
   - Enemy_Attack
   - Wall
   - Door
+  - EntryZone
   layers:
   - Default
   - TransparentFX
@@ -24,7 +25,7 @@ TagManager:
   - Player_Attack
   - Background
   - Obstacle
-  - 
+  - Teleporter Phasable
   - 
   - 
   - 
