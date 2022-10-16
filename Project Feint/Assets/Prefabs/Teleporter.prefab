@@ -137,4 +137,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attached: 0
-  bounceVelocityDecay: 0.05
+  bounceVelocityDecay: 0.02
