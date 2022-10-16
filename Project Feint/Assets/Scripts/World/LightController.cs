@@ -32,4 +32,15 @@ public class LightController : MonoBehaviour
 		enemyInfoText.text = "[Stealth Mode]";
 		enemyInfoText.color = Color.yellow;
 	}
+	public void EnterDarkRoom()
+	{
+		GetComponent<Light2D>().pointLightOuterRadius = 0;
+		enemyInfoText.fontSize = 15;
+		enemyInfoText.text = "[Stealth Mode]";
+		enemyInfoText.color = Color.yellow;
+	}
+	public void EnterBrightRoom()
+	{
+		StealthStart();
+	}
 }
