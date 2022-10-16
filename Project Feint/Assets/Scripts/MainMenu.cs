@@ -15,7 +15,7 @@ public class MainMenu : MonoBehaviour
 
     public void NewGame()
     {
-        SceneManager.LoadScene("Prototype Level");
+        SceneManager.LoadScene("First Playable Level");
     }
 
     public void ContinueGame()
