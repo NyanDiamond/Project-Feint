@@ -116,7 +116,7 @@ public class PlayerMovement : MonoBehaviour
 
     private bool GroundCheck()
     {   
-        Debug.Log(gr.grounded);
+        //Debug.Log(gr.grounded);
         return gr.grounded;
         
     }

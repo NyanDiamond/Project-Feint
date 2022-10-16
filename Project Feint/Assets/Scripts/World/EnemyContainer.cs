@@ -6,6 +6,7 @@ public class EnemyContainer : MonoBehaviour
 {
 
     [SerializeField] GameObject[] enemiesInLevel;
+    [SerializeField] GameObject[] camerasInLevel;
     private bool isTriggered = false;
     // Start is called before the first frame update
     private void OnTriggerEnter2D(Collider2D collision)
@@ -17,6 +18,11 @@ public class EnemyContainer : MonoBehaviour
             {
                 EnemyCounter.upCount();
                 EnemyCounter.enemies.Add(i);
+            }
+            EnemyCounter.cameras.Clear();
+            foreach(GameObject i in camerasInLevel)
+            {
+                EnemyCounter.cameras.Add(i);
             }
             Destroy(gameObject);
         }

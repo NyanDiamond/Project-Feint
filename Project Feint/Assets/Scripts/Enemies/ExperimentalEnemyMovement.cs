@@ -6,7 +6,7 @@ using Pathfinding;
 public class ExperimentalEnemyMovement : MonoBehaviour
 {
     private GameObject playerObject;
-    private PlayerMovement pm;
+    //private PlayerMovement pm;
     private Transform player;
     public float movementSpeed = 3f;
     //public float tooCloseRange = 4f;
@@ -56,7 +56,7 @@ public class ExperimentalEnemyMovement : MonoBehaviour
         an = GetComponent<Animator>();
         playerObject = GameObject.Find("Player");
         player = playerObject.transform.Find("Target");
-        pm = playerObject.GetComponent<PlayerMovement>();
+        //pm = playerObject.GetComponent<PlayerMovement>();
         StartCoroutine(ChargeAttack());
         au = GetComponent<AlarmUI>();
         seeker = GetComponent<Seeker>();
@@ -94,7 +94,7 @@ public class ExperimentalEnemyMovement : MonoBehaviour
             //Debug.Log("Check For Player");
             CheckForPlayer();
         }
-        else if (aware && stunned)
+        else if (!aware && stunned)
         {
             float velY = rb.velocity.y;
             rb.velocity = new Vector2(0, velY);

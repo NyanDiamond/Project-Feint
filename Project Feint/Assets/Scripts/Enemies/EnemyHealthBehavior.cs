@@ -5,16 +5,18 @@ using UnityEngine;
 public class EnemyHealthBehavior : MonoBehaviour
 {
 
-    private int health = 3;
+    [SerializeField] int health = 3;
     private Animator ar;
     private bool lookingLeft;
     private ExperimentalEnemyMovement em;
     public bool shielded = false;
+    [SerializeField] bool isCamera = false;
    
     // Start is called before the first frame update
     void Start()
     {
         ar = GetComponent<Animator>();
+        if(!isCamera)
         em = GetComponent<ExperimentalEnemyMovement>();
     }
 
@@ -39,8 +41,15 @@ public class EnemyHealthBehavior : MonoBehaviour
 
     private void OnDestroy()
     {
-        EnemyCounter.downCount();
-        EnemyCounter.enemies.Remove(gameObject);
+        if (isCamera)
+        {
+            EnemyCounter.cameras.Remove(gameObject);
+        }
+        else
+        {
+            EnemyCounter.downCount();
+            EnemyCounter.enemies.Remove(gameObject);
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -50,33 +59,43 @@ public class EnemyHealthBehavior : MonoBehaviour
             //Debug.Log("hit");
             Vector2 playerposition = collision.gameObject.transform.parent.transform.position;
             //Debug.Log("Player position=" + playerposition.ToString() + "\nEnemy position=" + transform.position.ToString() + "\nIs Facing Left: " + lookingLeft);
-            if (lookingLeft && playerposition.x > transform.position.x)
+            if (!isCamera)
             {
-                health -= 3;
-            }
-            else if (!lookingLeft && playerposition.x < transform.position.x)
-            {
-                health -= 3;
-            }
-            else if (!shielded)
-            {
-                health--;
-                em.Damaged();
+                if (lookingLeft && playerposition.x > transform.position.x)
+                {
+                    health -= 3;
+                }
+                else if (!lookingLeft && playerposition.x < transform.position.x)
+                {
+                    health -= 3;
+                }
+                else if (!shielded)
+                {
+                    health--;
+                    em.Damaged();
+                }
+                else
+                {
+                    em.Damaged();
+                }
+                if (health <= 0)
+                {
+                    ar.SetTrigger("Dead");
+                    GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
+                    GetComponent<BoxCollider2D>().enabled = false;
+                    em.Dead();
+                }
+                else
+                {
+                    ar.SetTrigger("Hit");
+                }
             }
             else
-            {
-                em.Damaged();
-            }
-            if (health <= 0)
             {
                 ar.SetTrigger("Dead");
                 GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
                 GetComponent<BoxCollider2D>().enabled = false;
-                em.Dead();
-            }
-            else
-            {
-                ar.SetTrigger("Hit");
+                GetComponent<CameraBehavior>().Dead();
             }
         }
     }

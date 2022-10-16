@@ -6,6 +6,7 @@ public class EnemyCounter : MonoBehaviour
 {
     public static int count=0;
     public static List<GameObject> enemies = new List<GameObject>();
+    public static List<GameObject> cameras = new List<GameObject>();
     public static bool countChanged = false;
     private GameObject[] doorsave;
     public static LightController mainLight;
@@ -21,7 +22,7 @@ public class EnemyCounter : MonoBehaviour
     {
         if (count <= 0 && countChanged)
         {
-            Debug.Log("All enemies dead");
+            //Debug.Log("All enemies dead");
             countChanged = false;
             foreach (GameObject temp in doorsave)
             { 
@@ -31,7 +32,7 @@ public class EnemyCounter : MonoBehaviour
         }
         else if (countChanged)
         {
-            Debug.Log("Enemy count: " + count);
+            //Debug.Log("Enemy count: " + count);
             countChanged = false;
             foreach (GameObject temp in doorsave)
             {
@@ -59,6 +60,10 @@ public class EnemyCounter : MonoBehaviour
         foreach(GameObject enemy in enemies)
         {
             enemy.GetComponent<ExperimentalEnemyMovement>().StealthBreak();
+        }
+        foreach(GameObject camera in cameras)
+        {
+            camera.GetComponent<CameraBehavior>().StealthBreak();
         }
 		mainLight.StealthBreak();
     }
