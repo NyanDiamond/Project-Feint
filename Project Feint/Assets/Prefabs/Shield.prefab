@@ -495,7 +495,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d57685a3219c094e83b51e67c15b9fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  health: 3
   shielded: 1
+  isCamera: 0
 --- !u!95 &5179965857752857581
 Animator:
   serializedVersion: 4
@@ -628,6 +630,6 @@ MonoBehaviour:
   centerPoint: {fileID: 3796673790352763290}
   rotationFix: 90
   hitstun: 0.5
-  viewDistance: 4
+  viewDistance: 2
   viewAngle: 70
   nextWaypointDistance: 0.25
