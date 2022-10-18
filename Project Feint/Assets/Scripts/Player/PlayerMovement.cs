@@ -72,7 +72,6 @@ public class PlayerMovement : MonoBehaviour
                 //if moving right
                 else if (movement > 0 && !isAttacking)
                     transform.rotation = Quaternion.Euler(0, 0, 0);
-
             }
             else
                 StartCoroutine(IdleCooldown());
@@ -99,8 +98,10 @@ public class PlayerMovement : MonoBehaviour
     private void Move()
     {
         float yVel = rb.velocity.y;
-        if (!isHit)
-            rb.velocity = new Vector2(maxSpeed * movement,yVel);
+        if (!isHit && !isAttacking)
+        {
+            rb.velocity = new Vector2(maxSpeed * movement, yVel);
+        }
     }
 
     private void Jump()
@@ -172,6 +173,7 @@ public class PlayerMovement : MonoBehaviour
                 StopCoroutine(combo);
             canAttack = false;
             isAttacking = true;
+            rb.velocity = (-transform.forward) * 0.1f;
             hit = false;
             switch (attack)
             {

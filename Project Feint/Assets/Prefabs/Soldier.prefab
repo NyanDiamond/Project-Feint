@@ -526,7 +526,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movementSpeed: 1.5
   tooFarRange: 4
-  attackSpeed: 2
+  attackSpeed: 1
   bullet: {fileID: 2429738046576863917, guid: 3d0aabac98b0528488428dcf49ee627c, type: 3}
   shootPoint: {fileID: 1482258612694509290}
   viewPoint: {fileID: 2881424221114852466}

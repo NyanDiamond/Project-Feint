@@ -215,7 +215,8 @@ public class ExperimentalEnemyMovement : MonoBehaviour
 
     private void RangedAttack()
     {
-        float angle = Mathf.Atan2(shootPoint.transform.position.y - player.position.y, shootPoint.transform.position.x - player.position.x) * Mathf.Rad2Deg + rotationFix;
+        float angle = Mathf.Atan2(shootPoint.transform.position.y - player.position.y, 
+            shootPoint.transform.position.x - player.position.x) * Mathf.Rad2Deg + rotationFix;
         Instantiate(bullet, shootPoint.transform.position, Quaternion.Euler(0, 0, angle));
     }
 
@@ -455,7 +456,7 @@ public class ExperimentalEnemyMovement : MonoBehaviour
             awareness += 0.1f;
             if (aware && !alarmSounded)
             {
-                if (awareness >= 1f)
+                if (awareness >= 0.7f)
                     Alarm();
             }
         }
