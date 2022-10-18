@@ -51,8 +51,19 @@ public class EnemyHealthBehavior : MonoBehaviour
             EnemyCounter.enemies.Remove(gameObject);
         }
     }
+	private void OnDisable()
+	{
+        if (isCamera)
+        {
+            EnemyCounter.cameras.Remove(gameObject);
+        }
+        else
+        {
+            EnemyCounter.enemies.Remove(gameObject);
+        }
+    }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+	private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Player_Attack"))
         {

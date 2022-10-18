@@ -15,8 +15,14 @@ public class DoorTrigger : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             environment.transform.GetChild(nextRoom - 1).gameObject.SetActive(true);
+            EnemyCounter.enemies.Clear();
+            EnemyCounter.count = 0;
             collision.gameObject.transform.SetPositionAndRotation(nextRoomEntryZone.transform.position, Quaternion.identity);
             environment.transform.GetChild(currentRoom - 1).gameObject.SetActive(false);
         }
     }
+	private void OnDisable()
+	{
+        EnemyCounter.doorsave.Remove(gameObject);
+	}
 }
