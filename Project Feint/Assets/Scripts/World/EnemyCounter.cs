@@ -8,19 +8,24 @@ public class EnemyCounter : MonoBehaviour
     public static List<GameObject> enemies = new List<GameObject>();
     public static List<GameObject> cameras = new List<GameObject>();
     public static bool countChanged = false;
-    private GameObject[] doorsave;
+    public static List<GameObject> doorsave = new List<GameObject>();
     public static LightController mainLight;
+    public static bool stealth = true;
 
     private void Awake()
     {
         enemies = new List<GameObject>();
         count = 0;
-        doorsave = GameObject.FindGameObjectsWithTag("Door");
+        doorsave = new List<GameObject>();
+        cameras = new List<GameObject>();
+        countChanged = false;
+        stealth = true;
+        //doorsave = GameObject.FindGameObjectsWithTag("Door");
         mainLight = GameObject.FindGameObjectWithTag("MainCamera").transform.Find("Light").GetComponent<LightController>();
     }
     private void LateUpdate()
     {
-        if (count <= 0 && countChanged)
+        if (count <= 0 && countChanged && !stealth)
         {
             //Debug.Log("All enemies dead");
             countChanged = false;
@@ -32,27 +37,51 @@ public class EnemyCounter : MonoBehaviour
         }
         else if (countChanged)
         {
-            //Debug.Log("Enemy count: " + count);
+            Debug.Log("Enemy count: " + count);
             countChanged = false;
-            foreach (GameObject temp in doorsave)
+            /*foreach (GameObject temp in doorsave)
             {
                 temp.SetActive(true);
-            }
+            }*/
         }
       
     }
-
     public static void upCount()
     {
         count++;
         countChanged = true;
-        mainLight.StealthStart();
     }
 
     public static void downCount()
     {
         count--;
         countChanged = true;
+    }
+
+    public static void BeginStealth()
+	{
+        foreach (GameObject temp in doorsave)
+        {
+            temp.SetActive(false);
+        }
+        mainLight.StealthStart();
+        stealth = true;
+    }
+    public static void EnterRoom(bool isDark)
+	{
+        foreach (GameObject temp in doorsave)
+        {
+            temp.SetActive(false);
+        }
+        if (isDark)
+		{
+            mainLight.EnterDarkRoom();
+		}
+		else
+		{
+            mainLight.EnterBrightRoom();
+		}
+        stealth = true;
     }
 
     public static void StealthBreak()
@@ -66,6 +95,12 @@ public class EnemyCounter : MonoBehaviour
             camera.GetComponent<CameraBehavior>().StealthBreak();
         }
 		mainLight.StealthBreak();
+
+        foreach (GameObject temp in doorsave)
+        {
+            temp.SetActive(true);
+        }
+        stealth = false;
     }
 
     public static void TeleporterCheck()

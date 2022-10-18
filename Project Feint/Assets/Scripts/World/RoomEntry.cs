@@ -5,6 +5,7 @@ using UnityEngine;
 public class RoomEntry : MonoBehaviour
 {
     private GameObject mainCamera;
+    public GameObject door;
     public bool isDark;
     // Start is called before the first frame update
     void Start()
@@ -13,11 +14,14 @@ public class RoomEntry : MonoBehaviour
     }
 
 	private void OnTriggerEnter2D(Collider2D collision)
-	{
+    {
+        EnemyCounter.doorsave.Add(door);
+        Debug.Log("Added door");
         if (isDark)
-            mainCamera.transform.GetChild(0).GetComponent<LightController>().EnterDarkRoom();
-		else {
-            mainCamera.transform.GetChild(0).GetComponent<LightController>().EnterBrightRoom();
+            EnemyCounter.EnterRoom(true);
+        else
+        {
+            EnemyCounter.EnterRoom(false);
         }
 	}
 }

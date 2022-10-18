@@ -14,6 +14,9 @@ public class EnemyContainer : MonoBehaviour
         if (collision.gameObject.CompareTag("Player") && !isTriggered)
         {
             isTriggered = true;
+
+            EnemyCounter.enemies.Clear();
+            EnemyCounter.count = 0;
             foreach (GameObject i in enemiesInLevel)
             {
                 EnemyCounter.upCount();
@@ -24,7 +27,14 @@ public class EnemyContainer : MonoBehaviour
             {
                 EnemyCounter.cameras.Add(i);
             }
-            Destroy(gameObject);
+            DestroyAfterSeconds(0.5f);
         }
     }
+    private IEnumerator DestroyAfterSeconds(float seconds)
+    {
+        yield return new WaitForSeconds(seconds);
+
+        Destroy(gameObject);
+    }
+
 }

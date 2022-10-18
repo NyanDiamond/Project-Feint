@@ -64,7 +64,11 @@ public class ExperimentalEnemyMovement : MonoBehaviour
         gr = transform.Find("GroundCheck").GetComponent<GroundChecker>();
     }
 
-    void UpdatePath()
+	private void OnDisable()
+	{
+        StopAllCoroutines();
+	}
+	void UpdatePath()
     {
         if(seeker.IsDone())
         seeker.StartPath(centerPoint.position, player.position, OnPathComplete);
@@ -100,7 +104,6 @@ public class ExperimentalEnemyMovement : MonoBehaviour
             rb.velocity = new Vector2(0, velY);
         }
     }
-
 
     void LateUpdate()
     {
