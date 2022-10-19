@@ -10,6 +10,7 @@ public class AlarmUI : MonoBehaviour
     public Color alarmRaised;
     private GameObject alarm;
     private SpriteRenderer sr;
+    
     //public Text alarmText;
 
     private void Start()
@@ -41,6 +42,9 @@ public class AlarmUI : MonoBehaviour
     public void AlarmRaised()
     {
         sr.color = alarmRaised;
+
+        SoundPlayer sp = GameObject.Find("GameController").GetComponent<SoundPlayer>();
+        //sp.PlaySound1();
         //alarmText.text = "Alarm Raised!";
     }
 

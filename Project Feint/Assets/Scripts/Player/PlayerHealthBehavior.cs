@@ -32,10 +32,14 @@ public class PlayerHealthBehavior : MonoBehaviour
             {
                 pm.Damaged();
                 StartCoroutine(InvulnerabilityCD());
+                SoundPlayer sp = GameObject.Find("GameController").GetComponent<SoundPlayer>();
+                sp.PlaySound7();
             }
             else if (health<=0)
             {
                 pm.Death();
+                SoundPlayer sp = GameObject.Find("GameController").GetComponent<SoundPlayer>();
+                sp.PlaySound8();
             }
         }
     }

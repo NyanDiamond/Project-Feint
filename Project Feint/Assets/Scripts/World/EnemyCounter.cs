@@ -34,6 +34,8 @@ public class EnemyCounter : MonoBehaviour
                 temp.SetActive(false);
             }
             mainLight.AllEnemiesDead();
+            SoundPlayer sp = GameObject.Find("GameController").GetComponent<SoundPlayer>();
+            sp.PlaySound2();
         }
         else if (countChanged)
         {

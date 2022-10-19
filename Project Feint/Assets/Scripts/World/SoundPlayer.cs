@@ -5,7 +5,7 @@ using UnityEngine;
 public class SoundPlayer : MonoBehaviour
 {
     private AudioSource audioSource;
-    [SerializeField] AudioClip[] clips = new AudioClip[12];
+    [SerializeField] AudioClip[] clips = new AudioClip[14];
     // Start is called before the first frame update
     void Start()
     {
@@ -70,5 +70,15 @@ public class SoundPlayer : MonoBehaviour
     public void PlaySound12()
     {
         audioSource.PlayOneShot(clips[11]);
+    }
+
+    public void PlaySound13()
+    {
+        audioSource.PlayOneShot(clips[12]);
+    }
+
+    public void PlaySound14()
+    {
+        audioSource.PlayOneShot(clips[13]);
     }
 }

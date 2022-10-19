@@ -88,6 +88,8 @@ public class EnemyHealthBehavior : MonoBehaviour
                 else
                 {
                     em.Damaged();
+                    SoundPlayer sp = GameObject.Find("GameController").GetComponent<SoundPlayer>();
+                    sp.PlaySound10();
                 }
                 if (health <= 0)
                 {
@@ -95,10 +97,14 @@ public class EnemyHealthBehavior : MonoBehaviour
                     GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
                     GetComponent<BoxCollider2D>().enabled = false;
                     em.Dead();
+                    SoundPlayer sp = GameObject.Find("GameController").GetComponent<SoundPlayer>();
+                    sp.PlaySound9();
                 }
                 else
                 {
                     ar.SetTrigger("Hit");
+                    SoundPlayer sp = GameObject.Find("GameController").GetComponent<SoundPlayer>();
+                    sp.PlaySound4();
                 }
             }
             else
@@ -107,6 +113,8 @@ public class EnemyHealthBehavior : MonoBehaviour
                 GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
                 GetComponent<BoxCollider2D>().enabled = false;
                 GetComponent<CameraBehavior>().Dead();
+                SoundPlayer sp = GameObject.Find("GameController").GetComponent<SoundPlayer>();
+                sp.PlaySound9();
             }
         }
     }
@@ -116,6 +124,8 @@ public class EnemyHealthBehavior : MonoBehaviour
         ar.SetTrigger("Dead");
         GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
         GetComponent<BoxCollider2D>().enabled = false;
+        SoundPlayer sp = GameObject.Find("GameController").GetComponent<SoundPlayer>();
+        sp.PlaySound9();
     }
     
 

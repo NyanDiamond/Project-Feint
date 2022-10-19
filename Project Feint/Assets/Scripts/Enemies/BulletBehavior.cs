@@ -11,6 +11,8 @@ public class BulletBehavior : MonoBehaviour
     {
         rb=GetComponent<Rigidbody2D>();
         rb.AddForce(transform.up * speed, ForceMode2D.Impulse);
+        SoundPlayer sp = GameObject.Find("GameController").GetComponent<SoundPlayer>();
+        sp.PlaySound5();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

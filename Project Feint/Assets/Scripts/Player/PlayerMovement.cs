@@ -112,6 +112,8 @@ public class PlayerMovement : MonoBehaviour
             //jumping = true;
             //an.SetBool("Jumping", true);
             rb.AddForce(transform.up * jumpForce);
+            SoundPlayer sp = GameObject.Find("GameController").GetComponent<SoundPlayer>();
+            sp.PlaySound6();
         }
     }
 
@@ -175,19 +177,23 @@ public class PlayerMovement : MonoBehaviour
             isAttacking = true;
             rb.velocity = (-transform.forward) * 0.1f;
             hit = false;
+            SoundPlayer sp = GameObject.Find("GameController").GetComponent<SoundPlayer>();
             switch (attack)
             {
                 case 1:
                     an.SetTrigger("Attack1");
                     attack++;
+                    sp.PlaySound13();
                     break;
                 case 2:
                     an.SetTrigger("Attack2");
                     attack++;
+                    sp.PlaySound13();
                     break;
                 case 3:
                     an.SetTrigger("Attack3");
                     attack++;
+                    sp.PlaySound5();
                     break;
             }
         }
