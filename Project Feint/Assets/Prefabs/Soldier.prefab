@@ -530,6 +530,9 @@ MonoBehaviour:
   bullet: {fileID: 2429738046576863917, guid: 3d0aabac98b0528488428dcf49ee627c, type: 3}
   shootPoint: {fileID: 1482258612694509290}
   viewPoint: {fileID: 2881424221114852466}
+  layermask:
+    serializedVersion: 2
+    m_Bits: 2057
   centerPoint: {fileID: 3796673790352763290}
   rotationFix: 90
   hitstun: 0.5

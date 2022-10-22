@@ -9,6 +9,7 @@ public class EnemyCounter : MonoBehaviour
     public static List<GameObject> cameras = new List<GameObject>();
     public static bool countChanged = false;
     public static List<GameObject> doorsave = new List<GameObject>();
+    public static List<GameObject> turrets = new List<GameObject>();
     public static LightController mainLight;
     public static bool stealth = true;
 
@@ -101,6 +102,12 @@ public class EnemyCounter : MonoBehaviour
         foreach (GameObject temp in doorsave)
         {
             temp.SetActive(true);
+        }
+
+        foreach(GameObject turret in turrets)
+        {
+            Debug.Log("activate turrets");
+            turret.GetComponent<TurretBehavior>().Activate();
         }
         stealth = false;
     }

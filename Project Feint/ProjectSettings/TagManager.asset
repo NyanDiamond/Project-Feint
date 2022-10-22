@@ -12,6 +12,8 @@ TagManager:
   - Wall
   - Door
   - EntryZone
+  - Turret
+  - Shield
   layers:
   - Default
   - TransparentFX

@@ -50,7 +50,7 @@ public class TeleporterBehavior : MonoBehaviour
             GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
             transform.position = transform.parent.Find("Center Point Soldier").position;
         }
-        if (collision.gameObject.CompareTag("Wall"))
+        if (collision.gameObject.CompareTag("Wall") || collision.gameObject.CompareTag("Turret") || collision.gameObject.CompareTag("Shield"))
         {
             Debug.Log("Hit Wall!");
             //reverses the direction of the teleporter and

@@ -23,28 +23,32 @@ public class AlarmUI : MonoBehaviour
 
     public void Safe()
     {
-        sr.color = safe;
+        if(sr!=null)
+            sr.color = safe;
         //alarmText.text = "Safe";
     }
 
     public void Warning()
     {
-        sr.color = warning;
+        if (sr != null)
+            sr.color = warning;
         //alarmText.text = "Warning";
     }
 
     public void Spotted()
     {
-        sr.color = spotted;
+        if (sr != null)
+            sr.color = spotted;
         //alarmText.text = "Spotted";
     }
 
     public void AlarmRaised()
     {
-        sr.color = alarmRaised;
+        if (sr != null)
+            sr.color = alarmRaised;
 
         SoundPlayer sp = GameObject.Find("GameController").GetComponent<SoundPlayer>();
-        //sp.PlaySound1();
+        sp.PlaySound1();
         //alarmText.text = "Alarm Raised!";
     }
 

@@ -25,6 +25,7 @@ public class CameraBehavior : MonoBehaviour
     [SerializeField] GameObject viewPoint;
     //Movement Speed
     [SerializeField] float movementSpeed = 3f;
+    [SerializeField] LayerMask layermask;
     private Rigidbody2D rb;
     private GameObject playerObject;
     private Transform player;
@@ -90,7 +91,7 @@ public class CameraBehavior : MonoBehaviour
     private bool LOS()
     {
         Vector2 playerDirection = (player.position - viewPoint.transform.position).normalized;
-        RaycastHit2D ray = Physics2D.Raycast(viewPoint.transform.position, playerDirection, viewDistance);
+        RaycastHit2D ray = Physics2D.Raycast(viewPoint.transform.position, playerDirection, viewDistance, layermask);
         if (ray.collider != null)
         {
             //Debug.Log(ray.collider.gameObject.tag);

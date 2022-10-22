@@ -261,6 +261,7 @@ public class PlayerMovement : MonoBehaviour
     {
         an.SetTrigger("Death");
         isHit = true;
+        rb.velocity = new Vector2(0, rb.velocity.y);
     }
     private void OutOfHitstun()
     {

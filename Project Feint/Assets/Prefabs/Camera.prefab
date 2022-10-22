@@ -244,6 +244,9 @@ MonoBehaviour:
   turnTime: 2
   viewPoint: {fileID: 6301033985337003006}
   movementSpeed: 2
+  layermask:
+    serializedVersion: 2
+    m_Bits: 2057
 --- !u!82 &4934762047397499634
 AudioSource:
   m_ObjectHideFlags: 0

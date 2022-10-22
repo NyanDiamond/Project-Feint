@@ -15,6 +15,7 @@ public class ExperimentalEnemyMovement : MonoBehaviour
     public GameObject bullet;
     public GameObject shootPoint;
     public GameObject viewPoint;
+    public LayerMask layermask;
     public Transform centerPoint;
     [Tooltip("Degrees of offset for specific bullet sprite to look correct")]
     public float rotationFix;
@@ -190,7 +191,7 @@ public class ExperimentalEnemyMovement : MonoBehaviour
     private bool LOS()
     {
         Vector2 playerDirection = (player.position - viewPoint.transform.position).normalized;
-        RaycastHit2D ray = Physics2D.Raycast(viewPoint.transform.position, playerDirection, viewDistance);
+        RaycastHit2D ray = Physics2D.Raycast(viewPoint.transform.position, playerDirection, viewDistance, layermask);
         if (ray.collider != null)
         {
             //Debug.Log(ray.collider.gameObject.tag);
