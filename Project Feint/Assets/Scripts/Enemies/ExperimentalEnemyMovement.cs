@@ -34,7 +34,7 @@ public class ExperimentalEnemyMovement : MonoBehaviour
 
     private bool stunned = false;
     private bool grounded = true;
-    private bool lookingLeft;
+    
     private float attackCooldown = 0;
     
 
@@ -50,6 +50,12 @@ public class ExperimentalEnemyMovement : MonoBehaviour
     private Rigidbody2D rb;
     private Animator an;
     private GroundChecker gr;
+
+    [SerializeField] bool lookingLeft;
+    [SerializeField] bool stealthMoving = false;
+    [SerializeField] float stealthWalkTime;
+    [SerializeField] float stealthPauseTime;
+    private bool autoMovement = true;
     // Start is called before the first frame update
     void Start()
     {
@@ -63,6 +69,8 @@ public class ExperimentalEnemyMovement : MonoBehaviour
         seeker = GetComponent<Seeker>();
         InvokeRepeating("UpdatePath", 0f, 0.2f);
         gr = transform.Find("GroundCheck").GetComponent<GroundChecker>();
+        if(stealthMoving)
+            StartCoroutine(StealthPathing());
     }
 
 	private void OnDisable()
@@ -98,11 +106,38 @@ public class ExperimentalEnemyMovement : MonoBehaviour
         {
             //Debug.Log("Check For Player");
             CheckForPlayer();
+            if(stealthMoving)
+                AutoMove();
         }
         else if (!aware && stunned)
         {
             float velY = rb.velocity.y;
             rb.velocity = new Vector2(0, velY);
+        }
+    }
+
+    void AutoMove()
+    {
+        if(stunned)
+        {
+            rb.velocity = Vector2.zero;
+            return;
+        }
+        else
+        {
+            if(autoMovement)
+            {
+                an.SetBool("Walking", true);
+                an.SetBool("Forward", true);
+                rb.velocity = new Vector2(movementSpeed * transform.right.x, rb.velocity.y);
+            }
+            else
+            {
+                an.SetBool("Walking", false);
+                an.SetBool("Forward", true);
+                rb.velocity = Vector2.zero;
+            }
+            
         }
     }
 
@@ -470,5 +505,26 @@ public class ExperimentalEnemyMovement : MonoBehaviour
         alarmDestroyed = true;
     }
 
+    private IEnumerator StealthPathing()
+    {
+        while(!aware)
+        {
+            yield return new WaitForSeconds(stealthWalkTime);
+            autoMovement = false;
+            yield return new WaitForSeconds(stealthPauseTime);
+            autoMovement = true;
+            if(lookingLeft)
+            {
+                lookingLeft = false;
+                transform.rotation = Quaternion.Euler(0, 180, 0);
+            }
+            else
+            {
+                lookingLeft = true;
+                transform.rotation = Quaternion.Euler(0, 0, 0);
+            }
+            
+        }
+    }
 }
 
