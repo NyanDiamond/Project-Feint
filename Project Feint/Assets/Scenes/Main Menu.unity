@@ -616,12 +616,15 @@ MonoBehaviour:
 
     Right Click - Teleporter
 
-    A
-    / D - Move Left / Right
+    R
+    - Return Teleporter
+
+    A / D - Move Left / Right
 
     Space - Jump
 
-    Escape - Pause'
+    Escape
+    - Pause'
 --- !u!222 &291491735
 CanvasRenderer:
   m_ObjectHideFlags: 0

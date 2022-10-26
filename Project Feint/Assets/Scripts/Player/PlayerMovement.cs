@@ -48,6 +48,7 @@ public class PlayerMovement : MonoBehaviour
         pc.Default.Jump.performed += _ => Jump();
         pc.Default.Teleport.performed += _ => Teleport();
         pc.Default.Attack.performed += _ => Attack();
+        pc.Default.ReturnTeleporter.performed += _ => ReturnTP();
     }
 
     private void OnDisable()
@@ -55,7 +56,18 @@ public class PlayerMovement : MonoBehaviour
         pc.Disable();
     }
  
-
+    private void ReturnTP()
+	{
+        GameObject teleporter = GameObject.FindGameObjectWithTag("Teleporter");
+        if (teleporter != null)
+        {
+            if (teleporter.GetComponent<TeleporterBehavior>().attached == false)
+            {
+                teleporter.GetComponent<TeleporterBehavior>().Teleported();
+                Destroy(teleporter);
+            }
+        }
+    }
     // Update is called once per frame
     void FixedUpdate()
     {
@@ -127,6 +139,7 @@ public class PlayerMovement : MonoBehaviour
     private void Teleport()
     {
         GameObject tp = GameObject.FindGameObjectWithTag("Teleporter");
+        
         if (canTP && !isHit)
         {
             
@@ -136,11 +149,14 @@ public class PlayerMovement : MonoBehaviour
                 Camera cam = GameObject.FindObjectOfType<Camera>();
                 Vector2 lookPos = cam.ScreenToWorldPoint(Mouse.current.position.ReadValue()) - throwPoint.transform.position;
                 //create teleporter and add a force to throw it
-                Instantiate(teleporter, throwPoint.transform.position, Quaternion.identity).GetComponent<Rigidbody2D>().AddForce(lookPos.normalized * throwPower);
+                tp = Instantiate(teleporter, throwPoint.transform.position, Quaternion.identity);
+                tp.GetComponent<Rigidbody2D>().AddForce(lookPos.normalized * throwPower);
+                tp.GetComponent<TeleporterBehavior>().Teleported();
                 //teleporterOut = true;
             }
             else
             {
+                tp.GetComponent<TeleporterBehavior>().Teleported();
                 teleporting = true;
                 canTP = false;
                 if (tp.transform.parent == null)

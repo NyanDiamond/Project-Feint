@@ -16,6 +16,7 @@ TagManager:
   - Shield
   - Checkpoint
   - Environment
+  - TPStatus
   layers:
   - Default
   - TransparentFX

@@ -62,6 +62,15 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""ReturnTeleporter"",
+                    ""type"": ""Button"",
+                    ""id"": ""a6d677f2-ef9c-4064-ac8b-fb36af30cdd1"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -185,6 +194,17 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                     ""action"": ""Attack"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""cf23e7e2-63d6-431f-9a64-8f5657a4b77a"",
+                    ""path"": ""<Keyboard>/r"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ReturnTeleporter"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -197,6 +217,7 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
         m_Default_Jump = m_Default.FindAction("Jump", throwIfNotFound: true);
         m_Default_Teleport = m_Default.FindAction("Teleport", throwIfNotFound: true);
         m_Default_Attack = m_Default.FindAction("Attack", throwIfNotFound: true);
+        m_Default_ReturnTeleporter = m_Default.FindAction("ReturnTeleporter", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -260,6 +281,7 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
     private readonly InputAction m_Default_Jump;
     private readonly InputAction m_Default_Teleport;
     private readonly InputAction m_Default_Attack;
+    private readonly InputAction m_Default_ReturnTeleporter;
     public struct DefaultActions
     {
         private @PlayerControls m_Wrapper;
@@ -268,6 +290,7 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
         public InputAction @Jump => m_Wrapper.m_Default_Jump;
         public InputAction @Teleport => m_Wrapper.m_Default_Teleport;
         public InputAction @Attack => m_Wrapper.m_Default_Attack;
+        public InputAction @ReturnTeleporter => m_Wrapper.m_Default_ReturnTeleporter;
         public InputActionMap Get() { return m_Wrapper.m_Default; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -289,6 +312,9 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                 @Attack.started -= m_Wrapper.m_DefaultActionsCallbackInterface.OnAttack;
                 @Attack.performed -= m_Wrapper.m_DefaultActionsCallbackInterface.OnAttack;
                 @Attack.canceled -= m_Wrapper.m_DefaultActionsCallbackInterface.OnAttack;
+                @ReturnTeleporter.started -= m_Wrapper.m_DefaultActionsCallbackInterface.OnReturnTeleporter;
+                @ReturnTeleporter.performed -= m_Wrapper.m_DefaultActionsCallbackInterface.OnReturnTeleporter;
+                @ReturnTeleporter.canceled -= m_Wrapper.m_DefaultActionsCallbackInterface.OnReturnTeleporter;
             }
             m_Wrapper.m_DefaultActionsCallbackInterface = instance;
             if (instance != null)
@@ -305,6 +331,9 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                 @Attack.started += instance.OnAttack;
                 @Attack.performed += instance.OnAttack;
                 @Attack.canceled += instance.OnAttack;
+                @ReturnTeleporter.started += instance.OnReturnTeleporter;
+                @ReturnTeleporter.performed += instance.OnReturnTeleporter;
+                @ReturnTeleporter.canceled += instance.OnReturnTeleporter;
             }
         }
     }
@@ -315,5 +344,6 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
         void OnJump(InputAction.CallbackContext context);
         void OnTeleport(InputAction.CallbackContext context);
         void OnAttack(InputAction.CallbackContext context);
+        void OnReturnTeleporter(InputAction.CallbackContext context);
     }
 }

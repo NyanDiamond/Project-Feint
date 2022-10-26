@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class TeleporterBehavior : MonoBehaviour
 {
@@ -13,10 +14,14 @@ public class TeleporterBehavior : MonoBehaviour
     private Vector2 currentVel;
     private bool hit = false;
     private int bounceNum = 0;
+    private Text tpStatus;
     private void Start()
     {
         rig = GetComponent<Rigidbody2D>();
         playerMovement = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>();
+        tpStatus = GameObject.FindGameObjectWithTag("TPStatus").GetComponent<Text>();
+
+        tpStatus.text = "Teleporter Status: THROWN";
     }
     private void Update()
     {
@@ -28,6 +33,10 @@ public class TeleporterBehavior : MonoBehaviour
 		{
             currentVel = GetComponent<Rigidbody2D>().velocity;
         }
+    }
+    public void Teleported()
+	{
+        tpStatus.text = "Teleporter Status: READY";
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -44,6 +53,7 @@ public class TeleporterBehavior : MonoBehaviour
         }*/
         if (collision.gameObject.CompareTag("Enemy"))
         {
+            tpStatus.text = "Teleporter Status: STUCK";
             GetComponent<CircleCollider2D>().isTrigger = true;
             attached = true;
             transform.parent = collision.gameObject.transform;
