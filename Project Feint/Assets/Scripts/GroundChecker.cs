@@ -6,9 +6,9 @@ public class GroundChecker : MonoBehaviour
 {
     public bool grounded = true;
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerStay2D(Collider2D collision)
     {
-        if (collision.CompareTag("Floor"))
+        if (collision.CompareTag("Floor") || collision.CompareTag("Enemy"))
         {
             grounded = true;
         }
@@ -16,9 +16,11 @@ public class GroundChecker : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if(collision.CompareTag("Floor"))
+        if(collision.CompareTag("Floor") || collision.CompareTag("Enemy"))
         {
             grounded = false;
         }
     }
+
+    
 }

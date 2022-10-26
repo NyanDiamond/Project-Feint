@@ -18,17 +18,20 @@ public class EnemyContainer : MonoBehaviour
 
             EnemyCounter.enemies.Clear();
             EnemyCounter.count = 0;
+            if(enemiesInLevel.Length>0)
             foreach (GameObject i in enemiesInLevel)
             {
                 EnemyCounter.upCount();
                 EnemyCounter.enemies.Add(i);
             }
             EnemyCounter.cameras.Clear();
+            if(camerasInLevel.Length>0)
             foreach(GameObject i in camerasInLevel)
             {
                 EnemyCounter.cameras.Add(i);
             }
             EnemyCounter.turrets.Clear();
+            if(turretsInLevel.Length>0)
             foreach(GameObject i in turretsInLevel)
             {
                 EnemyCounter.turrets.Add(i);

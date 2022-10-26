@@ -86,33 +86,36 @@ public class ExperimentalEnemyMovement : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-
-        if (path != null)
+        if (rb.bodyType != RigidbodyType2D.Static)
         {
-            if (currentWaypoint >= path.vectorPath.Count)
+            if (path != null)
             {
-                reachedEndOfPath = true;
+                if (currentWaypoint >= path.vectorPath.Count)
+                {
+                    reachedEndOfPath = true;
+                }
+                else
+                {
+                    reachedEndOfPath = false;
+                }
             }
-            else
+            if (aware)
             {
-                reachedEndOfPath = false;
+                Move();
             }
-        }
-        if (aware)
-        {
-            Move();
-        }
-        else if (!stunned)
-        {
-            //Debug.Log("Check For Player");
-            CheckForPlayer();
-            if(stealthMoving)
-                AutoMove();
-        }
-        else if (!aware && stunned)
-        {
-            float velY = rb.velocity.y;
-            rb.velocity = new Vector2(0, velY);
+            else if (!stunned)
+            {
+                //Debug.Log("Check For Player");
+                CheckForPlayer();
+                if (stealthMoving)
+                    AutoMove();
+            }
+            else if (!aware && stunned)
+            {
+                float velY = rb.velocity.y;
+                rb.velocity = new Vector2(0, velY);
+                
+            }
         }
     }
 

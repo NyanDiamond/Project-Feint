@@ -34,8 +34,13 @@ public class TeleporterBehavior : MonoBehaviour
             currentVel = GetComponent<Rigidbody2D>().velocity;
         }
     }
-    public void Teleported()
+    /*public void Teleported()
 	{
+        tpStatus.text = "Teleporter Status: READY";
+    }
+    */
+    private void OnDestroy()
+    {
         tpStatus.text = "Teleporter Status: READY";
     }
     private void OnCollisionEnter2D(Collision2D collision)

@@ -63,7 +63,7 @@ public class PlayerMovement : MonoBehaviour
         {
             if (teleporter.GetComponent<TeleporterBehavior>().attached == false)
             {
-                teleporter.GetComponent<TeleporterBehavior>().Teleported();
+                //teleporter.GetComponent<TeleporterBehavior>().Teleported();
                 Destroy(teleporter);
             }
         }
@@ -151,17 +151,17 @@ public class PlayerMovement : MonoBehaviour
                 //create teleporter and add a force to throw it
                 tp = Instantiate(teleporter, throwPoint.transform.position, Quaternion.identity);
                 tp.GetComponent<Rigidbody2D>().AddForce(lookPos.normalized * throwPower);
-                tp.GetComponent<TeleporterBehavior>().Teleported();
+                //tp.GetComponent<TeleporterBehavior>().Teleported();
                 //teleporterOut = true;
             }
             else
             {
-                tp.GetComponent<TeleporterBehavior>().Teleported();
+                //tp.GetComponent<TeleporterBehavior>().Teleported();
                 teleporting = true;
                 canTP = false;
                 if (tp.transform.parent == null)
                 {
-                    transform.position = tp.transform.position;
+                    transform.position = tp.transform.position - new Vector3(0.057f, 0.204f, 0f);
                 }
                 else if (tp.transform.position.y < tp.transform.parent.position.y)
                 {

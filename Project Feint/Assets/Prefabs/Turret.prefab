@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3332984200056801035}
   - component: {fileID: 3332984200056801034}
-  m_Layer: 6
+  m_Layer: 13
   m_Name: Grounded
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -67,7 +67,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3332984200079706610}
-  m_Layer: 6
+  m_Layer: 13
   m_Name: ShootPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -103,7 +103,7 @@ GameObject:
   - component: {fileID: 3332984200389805086}
   - component: {fileID: 3332984200389805087}
   - component: {fileID: 3332984200389805080}
-  m_Layer: 6
+  m_Layer: 13
   m_Name: Turret
   m_TagString: Turret
   m_Icon: {fileID: 0}

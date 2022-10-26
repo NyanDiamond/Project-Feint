@@ -7,6 +7,7 @@ public class RoomEntry : MonoBehaviour
     private GameObject mainCamera;
     public GameObject door;
     public bool isDark;
+    private bool isTriggered = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -15,13 +16,17 @@ public class RoomEntry : MonoBehaviour
 
 	private void OnTriggerEnter2D(Collider2D collision)
     {
-        EnemyCounter.doorsave.Add(door);
-        Debug.Log("Added door");
-        if (isDark)
-            EnemyCounter.EnterRoom(true);
-        else
+        if (!isTriggered)
         {
-            EnemyCounter.EnterRoom(false);
+            isTriggered = true;
+            EnemyCounter.doorsave.Add(door);
+            Debug.Log("Added door");
+            if (isDark)
+                EnemyCounter.EnterRoom(true);
+            else
+            {
+                EnemyCounter.EnterRoom(false);
+            }
         }
 	}
 }
