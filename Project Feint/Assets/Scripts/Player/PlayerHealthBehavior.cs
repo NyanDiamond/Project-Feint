@@ -13,6 +13,7 @@ public class PlayerHealthBehavior : MonoBehaviour
     private SpriteRenderer sr;
     private bool invulnerable = false;
     public Text healthBox;
+    public GameObject deathMenu;
     private void Start()
     {
         pm = GetComponent<PlayerMovement>();
@@ -40,6 +41,7 @@ public class PlayerHealthBehavior : MonoBehaviour
                 pm.Death();
                 SoundPlayer sp = GameObject.Find("GameController").GetComponent<SoundPlayer>();
                 sp.PlaySound8();
+                StartCoroutine(WaitDeath());
             }
         }
     }
@@ -57,5 +59,10 @@ public class PlayerHealthBehavior : MonoBehaviour
             temp++;
         }
         invulnerable = false;
+    }
+    IEnumerator WaitDeath()
+	{
+        yield return new WaitForSeconds(2f);
+        deathMenu.GetComponent<PauseMenu>().OnPause();
     }
 }

@@ -7,6 +7,8 @@ public class DoorTriggerLastRoom : MonoBehaviour
     // Start is called before the first frame update
     public string nextLevel;
     public int checkpointNumber;
+    public bool isFinalLevel;
+    public GameObject winMenu;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -17,8 +19,15 @@ public class DoorTriggerLastRoom : MonoBehaviour
             EnemyCounter.count = 0;
             collision.gameObject.transform.SetPositionAndRotation(nextRoomEntryZone.transform.position, Quaternion.identity);
             environment.transform.GetChild(currentRoom - 1).gameObject.SetActive(false);*/
-            Save.SaveCheckpoint(checkpointNumber);
-            SceneManager.LoadScene(nextLevel);
+            if (isFinalLevel)
+			{
+                winMenu.GetComponent<PauseMenu>().OnPause();
+			}
+			else
+			{
+                Save.SaveCheckpoint(checkpointNumber);
+                SceneManager.LoadScene(nextLevel);
+            }
         }
     }
 	private void OnDisable()
