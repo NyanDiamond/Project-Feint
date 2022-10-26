@@ -29,7 +29,8 @@ public class PauseMenu : MonoBehaviour
     public void OnRestart()
     {
         Time.timeScale = 1f;
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        Save.LoadCheckpoint();
+        //SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
     public void OnResume()

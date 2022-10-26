@@ -5,8 +5,6 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
-
-    
     // Start is called before the first frame update
     void Start()
     {
@@ -15,12 +13,13 @@ public class MainMenu : MonoBehaviour
 
     public void NewGame()
     {
-        SceneManager.LoadScene("First Playable Level");
+        Save.LoadFirstCheckpoint();
     }
 
     public void ContinueGame()
     {
-        Debug.Log("Not implemented yet");
+        //Debug.Log("Not implemented yet");
+        Save.LoadCheckpoint();
     }
 
     public void QuitGame()

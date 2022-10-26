@@ -14,6 +14,8 @@ TagManager:
   - EntryZone
   - Turret
   - Shield
+  - Checkpoint
+  - Environment
   layers:
   - Default
   - TransparentFX

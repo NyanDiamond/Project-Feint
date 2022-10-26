@@ -19,7 +19,7 @@ public class MovingPlatform : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Vector2.Distance(transform.position, movePoints[movePoint])<0.001)
+        if(Vector2.Distance(transform.localPosition, movePoints[movePoint])<0.001)
         {
             if(forward)
             {
@@ -46,6 +46,6 @@ public class MovingPlatform : MonoBehaviour
                 }
             }
         }
-        transform.position = Vector2.MoveTowards(transform.position, movePoints[movePoint], speed * Time.deltaTime);
+        transform.localPosition = Vector2.MoveTowards(transform.localPosition, movePoints[movePoint], speed * Time.deltaTime);
     }
 }
