@@ -84,11 +84,11 @@ public class TurretBehavior : MonoBehaviour
         //Debug.Log("called face player");
         if (player.position.x < transform.position.x)
         {
-            transform.rotation = Quaternion.Euler(0, 180, 0);
+            transform.localRotation = Quaternion.Euler(0, 180, 0);
         }
         else
         {
-            transform.rotation = Quaternion.Euler(0, 0, 0);
+            transform.localRotation = Quaternion.Euler(0, 0, 0);
         }
     }
 
