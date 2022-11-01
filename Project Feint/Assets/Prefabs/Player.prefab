@@ -119,6 +119,7 @@ GameObject:
   - component: {fileID: 5148934879911158275}
   - component: {fileID: 5148934879911158272}
   - component: {fileID: 378143127}
+  - component: {fileID: 5148934879734604695}
   m_Layer: 3
   m_Name: Player
   m_TagString: Player
@@ -250,12 +251,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4767de4c1ef88e04bb848866164df5d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxSpeed: 3.5
+  maxSpeed: 4
   jumpForce: 260
   throwPower: 600
   teleporter: {fileID: 4799860142897947029, guid: 89c36c74f607bf44fb0fe3aa6acb66fc, type: 3}
   throwPoint: {fileID: 5148934879775044895}
-  teleporting: 0
+  teleportCDTimer: 2
+  cooldownIndicator: {fileID: 0}
 --- !u!114 &5148934879911158275
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -273,6 +275,7 @@ MonoBehaviour:
   health: 3
   invulnerability: 3
   healthBox: {fileID: 0}
+  deathMenu: {fileID: 0}
 --- !u!61 &5148934879911158272
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -309,7 +312,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 9a03c422196782f46bdbd2c557b2180a, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 44ab34db82d2d0f4cad65e48c85bae89, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -395,6 +398,31 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &5148934879734604695
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5148934879911158297}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e1510eec7125f8a4bbf02e144a35e397, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clips:
+  - {fileID: 8300000, guid: 6b45d4d756331934190a4c151a849323, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!1 &5148934880394296850
 GameObject:
   m_ObjectHideFlags: 0

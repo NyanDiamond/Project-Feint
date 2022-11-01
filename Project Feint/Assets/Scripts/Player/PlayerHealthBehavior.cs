@@ -12,10 +12,12 @@ public class PlayerHealthBehavior : MonoBehaviour
     private PlayerMovement pm;
     private SpriteRenderer sr;
     private bool invulnerable = false;
-    public Text healthBox;
-    public GameObject deathMenu;
+    private Text healthBox;
+    private GameObject deathMenu;
     private void Start()
     {
+        healthBox = GameObject.FindGameObjectWithTag("HealthInfo").GetComponent<Text>();
+        deathMenu = GameObject.FindGameObjectWithTag("DeathBox");
         pm = GetComponent<PlayerMovement>();
         sr = GetComponent<SpriteRenderer>();
         healthBox.text = "Health: 3";

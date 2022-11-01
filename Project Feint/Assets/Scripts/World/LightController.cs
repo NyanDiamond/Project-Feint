@@ -6,9 +6,10 @@ using UnityEngine.UI;
 
 public class LightController : MonoBehaviour
 {
-	public Text enemyInfoText;
+	private Text enemyInfoText;
 	private void Start()
 	{
+		enemyInfoText = GameObject.FindGameObjectWithTag("EnemyInfo").GetComponent<Text>();
 		StealthStart();
 	}
 	public void StealthBreak()

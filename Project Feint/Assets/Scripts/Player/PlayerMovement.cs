@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Animations;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -27,13 +28,17 @@ public class PlayerMovement : MonoBehaviour
     private bool isAttacking = false;
     private bool canTP = true;
     private bool isHit = false;
-    public bool teleporting = false;
+    private bool teleporting = false;
+    public float teleportCDTimer;
+    private float teleportCD = 2f;
+    private Image cooldownIndicator;
     
     private Coroutine combo;
     // Start is called before the first frame update
 
     private void Awake()
     {
+        cooldownIndicator = GameObject.FindGameObjectWithTag("Cooldown").GetComponent<Image>();
         pc = new PlayerControls();
         rb = GetComponent<Rigidbody2D>();
         an = GetComponent<Animator>();
@@ -46,7 +51,7 @@ public class PlayerMovement : MonoBehaviour
         
         pc.Enable();
         pc.Default.Jump.performed += _ => Jump();
-        pc.Default.Teleport.performed += _ => Teleport();
+        pc.Default.Teleport.performed += _ => TeleportMK();
         pc.Default.Attack.performed += _ => Attack();
         pc.Default.ReturnTeleporter.performed += _ => ReturnTP();
     }
@@ -136,11 +141,11 @@ public class PlayerMovement : MonoBehaviour
         
     }
 
-    private void Teleport()
+    private void TeleportMK()
     {
         GameObject tp = GameObject.FindGameObjectWithTag("Teleporter");
         
-        if (canTP && !isHit)
+        if (canTP && !isHit && teleportCD>=teleportCDTimer)
         {
             
             //jumping = true;
@@ -156,31 +161,39 @@ public class PlayerMovement : MonoBehaviour
             }
             else
             {
-                //tp.GetComponent<TeleporterBehavior>().Teleported();
-                teleporting = true;
-                canTP = false;
-                if (tp.transform.parent == null)
-                {
-                    transform.position = tp.transform.position - new Vector3(0.057f, 0.204f, 0f);
-                }
-                else if (tp.transform.position.y < tp.transform.parent.position.y)
-                {
-                    transform.position = tp.transform.position - Vector3.up;
-                }
-                else
-                    transform.position = tp.transform.position;
-                EnemyCounter.TeleporterCheck();
-                TeleporterBehavior temp = tp.GetComponent<TeleporterBehavior>();
-                //if TP is stuck to an enemy, destroy it
-                if (temp.attached)
-                {
-                    tp.transform.parent.GetComponent<EnemyHealthBehavior>().instantDeath();
-                }
-                Destroy(tp);
-                //teleporterOut = false;
-                teleporting = false;
+                Teleport(tp);
             }
         }
+    }
+
+    private void Teleport(GameObject tp)
+    {
+        //tp.GetComponent<TeleporterBehavior>().Teleported();
+        teleportCD = 0;
+        StartCoroutine(TeleporterCooldown());
+        teleporting = true;
+        canTP = false;
+        if (tp.transform.parent == null)
+        {
+            transform.position = tp.transform.position - new Vector3(0.057f, 0.204f, 0f);
+        }
+        else if (tp.transform.position.y < tp.transform.parent.position.y)
+        {
+            transform.position = tp.transform.position - Vector3.up;
+        }
+        else
+            transform.position = tp.transform.position;
+        EnemyCounter.TeleporterCheck();
+        TeleporterBehavior temp = tp.GetComponent<TeleporterBehavior>();
+        //if TP is stuck to an enemy, destroy it
+        if (temp.attached)
+        {
+            tp.transform.parent.GetComponent<EnemyHealthBehavior>().instantDeath();
+        }
+        Destroy(tp);
+        //teleporterOut = false;
+        teleporting = false;
+
     }
 
     private void Attack()
@@ -266,6 +279,17 @@ public class PlayerMovement : MonoBehaviour
         attack = 1;
     }
 
+    IEnumerator TeleporterCooldown()
+    {
+        cooldownIndicator.fillAmount = 0f;
+        while(teleportCD<teleportCDTimer)
+        {
+            yield return new WaitForSeconds(0.1f);
+            teleportCD += 0.1f;
+            cooldownIndicator.fillAmount = teleportCD / teleportCDTimer;
+        }
+    }
+
     public void Damaged()
     {
         isHit = true;
@@ -283,4 +307,5 @@ public class PlayerMovement : MonoBehaviour
     {
         isHit = false;
     }
+
 }

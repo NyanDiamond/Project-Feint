@@ -14,14 +14,14 @@ public class TeleporterBehavior : MonoBehaviour
     private Vector2 currentVel;
     private bool hit = false;
     private int bounceNum = 0;
-    private Text tpStatus;
+    //private Text tpStatus;
     private void Start()
     {
         rig = GetComponent<Rigidbody2D>();
         playerMovement = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>();
-        tpStatus = GameObject.FindGameObjectWithTag("TPStatus").GetComponent<Text>();
+        //tpStatus = GameObject.FindGameObjectWithTag("TPStatus").GetComponent<Text>();
 
-        tpStatus.text = "Teleporter Status: THROWN";
+        //tpStatus.text = "Teleporter Status: THROWN";
     }
     private void Update()
     {
@@ -39,10 +39,10 @@ public class TeleporterBehavior : MonoBehaviour
         tpStatus.text = "Teleporter Status: READY";
     }
     */
-    private void OnDestroy()
-    {
-        tpStatus.text = "Teleporter Status: READY";
-    }
+    //private void OnDestroy()
+    //{
+    //    tpStatus.text = "Teleporter Status: READY";
+    //}
     private void OnCollisionEnter2D(Collision2D collision)
     {
         hit = true;
@@ -58,7 +58,7 @@ public class TeleporterBehavior : MonoBehaviour
         }*/
         if (collision.gameObject.CompareTag("Enemy"))
         {
-            tpStatus.text = "Teleporter Status: STUCK";
+            //tpStatus.text = "Teleporter Status: STUCK";
             GetComponent<CircleCollider2D>().isTrigger = true;
             attached = true;
             transform.parent = collision.gameObject.transform;
@@ -67,7 +67,7 @@ public class TeleporterBehavior : MonoBehaviour
         }
         if (collision.gameObject.CompareTag("Wall") || collision.gameObject.CompareTag("Turret") || collision.gameObject.CompareTag("Shield"))
         {
-            Debug.Log("Hit Wall!");
+            //Debug.Log("Hit Wall!");
             //reverses the direction of the teleporter and
             //gives it a speed based on throw power and the number of bouces since it was thrown
             bounceNum++;

@@ -17,6 +17,10 @@ TagManager:
   - Checkpoint
   - Environment
   - TPStatus
+  - EnemyInfo
+  - HealthInfo
+  - DeathBox
+  - Cooldown
   layers:
   - Default
   - TransparentFX
