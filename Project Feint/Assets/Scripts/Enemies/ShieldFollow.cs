@@ -17,10 +17,13 @@ public class ShieldFollow : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(transform.childCount<2)
+        if (transform.childCount < 2)
         {
             Destroy(gameObject);
         }
-        shield.position = (Vector2)shieldEnemy.position + new Vector2(0, .54f) + (Vector2)shieldEnemy.right * offset;
+        else
+        {
+            shield.position = (Vector2)shieldEnemy.position + new Vector2(0, .54f) + (Vector2)shieldEnemy.right * offset;
+        }
     }
 }

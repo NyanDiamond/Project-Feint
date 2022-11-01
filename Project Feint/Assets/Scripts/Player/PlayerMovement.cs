@@ -155,7 +155,7 @@ public class PlayerMovement : MonoBehaviour
                 Vector2 lookPos = cam.ScreenToWorldPoint(Mouse.current.position.ReadValue()) - throwPoint.transform.position;
                 //create teleporter and add a force to throw it
                 tp = Instantiate(teleporter, throwPoint.transform.position, Quaternion.identity);
-                tp.GetComponent<Rigidbody2D>().AddForce(lookPos.normalized * throwPower);
+                tp.GetComponent<Rigidbody2D>().AddForce(lookPos.normalized * throwPower * tp.GetComponent<Rigidbody2D>().mass);
                 //tp.GetComponent<TeleporterBehavior>().Teleported();
                 //teleporterOut = true;
             }

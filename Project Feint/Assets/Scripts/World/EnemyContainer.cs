@@ -15,6 +15,11 @@ public class EnemyContainer : MonoBehaviour
         if (collision.gameObject.CompareTag("Player") && !isTriggered)
         {
             isTriggered = true;
+            GameObject teleporter = GameObject.FindGameObjectWithTag("Teleporter");
+            if(teleporter!=null)
+            {
+                Destroy(teleporter);
+            }
 
             EnemyCounter.enemies.Clear();
             EnemyCounter.count = 0;

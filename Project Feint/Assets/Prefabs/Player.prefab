@@ -253,11 +253,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxSpeed: 4
   jumpForce: 260
-  throwPower: 600
+  throwPower: 400
   teleporter: {fileID: 4799860142897947029, guid: 89c36c74f607bf44fb0fe3aa6acb66fc, type: 3}
   throwPoint: {fileID: 5148934879775044895}
   teleportCDTimer: 2
-  cooldownIndicator: {fileID: 0}
 --- !u!114 &5148934879911158275
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -274,8 +273,6 @@ MonoBehaviour:
   transparent: {r: 1, g: 1, b: 1, a: 0}
   health: 3
   invulnerability: 3
-  healthBox: {fileID: 0}
-  deathMenu: {fileID: 0}
 --- !u!61 &5148934879911158272
 BoxCollider2D:
   m_ObjectHideFlags: 0
