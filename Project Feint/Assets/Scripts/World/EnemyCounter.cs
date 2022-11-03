@@ -12,6 +12,7 @@ public class EnemyCounter : MonoBehaviour
     public static List<GameObject> turrets = new List<GameObject>();
     public static LightController mainLight;
     public static bool stealth = true;
+    public static bool doorClosed = false;
 
     private void Awake()
     {
@@ -21,6 +22,7 @@ public class EnemyCounter : MonoBehaviour
         cameras = new List<GameObject>();
         countChanged = false;
         stealth = true;
+        doorClosed = false;
         //doorsave = GameObject.FindGameObjectsWithTag("Door");
         mainLight = GameObject.FindGameObjectWithTag("MainCamera").transform.Find("Light").GetComponent<LightController>();
     }
@@ -69,6 +71,7 @@ public class EnemyCounter : MonoBehaviour
         }
         mainLight.StealthStart();
         stealth = true;
+        doorClosed = false;
     }
     public static void EnterRoom(bool isDark)
 	{
@@ -85,6 +88,7 @@ public class EnemyCounter : MonoBehaviour
             mainLight.EnterBrightRoom();
 		}
         stealth = true;
+        doorClosed = false;
     }
 
     public static void StealthBreak()
@@ -110,6 +114,7 @@ public class EnemyCounter : MonoBehaviour
             turret.GetComponent<TurretBehavior>().Activate();
         }
         stealth = false;
+        doorClosed = true;
     }
 
     public static void TeleporterCheck()

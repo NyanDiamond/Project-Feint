@@ -169,7 +169,10 @@ public class PlayerMovement : MonoBehaviour
     private void Teleport(GameObject tp)
     {
         //tp.GetComponent<TeleporterBehavior>().Teleported();
-        teleportCD = 0;
+        if (EnemyCounter.doorClosed)
+            teleportCD = 0;
+        else
+            teleportCD = teleportCDTimer/2;
         StartCoroutine(TeleporterCooldown());
         teleporting = true;
         canTP = false;
@@ -283,7 +286,7 @@ public class PlayerMovement : MonoBehaviour
 
     IEnumerator TeleporterCooldown()
     {
-        cooldownIndicator.fillAmount = 0f;
+        cooldownIndicator.fillAmount = teleportCD/teleportCDTimer;
         while(teleportCD<teleportCDTimer)
         {
             yield return new WaitForSeconds(0.1f);
