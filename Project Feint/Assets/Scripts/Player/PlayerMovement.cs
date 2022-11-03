@@ -207,7 +207,9 @@ public class PlayerMovement : MonoBehaviour
             rb.velocity = (-transform.forward) * 0.1f;
             hit = false;
             SoundPlayer sp = GameObject.Find("GameController").GetComponent<SoundPlayer>();
-            switch (attack)
+            an.SetTrigger("Attack2");
+            sp.PlaySound13();
+            /*switch (attack)
             {
                 case 1:
                     an.SetTrigger("Attack1");
@@ -224,7 +226,7 @@ public class PlayerMovement : MonoBehaviour
                     attack++;
                     sp.PlaySound5();
                     break;
-            }
+            }*/
         }
     }
 

@@ -14,9 +14,12 @@ public class TeleporterBehavior : MonoBehaviour
     private Vector2 currentVel;
     private bool hit = false;
     private int bounceNum = 0;
+    public ArrowBehavior ab;
+    private bool firstTime = true;
     //private Text tpStatus;
     private void Start()
     {
+        ab = GameObject.FindObjectOfType<ArrowBehavior>();
         rig = GetComponent<Rigidbody2D>();
         playerMovement = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>();
         //tpStatus = GameObject.FindGameObjectWithTag("TPStatus").GetComponent<Text>();
@@ -76,5 +79,27 @@ public class TeleporterBehavior : MonoBehaviour
 
         }
         hit = false;
+
+        
+    }
+
+    private void OnBecameVisible()
+    {
+        if (!firstTime)
+            ab.TurnOff();
+        
+    }
+
+    private void OnBecameInvisible()
+    {
+        firstTime = false;
+        if(transform != null)
+            ab.TeleporterOffScreen();
+    }
+
+    private void OnDestroy()
+    {
+        if(!firstTime)
+            ab.TurnOff();
     }
 }

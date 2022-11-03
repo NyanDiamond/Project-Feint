@@ -21,6 +21,7 @@ TagManager:
   - HealthInfo
   - DeathBox
   - Cooldown
+  - Arrow
   layers:
   - Default
   - TransparentFX
