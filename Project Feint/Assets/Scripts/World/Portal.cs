@@ -7,12 +7,18 @@ public class Portal : MonoBehaviour
     // Start is called before the first frame update
     public Portal destination;
     public bool set;
+    private Coroutine temp;
 
 	private void Start()
 	{
         set = true;
 	}
-	private void OnTriggerEnter2D(Collider2D collision)
+
+    private void Update()
+    {
+        transform.Rotate(Vector3.forward, 20f * Time.deltaTime);
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         if ((collision.gameObject.CompareTag("Player") || collision.gameObject.CompareTag("Teleporter")) && set)
         {
@@ -22,6 +28,19 @@ public class Portal : MonoBehaviour
     }
 	private void OnTriggerExit2D(Collider2D collision)
 	{
-        set = true;
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            if (temp == null)
+            {
+                temp = StartCoroutine(Cooldown());
+            }
+        }
 	}
+
+    private IEnumerator Cooldown()
+    {
+        yield return new WaitForSeconds(.5f);
+        set = true;
+        temp = null;
+    }
 }

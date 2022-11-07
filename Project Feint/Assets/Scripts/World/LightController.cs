@@ -15,14 +15,27 @@ public class LightController : MonoBehaviour
 	public void StealthBreak()
 	{
 		GetComponent<Light2D>().pointLightOuterRadius = 10;
-		enemyInfoText.fontSize = 20;
-		enemyInfoText.text = "! [YOU'VE BEEN SPOTTED] !";
-		enemyInfoText.color = Color.red;
+		enemyInfoText.fontSize = 15;
+		if (EnemyCounter.enemies.Count > 0)
+		{
+			enemyInfoText.text = "! [YOU'VE BEEN SPOTTED] !";
+			enemyInfoText.color = Color.red;
+		}
+		else if (EnemyCounter.turrets.Count > 0)
+		{
+			enemyInfoText.text = "! [YOU'VE BEEEN SPOTTED] !      -Turrets are activated but no one is here to lock the door-";
+			enemyInfoText.color = Color.red;
+		}
+		else
+        {
+			enemyInfoText.text = "! [YOU'VE BEEEN SPOTTED] !      -but no one is here to lock the door, escape to the right-";
+			enemyInfoText.color = Color.green;
+		}
 	}
 	public void AllEnemiesDead()
 	{
 		GetComponent<Light2D>().pointLightOuterRadius = 10;
-		enemyInfoText.fontSize = 20;
+		enemyInfoText.fontSize = 15;
 		enemyInfoText.text = "! [ALL ENEMIES DEAD] !     -escape through the door on the right-";
 		enemyInfoText.color = Color.green;
 	}

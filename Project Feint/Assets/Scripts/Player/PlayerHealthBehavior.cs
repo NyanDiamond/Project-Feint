@@ -6,21 +6,38 @@ public class PlayerHealthBehavior : MonoBehaviour
 {
     public Color normal;
     public Color transparent;
-    [SerializeField] private float health = 3;
+    [SerializeField] private int health = 3;
     [Tooltip("How many flashes the sprite makes to signify invulnerable (each flash is .4 seconds")]
     public int invulnerability;
     private PlayerMovement pm;
     private SpriteRenderer sr;
     private bool invulnerable = false;
-    private Text healthBox;
+    //private Text healthBox;
     private GameObject deathMenu;
+
+    private GameObject healthbox;
+    private List<Image> healthVisuals;
+    [SerializeField] Sprite damaged;
+    [SerializeField] Sprite undamaged;
     private void Start()
     {
-        healthBox = GameObject.FindGameObjectWithTag("HealthInfo").GetComponent<Text>();
+        healthVisuals = new List<Image>();
+        healthbox = GameObject.FindGameObjectWithTag("HealthInfo");
+        foreach (Transform child in healthbox.transform)
+        {
+            healthVisuals.Add(child.gameObject.GetComponent<Image>());
+        }
+        for (int i = 0; i < healthVisuals.Count; i++)
+        {
+            if (i < health)
+                healthVisuals[i].sprite = undamaged;
+            else
+                healthVisuals[i].sprite = damaged;
+        }
         deathMenu = GameObject.FindGameObjectWithTag("DeathBox");
         pm = GetComponent<PlayerMovement>();
         sr = GetComponent<SpriteRenderer>();
-        healthBox.text = "Health: 3";
+        //healthBox.text = "Health: 3";
     }
     // Start is called before the first frame update
     private void OnTriggerEnter2D(Collider2D collision)
@@ -30,7 +47,8 @@ public class PlayerHealthBehavior : MonoBehaviour
             //Destroy(collision.gameObject);
             invulnerable = true;
             health--;
-            healthBox.text = "Health: " + health;
+            healthVisuals[health].sprite = damaged;
+            //healthBox.text = "Health: " + health;
             if (health > 0)
             {
                 pm.Damaged();

@@ -101,8 +101,7 @@ public class EnemyCounter : MonoBehaviour
         {
             camera.GetComponent<CameraBehavior>().StealthBreak();
         }
-        if(enemies.Count>0)
-		    mainLight.StealthBreak();
+        mainLight.StealthBreak();
 
         foreach (GameObject temp in doorsave)
         {
