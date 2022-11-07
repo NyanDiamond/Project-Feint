@@ -9,6 +9,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Main Menu.unity
     guid: 883d3e57d3c22054dac86fa7ee1ab076
   - enabled: 1
+    path: Assets/Scenes/Tutorial.unity
+    guid: 0e1c1a2ccc1d10548b426ef2b255b52a
+  - enabled: 1
     path: Assets/Scenes/Level 1.unity
     guid: 1b3602a12ea539943b2141a67a79e0a8
   - enabled: 1
@@ -21,12 +24,6 @@ EditorBuildSettings:
     path: Assets/Scenes/Level 2B.unity
     guid: 13957bd91554355448921a28faa38316
   - enabled: 0
-    path: Assets/Scenes/First Playable Level.unity
-    guid: 691fe033db2e9bb479941bba670773e1
-  - enabled: 0
-    path: Assets/Scenes/Prototype Level.unity
-    guid: d92f3c0829d9c2c469ab9ef300aacf8f
-  - enabled: 0
-    path: Assets/Scenes/Josh's Testing Center.unity
-    guid: 2cda990e2423bbf4892e6590ba056729
+    path: Assets/Scenes/Level 3.unity
+    guid: 6aa4a5fc3222cd7469690e58825af771
   m_configObjects: {}

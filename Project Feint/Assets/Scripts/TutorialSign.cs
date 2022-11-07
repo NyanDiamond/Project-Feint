@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class TutorialSign : MonoBehaviour
 {
@@ -9,7 +10,7 @@ public class TutorialSign : MonoBehaviour
     private bool open = false;
     private int textPos;
     [SerializeField] GameObject textBox;
-    [SerializeField] Text textBoxText;
+    [SerializeField] TextMeshPro textBoxText;
     
 
     void OnContinue()

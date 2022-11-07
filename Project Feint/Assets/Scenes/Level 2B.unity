@@ -22680,7 +22680,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d2d6f2f78745f444a7734669539a84b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyInfoText: {fileID: 1661634856}
 --- !u!1 &127320160
 GameObject:
   m_ObjectHideFlags: 3
@@ -25310,6 +25309,7 @@ GameObject:
   - component: {fileID: 154248810}
   - component: {fileID: 154248809}
   - component: {fileID: 154248808}
+  - component: {fileID: 154248811}
   m_Layer: 7
   m_Name: Barrier (4)
   m_TagString: Enemy_Attack
@@ -25465,7 +25465,7 @@ SpriteShapeRenderer:
   m_MaskInteraction: 0
   m_ShapeTexture: {fileID: 0}
   m_Sprites:
-  - {fileID: 21300000, guid: 931c640d22577b94aab8b1bcdae2eaeb, type: 3}
+  - {fileID: -1852863652, guid: cdf96ece37d3e6143b9fb53ce28672fc, type: 3}
   - {fileID: 21300000, guid: 608e61deb05c54660bebf5a4dd2ee02d, type: 3}
   - {fileID: 21300000, guid: 608e61deb05c54660bebf5a4dd2ee02d, type: 3}
   - {fileID: 21300000, guid: 608e61deb05c54660bebf5a4dd2ee02d, type: 3}
@@ -25477,6 +25477,31 @@ SpriteShapeRenderer:
   m_LocalAABB:
     m_Center: {x: 0, y: 0.34999996, z: 0}
     m_Extent: {x: 0.08, y: 0.43999997, z: 0}
+--- !u!114 &154248811
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 154248806}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1269e6a571e1c134db219bc1e9322734, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shapes:
+  - {fileID: 11400000, guid: 839effa61298c834d8d9e0545f1701d0, type: 2}
+  - {fileID: 11400000, guid: 8c21cbeb05d163f428e4d577d16584ef, type: 2}
+  - {fileID: 11400000, guid: 246b6306b36ed5a4e9e0270870b3ffc6, type: 2}
+  - {fileID: 11400000, guid: 4afd1929adc3e4b408cff7fe8c1ac0dd, type: 2}
+  - {fileID: 11400000, guid: 25b883e0f7078d04d96626e0ada4e069, type: 2}
+  - {fileID: 11400000, guid: 65f0ededa6dda3b4988a1cc50d429075, type: 2}
+  - {fileID: 11400000, guid: 3c8cbc5763e04414fa9aca7170ebf633, type: 2}
+  - {fileID: 11400000, guid: 1251672eb88019745a292f525966d814, type: 2}
+  - {fileID: 11400000, guid: 6098be7639e614444af9f087d7fdc4ba, type: 2}
+  - {fileID: 11400000, guid: ffe99b23f56e4eb45814d6520d7aca2b, type: 2}
+  - {fileID: 11400000, guid: a24a36d7e5ff8f94486deda000aa0a47, type: 2}
+  speed: 20
 --- !u!1 &156393774
 GameObject:
   m_ObjectHideFlags: 0
@@ -27590,7 +27615,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b46a36a484fad65419cb5d1300025ddb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  checkpointNumber: 3
+  checkpointNumber: 4
 --- !u!61 &181831026
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -30401,6 +30426,7 @@ GameObject:
   - component: {fileID: 250476354}
   - component: {fileID: 250476353}
   - component: {fileID: 250476355}
+  - component: {fileID: 250476356}
   m_Layer: 7
   m_Name: Barrier (6)
   m_TagString: Enemy_Attack
@@ -30568,6 +30594,31 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.1, y: 1.2900004}
   m_EdgeRadius: 0
+--- !u!114 &250476356
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 250476350}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1269e6a571e1c134db219bc1e9322734, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shapes:
+  - {fileID: 11400000, guid: 839effa61298c834d8d9e0545f1701d0, type: 2}
+  - {fileID: 11400000, guid: 8c21cbeb05d163f428e4d577d16584ef, type: 2}
+  - {fileID: 11400000, guid: 246b6306b36ed5a4e9e0270870b3ffc6, type: 2}
+  - {fileID: 11400000, guid: 4afd1929adc3e4b408cff7fe8c1ac0dd, type: 2}
+  - {fileID: 11400000, guid: 25b883e0f7078d04d96626e0ada4e069, type: 2}
+  - {fileID: 11400000, guid: 65f0ededa6dda3b4988a1cc50d429075, type: 2}
+  - {fileID: 11400000, guid: 3c8cbc5763e04414fa9aca7170ebf633, type: 2}
+  - {fileID: 11400000, guid: 1251672eb88019745a292f525966d814, type: 2}
+  - {fileID: 11400000, guid: 6098be7639e614444af9f087d7fdc4ba, type: 2}
+  - {fileID: 11400000, guid: ffe99b23f56e4eb45814d6520d7aca2b, type: 2}
+  - {fileID: 11400000, guid: a24a36d7e5ff8f94486deda000aa0a47, type: 2}
+  speed: 20
 --- !u!1 &250835534
 GameObject:
   m_ObjectHideFlags: 0
@@ -31273,7 +31324,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d2d6f2f78745f444a7734669539a84b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyInfoText: {fileID: 0}
 --- !u!114 &272579937
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -48273,6 +48323,7 @@ GameObject:
   - component: {fileID: 554597796}
   - component: {fileID: 554597795}
   - component: {fileID: 554597794}
+  - component: {fileID: 554597797}
   m_Layer: 7
   m_Name: Barrier (3)
   m_TagString: Enemy_Attack
@@ -48428,7 +48479,7 @@ SpriteShapeRenderer:
   m_MaskInteraction: 0
   m_ShapeTexture: {fileID: 0}
   m_Sprites:
-  - {fileID: 21300000, guid: 931c640d22577b94aab8b1bcdae2eaeb, type: 3}
+  - {fileID: -1852863652, guid: cdf96ece37d3e6143b9fb53ce28672fc, type: 3}
   - {fileID: 21300000, guid: 608e61deb05c54660bebf5a4dd2ee02d, type: 3}
   - {fileID: 21300000, guid: 608e61deb05c54660bebf5a4dd2ee02d, type: 3}
   - {fileID: 21300000, guid: 608e61deb05c54660bebf5a4dd2ee02d, type: 3}
@@ -48440,6 +48491,31 @@ SpriteShapeRenderer:
   m_LocalAABB:
     m_Center: {x: 0, y: 2.2500002, z: 0}
     m_Extent: {x: 0.08, y: 2.3400002, z: 0}
+--- !u!114 &554597797
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 554597792}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1269e6a571e1c134db219bc1e9322734, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shapes:
+  - {fileID: 11400000, guid: 839effa61298c834d8d9e0545f1701d0, type: 2}
+  - {fileID: 11400000, guid: 8c21cbeb05d163f428e4d577d16584ef, type: 2}
+  - {fileID: 11400000, guid: 246b6306b36ed5a4e9e0270870b3ffc6, type: 2}
+  - {fileID: 11400000, guid: 4afd1929adc3e4b408cff7fe8c1ac0dd, type: 2}
+  - {fileID: 11400000, guid: 25b883e0f7078d04d96626e0ada4e069, type: 2}
+  - {fileID: 11400000, guid: 65f0ededa6dda3b4988a1cc50d429075, type: 2}
+  - {fileID: 11400000, guid: 3c8cbc5763e04414fa9aca7170ebf633, type: 2}
+  - {fileID: 11400000, guid: 1251672eb88019745a292f525966d814, type: 2}
+  - {fileID: 11400000, guid: 6098be7639e614444af9f087d7fdc4ba, type: 2}
+  - {fileID: 11400000, guid: ffe99b23f56e4eb45814d6520d7aca2b, type: 2}
+  - {fileID: 11400000, guid: a24a36d7e5ff8f94486deda000aa0a47, type: 2}
+  speed: 20
 --- !u!1 &555778295
 GameObject:
   m_ObjectHideFlags: 0
@@ -48711,7 +48787,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d2d6f2f78745f444a7734669539a84b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyInfoText: {fileID: 0}
 --- !u!114 &566230216
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -48803,6 +48878,7 @@ GameObject:
   - component: {fileID: 569673477}
   - component: {fileID: 569673479}
   - component: {fileID: 569673480}
+  - component: {fileID: 569673481}
   m_Layer: 7
   m_Name: Barrier (1)
   m_TagString: Enemy_Attack
@@ -48986,6 +49062,31 @@ MonoBehaviour:
   flashes: 3
   normal: {r: 1, g: 1, b: 1, a: 1}
   transparent: {r: 1, g: 1, b: 1, a: 0}
+--- !u!114 &569673481
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 569673474}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1269e6a571e1c134db219bc1e9322734, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shapes:
+  - {fileID: 11400000, guid: 839effa61298c834d8d9e0545f1701d0, type: 2}
+  - {fileID: 11400000, guid: 8c21cbeb05d163f428e4d577d16584ef, type: 2}
+  - {fileID: 11400000, guid: 246b6306b36ed5a4e9e0270870b3ffc6, type: 2}
+  - {fileID: 11400000, guid: 4afd1929adc3e4b408cff7fe8c1ac0dd, type: 2}
+  - {fileID: 11400000, guid: 25b883e0f7078d04d96626e0ada4e069, type: 2}
+  - {fileID: 11400000, guid: 65f0ededa6dda3b4988a1cc50d429075, type: 2}
+  - {fileID: 11400000, guid: 3c8cbc5763e04414fa9aca7170ebf633, type: 2}
+  - {fileID: 11400000, guid: 1251672eb88019745a292f525966d814, type: 2}
+  - {fileID: 11400000, guid: 6098be7639e614444af9f087d7fdc4ba, type: 2}
+  - {fileID: 11400000, guid: ffe99b23f56e4eb45814d6520d7aca2b, type: 2}
+  - {fileID: 11400000, guid: a24a36d7e5ff8f94486deda000aa0a47, type: 2}
+  speed: 20
 --- !u!1 &578059527
 GameObject:
   m_ObjectHideFlags: 0
@@ -49164,7 +49265,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d2d6f2f78745f444a7734669539a84b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyInfoText: {fileID: 0}
 --- !u!114 &604649068
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -60973,7 +61073,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d2d6f2f78745f444a7734669539a84b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyInfoText: {fileID: 0}
 --- !u!114 &702899163
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -62953,6 +63052,7 @@ GameObject:
   - component: {fileID: 864424325}
   - component: {fileID: 864424327}
   - component: {fileID: 864424328}
+  - component: {fileID: 864424329}
   m_Layer: 7
   m_Name: Barrier (2)
   m_TagString: Enemy_Attack
@@ -63136,6 +63236,31 @@ MonoBehaviour:
   flashes: 3
   normal: {r: 1, g: 1, b: 1, a: 1}
   transparent: {r: 1, g: 1, b: 1, a: 0}
+--- !u!114 &864424329
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 864424322}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1269e6a571e1c134db219bc1e9322734, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shapes:
+  - {fileID: 11400000, guid: 839effa61298c834d8d9e0545f1701d0, type: 2}
+  - {fileID: 11400000, guid: 8c21cbeb05d163f428e4d577d16584ef, type: 2}
+  - {fileID: 11400000, guid: 246b6306b36ed5a4e9e0270870b3ffc6, type: 2}
+  - {fileID: 11400000, guid: 4afd1929adc3e4b408cff7fe8c1ac0dd, type: 2}
+  - {fileID: 11400000, guid: 25b883e0f7078d04d96626e0ada4e069, type: 2}
+  - {fileID: 11400000, guid: 65f0ededa6dda3b4988a1cc50d429075, type: 2}
+  - {fileID: 11400000, guid: 3c8cbc5763e04414fa9aca7170ebf633, type: 2}
+  - {fileID: 11400000, guid: 1251672eb88019745a292f525966d814, type: 2}
+  - {fileID: 11400000, guid: 6098be7639e614444af9f087d7fdc4ba, type: 2}
+  - {fileID: 11400000, guid: ffe99b23f56e4eb45814d6520d7aca2b, type: 2}
+  - {fileID: 11400000, guid: a24a36d7e5ff8f94486deda000aa0a47, type: 2}
+  speed: 20
 --- !u!1 &868768131
 GameObject:
   m_ObjectHideFlags: 3
@@ -63236,6 +63361,7 @@ GameObject:
   - component: {fileID: 884966151}
   - component: {fileID: 884966150}
   - component: {fileID: 884966149}
+  - component: {fileID: 884966152}
   m_Layer: 7
   m_Name: Barrier (7)
   m_TagString: Enemy_Attack
@@ -63403,6 +63529,31 @@ SpriteShapeRenderer:
   m_LocalAABB:
     m_Center: {x: 0, y: 0.935, z: 0}
     m_Extent: {x: 0.08, y: 1.025, z: 0}
+--- !u!114 &884966152
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 884966147}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1269e6a571e1c134db219bc1e9322734, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shapes:
+  - {fileID: 11400000, guid: 839effa61298c834d8d9e0545f1701d0, type: 2}
+  - {fileID: 11400000, guid: 8c21cbeb05d163f428e4d577d16584ef, type: 2}
+  - {fileID: 11400000, guid: 246b6306b36ed5a4e9e0270870b3ffc6, type: 2}
+  - {fileID: 11400000, guid: 4afd1929adc3e4b408cff7fe8c1ac0dd, type: 2}
+  - {fileID: 11400000, guid: 25b883e0f7078d04d96626e0ada4e069, type: 2}
+  - {fileID: 11400000, guid: 65f0ededa6dda3b4988a1cc50d429075, type: 2}
+  - {fileID: 11400000, guid: 3c8cbc5763e04414fa9aca7170ebf633, type: 2}
+  - {fileID: 11400000, guid: 1251672eb88019745a292f525966d814, type: 2}
+  - {fileID: 11400000, guid: 6098be7639e614444af9f087d7fdc4ba, type: 2}
+  - {fileID: 11400000, guid: ffe99b23f56e4eb45814d6520d7aca2b, type: 2}
+  - {fileID: 11400000, guid: a24a36d7e5ff8f94486deda000aa0a47, type: 2}
+  speed: 20
 --- !u!1001 &889072527
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -63585,7 +63736,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d2d6f2f78745f444a7734669539a84b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyInfoText: {fileID: 0}
 --- !u!114 &899604455
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -70805,6 +70955,7 @@ GameObject:
   - component: {fileID: 991314434}
   - component: {fileID: 991314433}
   - component: {fileID: 991314432}
+  - component: {fileID: 991314437}
   m_Layer: 7
   m_Name: Barrier (2)
   m_TagString: Enemy_Attack
@@ -70988,6 +71139,31 @@ Transform:
   m_Father: {fileID: 1746263101}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
+--- !u!114 &991314437
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 991314431}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1269e6a571e1c134db219bc1e9322734, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shapes:
+  - {fileID: 11400000, guid: 839effa61298c834d8d9e0545f1701d0, type: 2}
+  - {fileID: 11400000, guid: 8c21cbeb05d163f428e4d577d16584ef, type: 2}
+  - {fileID: 11400000, guid: 246b6306b36ed5a4e9e0270870b3ffc6, type: 2}
+  - {fileID: 11400000, guid: 4afd1929adc3e4b408cff7fe8c1ac0dd, type: 2}
+  - {fileID: 11400000, guid: 25b883e0f7078d04d96626e0ada4e069, type: 2}
+  - {fileID: 11400000, guid: 65f0ededa6dda3b4988a1cc50d429075, type: 2}
+  - {fileID: 11400000, guid: 3c8cbc5763e04414fa9aca7170ebf633, type: 2}
+  - {fileID: 11400000, guid: 1251672eb88019745a292f525966d814, type: 2}
+  - {fileID: 11400000, guid: 6098be7639e614444af9f087d7fdc4ba, type: 2}
+  - {fileID: 11400000, guid: ffe99b23f56e4eb45814d6520d7aca2b, type: 2}
+  - {fileID: 11400000, guid: a24a36d7e5ff8f94486deda000aa0a47, type: 2}
+  speed: 20
 --- !u!1 &993631278
 GameObject:
   m_ObjectHideFlags: 0
@@ -71118,6 +71294,7 @@ GameObject:
   - component: {fileID: 1003534737}
   - component: {fileID: 1003534736}
   - component: {fileID: 1003534735}
+  - component: {fileID: 1003534738}
   m_Layer: 7
   m_Name: Barrier (5)
   m_TagString: Enemy_Attack
@@ -71273,7 +71450,7 @@ SpriteShapeRenderer:
   m_MaskInteraction: 0
   m_ShapeTexture: {fileID: 0}
   m_Sprites:
-  - {fileID: 21300000, guid: 931c640d22577b94aab8b1bcdae2eaeb, type: 3}
+  - {fileID: -1852863652, guid: cdf96ece37d3e6143b9fb53ce28672fc, type: 3}
   - {fileID: 21300000, guid: 608e61deb05c54660bebf5a4dd2ee02d, type: 3}
   - {fileID: 21300000, guid: 608e61deb05c54660bebf5a4dd2ee02d, type: 3}
   - {fileID: 21300000, guid: 608e61deb05c54660bebf5a4dd2ee02d, type: 3}
@@ -71285,6 +71462,31 @@ SpriteShapeRenderer:
   m_LocalAABB:
     m_Center: {x: 0, y: 0.34999996, z: 0}
     m_Extent: {x: 0.08, y: 0.43999997, z: 0}
+--- !u!114 &1003534738
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1003534733}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1269e6a571e1c134db219bc1e9322734, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shapes:
+  - {fileID: 11400000, guid: 839effa61298c834d8d9e0545f1701d0, type: 2}
+  - {fileID: 11400000, guid: 8c21cbeb05d163f428e4d577d16584ef, type: 2}
+  - {fileID: 11400000, guid: 246b6306b36ed5a4e9e0270870b3ffc6, type: 2}
+  - {fileID: 11400000, guid: 4afd1929adc3e4b408cff7fe8c1ac0dd, type: 2}
+  - {fileID: 11400000, guid: 25b883e0f7078d04d96626e0ada4e069, type: 2}
+  - {fileID: 11400000, guid: 65f0ededa6dda3b4988a1cc50d429075, type: 2}
+  - {fileID: 11400000, guid: 3c8cbc5763e04414fa9aca7170ebf633, type: 2}
+  - {fileID: 11400000, guid: 1251672eb88019745a292f525966d814, type: 2}
+  - {fileID: 11400000, guid: 6098be7639e614444af9f087d7fdc4ba, type: 2}
+  - {fileID: 11400000, guid: ffe99b23f56e4eb45814d6520d7aca2b, type: 2}
+  - {fileID: 11400000, guid: a24a36d7e5ff8f94486deda000aa0a47, type: 2}
+  speed: 20
 --- !u!1 &1007688966
 GameObject:
   m_ObjectHideFlags: 0
@@ -76242,6 +76444,7 @@ GameObject:
   - component: {fileID: 1015079100}
   - component: {fileID: 1015079099}
   - component: {fileID: 1015079098}
+  - component: {fileID: 1015079103}
   m_Layer: 7
   m_Name: Barrier (1)
   m_TagString: Enemy_Attack
@@ -76425,6 +76628,31 @@ Transform:
   m_Father: {fileID: 1746263101}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
+--- !u!114 &1015079103
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1015079097}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1269e6a571e1c134db219bc1e9322734, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shapes:
+  - {fileID: 11400000, guid: 839effa61298c834d8d9e0545f1701d0, type: 2}
+  - {fileID: 11400000, guid: 8c21cbeb05d163f428e4d577d16584ef, type: 2}
+  - {fileID: 11400000, guid: 246b6306b36ed5a4e9e0270870b3ffc6, type: 2}
+  - {fileID: 11400000, guid: 4afd1929adc3e4b408cff7fe8c1ac0dd, type: 2}
+  - {fileID: 11400000, guid: 25b883e0f7078d04d96626e0ada4e069, type: 2}
+  - {fileID: 11400000, guid: 65f0ededa6dda3b4988a1cc50d429075, type: 2}
+  - {fileID: 11400000, guid: 3c8cbc5763e04414fa9aca7170ebf633, type: 2}
+  - {fileID: 11400000, guid: 1251672eb88019745a292f525966d814, type: 2}
+  - {fileID: 11400000, guid: 6098be7639e614444af9f087d7fdc4ba, type: 2}
+  - {fileID: 11400000, guid: ffe99b23f56e4eb45814d6520d7aca2b, type: 2}
+  - {fileID: 11400000, guid: a24a36d7e5ff8f94486deda000aa0a47, type: 2}
+  speed: 20
 --- !u!1 &1028943408
 GameObject:
   m_ObjectHideFlags: 0
@@ -82138,6 +82366,7 @@ GameObject:
   - component: {fileID: 1033316516}
   - component: {fileID: 1033316515}
   - component: {fileID: 1033316514}
+  - component: {fileID: 1033316519}
   m_Layer: 7
   m_Name: Barrier
   m_TagString: Enemy_Attack
@@ -82321,6 +82550,31 @@ Transform:
   m_Father: {fileID: 1746263101}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
+--- !u!114 &1033316519
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1033316513}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1269e6a571e1c134db219bc1e9322734, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shapes:
+  - {fileID: 11400000, guid: 839effa61298c834d8d9e0545f1701d0, type: 2}
+  - {fileID: 11400000, guid: 8c21cbeb05d163f428e4d577d16584ef, type: 2}
+  - {fileID: 11400000, guid: 246b6306b36ed5a4e9e0270870b3ffc6, type: 2}
+  - {fileID: 11400000, guid: 4afd1929adc3e4b408cff7fe8c1ac0dd, type: 2}
+  - {fileID: 11400000, guid: 25b883e0f7078d04d96626e0ada4e069, type: 2}
+  - {fileID: 11400000, guid: 65f0ededa6dda3b4988a1cc50d429075, type: 2}
+  - {fileID: 11400000, guid: 3c8cbc5763e04414fa9aca7170ebf633, type: 2}
+  - {fileID: 11400000, guid: 1251672eb88019745a292f525966d814, type: 2}
+  - {fileID: 11400000, guid: 6098be7639e614444af9f087d7fdc4ba, type: 2}
+  - {fileID: 11400000, guid: ffe99b23f56e4eb45814d6520d7aca2b, type: 2}
+  - {fileID: 11400000, guid: a24a36d7e5ff8f94486deda000aa0a47, type: 2}
+  speed: 20
 --- !u!1 &1045749441
 GameObject:
   m_ObjectHideFlags: 3
@@ -88413,7 +88667,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d2d6f2f78745f444a7734669539a84b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyInfoText: {fileID: 0}
 --- !u!114 &1179103258
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -89407,7 +89660,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d2d6f2f78745f444a7734669539a84b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyInfoText: {fileID: 0}
 --- !u!114 &1260198920
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -93578,7 +93830,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d2d6f2f78745f444a7734669539a84b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyInfoText: {fileID: 0}
 --- !u!114 &1363615802
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -102150,7 +102401,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d2d6f2f78745f444a7734669539a84b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyInfoText: {fileID: 0}
 --- !u!114 &1462968854
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -102242,6 +102492,7 @@ GameObject:
   - component: {fileID: 1465809291}
   - component: {fileID: 1465809289}
   - component: {fileID: 1465809293}
+  - component: {fileID: 1465809294}
   m_Layer: 7
   m_Name: Barrier (7)
   m_TagString: Enemy_Attack
@@ -102425,6 +102676,31 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.1, y: 2.1800003}
   m_EdgeRadius: 0
+--- !u!114 &1465809294
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1465809287}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1269e6a571e1c134db219bc1e9322734, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shapes:
+  - {fileID: 11400000, guid: 839effa61298c834d8d9e0545f1701d0, type: 2}
+  - {fileID: 11400000, guid: 8c21cbeb05d163f428e4d577d16584ef, type: 2}
+  - {fileID: 11400000, guid: 246b6306b36ed5a4e9e0270870b3ffc6, type: 2}
+  - {fileID: 11400000, guid: 4afd1929adc3e4b408cff7fe8c1ac0dd, type: 2}
+  - {fileID: 11400000, guid: 25b883e0f7078d04d96626e0ada4e069, type: 2}
+  - {fileID: 11400000, guid: 65f0ededa6dda3b4988a1cc50d429075, type: 2}
+  - {fileID: 11400000, guid: 3c8cbc5763e04414fa9aca7170ebf633, type: 2}
+  - {fileID: 11400000, guid: 1251672eb88019745a292f525966d814, type: 2}
+  - {fileID: 11400000, guid: 6098be7639e614444af9f087d7fdc4ba, type: 2}
+  - {fileID: 11400000, guid: ffe99b23f56e4eb45814d6520d7aca2b, type: 2}
+  - {fileID: 11400000, guid: a24a36d7e5ff8f94486deda000aa0a47, type: 2}
+  speed: 20
 --- !u!1 &1472015288
 GameObject:
   m_ObjectHideFlags: 0
@@ -111447,7 +111723,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d2d6f2f78745f444a7734669539a84b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyInfoText: {fileID: 0}
 --- !u!114 &1592226968
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -111669,7 +111944,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d2d6f2f78745f444a7734669539a84b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyInfoText: {fileID: 0}
 --- !u!114 &1603923263
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -111871,6 +112145,7 @@ GameObject:
   - component: {fileID: 1627211674}
   - component: {fileID: 1627211673}
   - component: {fileID: 1627211672}
+  - component: {fileID: 1627211677}
   m_Layer: 7
   m_Name: Barrier
   m_TagString: Enemy_Attack
@@ -112027,7 +112302,7 @@ SpriteShapeRenderer:
   m_MaskInteraction: 0
   m_ShapeTexture: {fileID: 0}
   m_Sprites:
-  - {fileID: 21300000, guid: 931c640d22577b94aab8b1bcdae2eaeb, type: 3}
+  - {fileID: -1852863652, guid: cdf96ece37d3e6143b9fb53ce28672fc, type: 3}
   - {fileID: 21300000, guid: 608e61deb05c54660bebf5a4dd2ee02d, type: 3}
   - {fileID: 21300000, guid: 608e61deb05c54660bebf5a4dd2ee02d, type: 3}
   - {fileID: 21300000, guid: 608e61deb05c54660bebf5a4dd2ee02d, type: 3}
@@ -112054,6 +112329,31 @@ Transform:
   m_Father: {fileID: 415143815}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
+--- !u!114 &1627211677
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1627211671}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1269e6a571e1c134db219bc1e9322734, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shapes:
+  - {fileID: 11400000, guid: 839effa61298c834d8d9e0545f1701d0, type: 2}
+  - {fileID: 11400000, guid: 8c21cbeb05d163f428e4d577d16584ef, type: 2}
+  - {fileID: 11400000, guid: 246b6306b36ed5a4e9e0270870b3ffc6, type: 2}
+  - {fileID: 11400000, guid: 4afd1929adc3e4b408cff7fe8c1ac0dd, type: 2}
+  - {fileID: 11400000, guid: 25b883e0f7078d04d96626e0ada4e069, type: 2}
+  - {fileID: 11400000, guid: 65f0ededa6dda3b4988a1cc50d429075, type: 2}
+  - {fileID: 11400000, guid: 3c8cbc5763e04414fa9aca7170ebf633, type: 2}
+  - {fileID: 11400000, guid: 1251672eb88019745a292f525966d814, type: 2}
+  - {fileID: 11400000, guid: 6098be7639e614444af9f087d7fdc4ba, type: 2}
+  - {fileID: 11400000, guid: ffe99b23f56e4eb45814d6520d7aca2b, type: 2}
+  - {fileID: 11400000, guid: a24a36d7e5ff8f94486deda000aa0a47, type: 2}
+  speed: 20
 --- !u!1 &1627808967
 GameObject:
   m_ObjectHideFlags: 0
@@ -112142,6 +112442,7 @@ GameObject:
   - component: {fileID: 1630731623}
   - component: {fileID: 1630731622}
   - component: {fileID: 1630731621}
+  - component: {fileID: 1630731626}
   m_Layer: 7
   m_Name: Barrier (1)
   m_TagString: Enemy_Attack
@@ -112298,7 +112599,7 @@ SpriteShapeRenderer:
   m_MaskInteraction: 0
   m_ShapeTexture: {fileID: 0}
   m_Sprites:
-  - {fileID: 21300000, guid: 931c640d22577b94aab8b1bcdae2eaeb, type: 3}
+  - {fileID: -1852863652, guid: cdf96ece37d3e6143b9fb53ce28672fc, type: 3}
   - {fileID: 21300000, guid: 608e61deb05c54660bebf5a4dd2ee02d, type: 3}
   - {fileID: 21300000, guid: 608e61deb05c54660bebf5a4dd2ee02d, type: 3}
   - {fileID: 21300000, guid: 608e61deb05c54660bebf5a4dd2ee02d, type: 3}
@@ -112325,6 +112626,31 @@ Transform:
   m_Father: {fileID: 415143815}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
+--- !u!114 &1630731626
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1630731620}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1269e6a571e1c134db219bc1e9322734, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shapes:
+  - {fileID: 11400000, guid: 839effa61298c834d8d9e0545f1701d0, type: 2}
+  - {fileID: 11400000, guid: 8c21cbeb05d163f428e4d577d16584ef, type: 2}
+  - {fileID: 11400000, guid: 246b6306b36ed5a4e9e0270870b3ffc6, type: 2}
+  - {fileID: 11400000, guid: 4afd1929adc3e4b408cff7fe8c1ac0dd, type: 2}
+  - {fileID: 11400000, guid: 25b883e0f7078d04d96626e0ada4e069, type: 2}
+  - {fileID: 11400000, guid: 65f0ededa6dda3b4988a1cc50d429075, type: 2}
+  - {fileID: 11400000, guid: 3c8cbc5763e04414fa9aca7170ebf633, type: 2}
+  - {fileID: 11400000, guid: 1251672eb88019745a292f525966d814, type: 2}
+  - {fileID: 11400000, guid: 6098be7639e614444af9f087d7fdc4ba, type: 2}
+  - {fileID: 11400000, guid: ffe99b23f56e4eb45814d6520d7aca2b, type: 2}
+  - {fileID: 11400000, guid: a24a36d7e5ff8f94486deda000aa0a47, type: 2}
+  speed: 20
 --- !u!1001 &1632556883
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -112404,6 +112730,7 @@ GameObject:
   - component: {fileID: 1646646714}
   - component: {fileID: 1646646713}
   - component: {fileID: 1646646712}
+  - component: {fileID: 1646646715}
   m_Layer: 7
   m_Name: Barrier (9)
   m_TagString: Enemy_Attack
@@ -112571,6 +112898,31 @@ SpriteShapeRenderer:
   m_LocalAABB:
     m_Center: {x: 0, y: 0.935, z: 0}
     m_Extent: {x: 0.08, y: 1.025, z: 0}
+--- !u!114 &1646646715
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1646646710}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1269e6a571e1c134db219bc1e9322734, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shapes:
+  - {fileID: 11400000, guid: 839effa61298c834d8d9e0545f1701d0, type: 2}
+  - {fileID: 11400000, guid: 8c21cbeb05d163f428e4d577d16584ef, type: 2}
+  - {fileID: 11400000, guid: 246b6306b36ed5a4e9e0270870b3ffc6, type: 2}
+  - {fileID: 11400000, guid: 4afd1929adc3e4b408cff7fe8c1ac0dd, type: 2}
+  - {fileID: 11400000, guid: 25b883e0f7078d04d96626e0ada4e069, type: 2}
+  - {fileID: 11400000, guid: 65f0ededa6dda3b4988a1cc50d429075, type: 2}
+  - {fileID: 11400000, guid: 3c8cbc5763e04414fa9aca7170ebf633, type: 2}
+  - {fileID: 11400000, guid: 1251672eb88019745a292f525966d814, type: 2}
+  - {fileID: 11400000, guid: 6098be7639e614444af9f087d7fdc4ba, type: 2}
+  - {fileID: 11400000, guid: ffe99b23f56e4eb45814d6520d7aca2b, type: 2}
+  - {fileID: 11400000, guid: a24a36d7e5ff8f94486deda000aa0a47, type: 2}
+  speed: 20
 --- !u!1 &1648349907
 GameObject:
   m_ObjectHideFlags: 0
@@ -112811,17 +113163,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &1661634856 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1840072536178072190, guid: 78dc93147c2de434799edef0dcd1e034, type: 3}
-  m_PrefabInstance: {fileID: 310455811}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1669728937
 GameObject:
   m_ObjectHideFlags: 0
@@ -113722,7 +114063,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d2d6f2f78745f444a7734669539a84b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyInfoText: {fileID: 0}
 --- !u!114 &1738626563
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -114468,7 +114808,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nextLevel: Level 3
-  checkpointNumber: 4
+  checkpointNumber: 5
   isFinalLevel: 1
   winMenu: {fileID: 310455813}
 --- !u!1 &1798367369
@@ -118203,6 +118543,7 @@ GameObject:
   - component: {fileID: 1858370925}
   - component: {fileID: 1858370924}
   - component: {fileID: 1858370923}
+  - component: {fileID: 1858370927}
   m_Layer: 7
   m_Name: Barrier (3)
   m_TagString: Enemy_Attack
@@ -118386,6 +118727,31 @@ SpriteShapeRenderer:
   m_LocalAABB:
     m_Center: {x: 0, y: 0.63500005, z: 0}
     m_Extent: {x: 0.08, y: 0.725, z: 0}
+--- !u!114 &1858370927
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1858370921}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1269e6a571e1c134db219bc1e9322734, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shapes:
+  - {fileID: 11400000, guid: 839effa61298c834d8d9e0545f1701d0, type: 2}
+  - {fileID: 11400000, guid: 8c21cbeb05d163f428e4d577d16584ef, type: 2}
+  - {fileID: 11400000, guid: 246b6306b36ed5a4e9e0270870b3ffc6, type: 2}
+  - {fileID: 11400000, guid: 4afd1929adc3e4b408cff7fe8c1ac0dd, type: 2}
+  - {fileID: 11400000, guid: 25b883e0f7078d04d96626e0ada4e069, type: 2}
+  - {fileID: 11400000, guid: 65f0ededa6dda3b4988a1cc50d429075, type: 2}
+  - {fileID: 11400000, guid: 3c8cbc5763e04414fa9aca7170ebf633, type: 2}
+  - {fileID: 11400000, guid: 1251672eb88019745a292f525966d814, type: 2}
+  - {fileID: 11400000, guid: 6098be7639e614444af9f087d7fdc4ba, type: 2}
+  - {fileID: 11400000, guid: ffe99b23f56e4eb45814d6520d7aca2b, type: 2}
+  - {fileID: 11400000, guid: a24a36d7e5ff8f94486deda000aa0a47, type: 2}
+  speed: 20
 --- !u!1 &1865994897
 GameObject:
   m_ObjectHideFlags: 0
@@ -125821,6 +126187,7 @@ GameObject:
   - component: {fileID: 1867156919}
   - component: {fileID: 1867156921}
   - component: {fileID: 1867156922}
+  - component: {fileID: 1867156923}
   m_Layer: 7
   m_Name: Barrier
   m_TagString: Enemy_Attack
@@ -126004,6 +126371,31 @@ MonoBehaviour:
   flashes: 3
   normal: {r: 1, g: 1, b: 1, a: 1}
   transparent: {r: 1, g: 1, b: 1, a: 0}
+--- !u!114 &1867156923
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1867156917}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1269e6a571e1c134db219bc1e9322734, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shapes:
+  - {fileID: 11400000, guid: 839effa61298c834d8d9e0545f1701d0, type: 2}
+  - {fileID: 11400000, guid: 8c21cbeb05d163f428e4d577d16584ef, type: 2}
+  - {fileID: 11400000, guid: 246b6306b36ed5a4e9e0270870b3ffc6, type: 2}
+  - {fileID: 11400000, guid: 4afd1929adc3e4b408cff7fe8c1ac0dd, type: 2}
+  - {fileID: 11400000, guid: 25b883e0f7078d04d96626e0ada4e069, type: 2}
+  - {fileID: 11400000, guid: 65f0ededa6dda3b4988a1cc50d429075, type: 2}
+  - {fileID: 11400000, guid: 3c8cbc5763e04414fa9aca7170ebf633, type: 2}
+  - {fileID: 11400000, guid: 1251672eb88019745a292f525966d814, type: 2}
+  - {fileID: 11400000, guid: 6098be7639e614444af9f087d7fdc4ba, type: 2}
+  - {fileID: 11400000, guid: ffe99b23f56e4eb45814d6520d7aca2b, type: 2}
+  - {fileID: 11400000, guid: a24a36d7e5ff8f94486deda000aa0a47, type: 2}
+  speed: 20
 --- !u!1 &1867780932
 GameObject:
   m_ObjectHideFlags: 0
@@ -126222,7 +126614,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d2d6f2f78745f444a7734669539a84b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyInfoText: {fileID: 0}
 --- !u!114 &1870896521
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -126324,6 +126715,7 @@ GameObject:
   - component: {fileID: 1877285540}
   - component: {fileID: 1877285539}
   - component: {fileID: 1877285538}
+  - component: {fileID: 1877285543}
   m_Layer: 7
   m_Name: Barrier (2)
   m_TagString: Enemy_Attack
@@ -126480,7 +126872,7 @@ SpriteShapeRenderer:
   m_MaskInteraction: 0
   m_ShapeTexture: {fileID: 0}
   m_Sprites:
-  - {fileID: 21300000, guid: 931c640d22577b94aab8b1bcdae2eaeb, type: 3}
+  - {fileID: -1852863652, guid: cdf96ece37d3e6143b9fb53ce28672fc, type: 3}
   - {fileID: 21300000, guid: 608e61deb05c54660bebf5a4dd2ee02d, type: 3}
   - {fileID: 21300000, guid: 608e61deb05c54660bebf5a4dd2ee02d, type: 3}
   - {fileID: 21300000, guid: 608e61deb05c54660bebf5a4dd2ee02d, type: 3}
@@ -126507,6 +126899,31 @@ Transform:
   m_Father: {fileID: 415143815}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
+--- !u!114 &1877285543
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1877285537}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1269e6a571e1c134db219bc1e9322734, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shapes:
+  - {fileID: 11400000, guid: 839effa61298c834d8d9e0545f1701d0, type: 2}
+  - {fileID: 11400000, guid: 8c21cbeb05d163f428e4d577d16584ef, type: 2}
+  - {fileID: 11400000, guid: 246b6306b36ed5a4e9e0270870b3ffc6, type: 2}
+  - {fileID: 11400000, guid: 4afd1929adc3e4b408cff7fe8c1ac0dd, type: 2}
+  - {fileID: 11400000, guid: 25b883e0f7078d04d96626e0ada4e069, type: 2}
+  - {fileID: 11400000, guid: 65f0ededa6dda3b4988a1cc50d429075, type: 2}
+  - {fileID: 11400000, guid: 3c8cbc5763e04414fa9aca7170ebf633, type: 2}
+  - {fileID: 11400000, guid: 1251672eb88019745a292f525966d814, type: 2}
+  - {fileID: 11400000, guid: 6098be7639e614444af9f087d7fdc4ba, type: 2}
+  - {fileID: 11400000, guid: ffe99b23f56e4eb45814d6520d7aca2b, type: 2}
+  - {fileID: 11400000, guid: a24a36d7e5ff8f94486deda000aa0a47, type: 2}
+  speed: 20
 --- !u!1 &1882526564
 GameObject:
   m_ObjectHideFlags: 0
@@ -127010,6 +127427,7 @@ GameObject:
   - component: {fileID: 1925588281}
   - component: {fileID: 1925588280}
   - component: {fileID: 1925588279}
+  - component: {fileID: 1925588282}
   m_Layer: 7
   m_Name: Barrier (8)
   m_TagString: Enemy_Attack
@@ -127177,6 +127595,31 @@ SpriteShapeRenderer:
   m_LocalAABB:
     m_Center: {x: 0, y: 0.935, z: 0}
     m_Extent: {x: 0.08, y: 1.025, z: 0}
+--- !u!114 &1925588282
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1925588277}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1269e6a571e1c134db219bc1e9322734, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shapes:
+  - {fileID: 11400000, guid: 839effa61298c834d8d9e0545f1701d0, type: 2}
+  - {fileID: 11400000, guid: 8c21cbeb05d163f428e4d577d16584ef, type: 2}
+  - {fileID: 11400000, guid: 246b6306b36ed5a4e9e0270870b3ffc6, type: 2}
+  - {fileID: 11400000, guid: 4afd1929adc3e4b408cff7fe8c1ac0dd, type: 2}
+  - {fileID: 11400000, guid: 25b883e0f7078d04d96626e0ada4e069, type: 2}
+  - {fileID: 11400000, guid: 65f0ededa6dda3b4988a1cc50d429075, type: 2}
+  - {fileID: 11400000, guid: 3c8cbc5763e04414fa9aca7170ebf633, type: 2}
+  - {fileID: 11400000, guid: 1251672eb88019745a292f525966d814, type: 2}
+  - {fileID: 11400000, guid: 6098be7639e614444af9f087d7fdc4ba, type: 2}
+  - {fileID: 11400000, guid: ffe99b23f56e4eb45814d6520d7aca2b, type: 2}
+  - {fileID: 11400000, guid: a24a36d7e5ff8f94486deda000aa0a47, type: 2}
+  speed: 20
 --- !u!1001 &1933241423
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -127633,7 +128076,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d2d6f2f78745f444a7734669539a84b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyInfoText: {fileID: 0}
 --- !u!114 &1967025634
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -128115,7 +128557,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d2d6f2f78745f444a7734669539a84b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyInfoText: {fileID: 0}
 --- !u!114 &2018774739
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -128271,7 +128712,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d2d6f2f78745f444a7734669539a84b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyInfoText: {fileID: 0}
 --- !u!114 &2035613867
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -128395,7 +128835,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d2d6f2f78745f444a7734669539a84b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyInfoText: {fileID: 0}
 --- !u!114 &2046543782
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -131082,6 +131521,7 @@ GameObject:
   - component: {fileID: 2131659283}
   - component: {fileID: 2131659282}
   - component: {fileID: 2131659281}
+  - component: {fileID: 2131659284}
   m_Layer: 7
   m_Name: Barrier (6)
   m_TagString: Enemy_Attack
@@ -131249,6 +131689,31 @@ SpriteShapeRenderer:
   m_LocalAABB:
     m_Center: {x: 0, y: 0.935, z: 0}
     m_Extent: {x: 0.08, y: 1.025, z: 0}
+--- !u!114 &2131659284
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2131659279}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1269e6a571e1c134db219bc1e9322734, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shapes:
+  - {fileID: 11400000, guid: 839effa61298c834d8d9e0545f1701d0, type: 2}
+  - {fileID: 11400000, guid: 8c21cbeb05d163f428e4d577d16584ef, type: 2}
+  - {fileID: 11400000, guid: 246b6306b36ed5a4e9e0270870b3ffc6, type: 2}
+  - {fileID: 11400000, guid: 4afd1929adc3e4b408cff7fe8c1ac0dd, type: 2}
+  - {fileID: 11400000, guid: 25b883e0f7078d04d96626e0ada4e069, type: 2}
+  - {fileID: 11400000, guid: 65f0ededa6dda3b4988a1cc50d429075, type: 2}
+  - {fileID: 11400000, guid: 3c8cbc5763e04414fa9aca7170ebf633, type: 2}
+  - {fileID: 11400000, guid: 1251672eb88019745a292f525966d814, type: 2}
+  - {fileID: 11400000, guid: 6098be7639e614444af9f087d7fdc4ba, type: 2}
+  - {fileID: 11400000, guid: ffe99b23f56e4eb45814d6520d7aca2b, type: 2}
+  - {fileID: 11400000, guid: a24a36d7e5ff8f94486deda000aa0a47, type: 2}
+  speed: 20
 --- !u!1 &2134090972
 GameObject:
   m_ObjectHideFlags: 0

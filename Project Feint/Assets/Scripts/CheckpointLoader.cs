@@ -9,24 +9,28 @@ public class CheckpointLoader : MonoBehaviour
 	{
 		if (checkpoint == 0)
 		{
-			SceneManager.LoadScene("Level 1");
+			SceneManager.LoadScene("Tutorial");
 			Save.SaveCheckpoint(0);
 		}
 		else if (checkpoint == 1)
 		{
-			SceneManager.LoadScene("Level 1B");
+			SceneManager.LoadScene("Level 1");
 		}
 		else if (checkpoint == 2)
 		{
-			SceneManager.LoadScene("Level 2");
+			SceneManager.LoadScene("Level 1B");
 		}
 		else if (checkpoint == 3)
 		{
-			SceneManager.LoadScene("Level 2B");
+			SceneManager.LoadScene("Level 2");
 		}
 		else if (checkpoint == 4)
 		{
-			SceneManager.LoadScene("Level 3");
+			SceneManager.LoadScene("Level 2B");
+		}
+		else if (checkpoint == 5)
+		{
+			SceneManager.LoadScene("Boss Level");
 		}
 	}
 }
