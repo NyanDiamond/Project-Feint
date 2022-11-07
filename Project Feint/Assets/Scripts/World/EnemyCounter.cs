@@ -101,11 +101,13 @@ public class EnemyCounter : MonoBehaviour
         {
             camera.GetComponent<CameraBehavior>().StealthBreak();
         }
-		mainLight.StealthBreak();
+        if(enemies.Count>0)
+		    mainLight.StealthBreak();
 
         foreach (GameObject temp in doorsave)
         {
-            temp.SetActive(true);
+            if(enemies.Count>0)
+                temp.SetActive(true);
         }
 
         foreach(GameObject turret in turrets)
@@ -113,8 +115,11 @@ public class EnemyCounter : MonoBehaviour
             Debug.Log("activate turrets");
             turret.GetComponent<TurretBehavior>().Activate();
         }
-        stealth = false;
-        doorClosed = true;
+        if (enemies.Count > 0)
+        {
+            stealth = false;
+            doorClosed = true;
+        }
     }
 
     public static void TeleporterCheck()

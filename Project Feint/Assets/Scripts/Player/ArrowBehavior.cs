@@ -35,7 +35,8 @@ public class ArrowBehavior : MonoBehaviour
 
     public void TurnOff()
     {
-        arrow.SetActive(false);
+        if(arrow!=null)
+            arrow.SetActive(false);
         teleporter = null;
     }
 }
