@@ -5,34 +5,38 @@ using UnityEngine.UI;
 using UnityEngine.U2D;
 public class DisappearAfterSeconds : MonoBehaviour
 {
-    public float lifeTime;
+    [Header("Set lifetime with a DisappearCaller script")]
     public int flashes;
     public Color normal;
     public Color transparent;
-    private SpriteShapeRenderer sr;
+    public bool isEnergyBarrier;
+    private SpriteRenderer sr;
 	private void Start()
 	{
-        sr = GetComponent<SpriteShapeRenderer>();
+        sr = GetComponent<SpriteRenderer>();
     }
 	public void StartDisappearing()
     {
-        StartCoroutine(Disappear(lifeTime));
+        StartCoroutine(Disappear());
     }
-    
 
-    IEnumerator Disappear(float seconds)
+	IEnumerator Disappear()
     {
-        yield return new WaitForSeconds(seconds);
-        int temp = 0;
+        if (!isEnergyBarrier)
+		{
+            int temp = 0;
 
-        while(temp<flashes)
-        {
-            yield return new WaitForSeconds(0.2f);
-            sr.color = transparent;
-            yield return new WaitForSeconds(0.2f);
-            sr.color = normal;
-            temp++;
+            while (temp < flashes)
+            {
+                //Debug.Log("Started disappearing!");
+                yield return new WaitForSeconds(0.3f);
+                sr.color = transparent;
+                yield return new WaitForSeconds(0.3f);
+                sr.color = normal;
+                temp++;
+            }
         }
+        
         Destroy(gameObject);
     }
 }

@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 78965235}
   m_Layer: 3
   m_Name: GroundCheck
-  m_TagString: Untagged
+  m_TagString: GroundCheck
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -142,9 +142,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingLayerID: -478032439
+  m_SortingLayer: 2
+  m_SortingOrder: -100
   m_Sprite: {fileID: 21300000, guid: 44d519522bbef6345b5f8a2b9f8920d4, type: 3}
   m_Color: {r: 0.98929596, g: 1, b: 0, a: 1}
   m_FlipX: 0
@@ -340,7 +340,7 @@ MonoBehaviour:
   throwPower: 400
   teleporter: {fileID: 4799860142897947029, guid: 89c36c74f607bf44fb0fe3aa6acb66fc, type: 3}
   throwPoint: {fileID: 5148934879775044895}
-  teleportCDTimer: 2
+  teleportCDTimer: 1.5
 --- !u!114 &5148934879911158275
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -357,7 +357,7 @@ MonoBehaviour:
   transparent: {r: 1, g: 1, b: 1, a: 0}
   health: 3
   invulnerability: 3
-  damaged: {fileID: -903491401, guid: 677b486977f868d4b8298efbd5e36be2, type: 3}
+  damaged: {fileID: 21300000, guid: 6010776df265cb94f866f7cf4080b1f1, type: 3}
   undamaged: {fileID: -1365433892, guid: 677b486977f868d4b8298efbd5e36be2, type: 3}
 --- !u!61 &5148934879911158272
 BoxCollider2D:

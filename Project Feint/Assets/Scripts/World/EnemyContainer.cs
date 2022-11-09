@@ -36,11 +36,13 @@ public class EnemyContainer : MonoBehaviour
                 EnemyCounter.cameras.Add(i);
             }
             EnemyCounter.turrets.Clear();
-            if(turretsInLevel.Length>0)
-            foreach(GameObject i in turretsInLevel)
+
+			if (turretsInLevel.Length > 0)
+            foreach (GameObject i in turretsInLevel)
             {
                 EnemyCounter.turrets.Add(i);
             }
+            
             DestroyAfterSeconds(0.5f);
         }
     }

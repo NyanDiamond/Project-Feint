@@ -22,6 +22,7 @@ TagManager:
   - DeathBox
   - Cooldown
   - Arrow
+  - GroundCheck
   layers:
   - Default
   - TransparentFX

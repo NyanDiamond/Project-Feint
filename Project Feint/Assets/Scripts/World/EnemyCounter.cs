@@ -10,7 +10,7 @@ public class EnemyCounter : MonoBehaviour
     public static bool countChanged = false;
     public static List<GameObject> doorsave = new List<GameObject>();
     public static List<GameObject> turrets = new List<GameObject>();
-    public static LightController mainLight;
+    public static EnemyInfoController enemyInfoScript;
     public static bool stealth = true;
     public static bool doorClosed = false;
 
@@ -24,7 +24,7 @@ public class EnemyCounter : MonoBehaviour
         stealth = true;
         doorClosed = false;
         //doorsave = GameObject.FindGameObjectsWithTag("Door");
-        mainLight = GameObject.FindGameObjectWithTag("MainCamera").transform.Find("Light").GetComponent<LightController>();
+        enemyInfoScript = GameObject.FindGameObjectWithTag("GameController").GetComponent<EnemyInfoController>();
     }
     private void LateUpdate()
     {
@@ -36,7 +36,8 @@ public class EnemyCounter : MonoBehaviour
             { 
                 temp.SetActive(false);
             }
-            mainLight.AllEnemiesDead();
+            doorClosed = false;
+            enemyInfoScript.AllEnemiesDead();
             SoundPlayer sp = GameObject.Find("GameController").GetComponent<SoundPlayer>();
             sp.PlaySound2();
         }
@@ -69,7 +70,7 @@ public class EnemyCounter : MonoBehaviour
         {
             temp.SetActive(false);
         }
-        mainLight.StealthStart();
+        enemyInfoScript.StealthStart();
         stealth = true;
         doorClosed = false;
     }
@@ -81,11 +82,11 @@ public class EnemyCounter : MonoBehaviour
         }
         if (isDark)
 		{
-            mainLight.EnterDarkRoom();
+            enemyInfoScript.EnterDarkRoom();
 		}
 		else
 		{
-            mainLight.EnterBrightRoom();
+            enemyInfoScript.EnterBrightRoom();
 		}
         stealth = true;
         doorClosed = false;
@@ -93,7 +94,8 @@ public class EnemyCounter : MonoBehaviour
 
     public static void StealthBreak()
     {
-        foreach(GameObject enemy in enemies)
+        enemyInfoScript.StealthBreak();
+        foreach (GameObject enemy in enemies)
         {
             enemy.GetComponent<ExperimentalEnemyMovement>().StealthBreak();
         }
@@ -101,7 +103,6 @@ public class EnemyCounter : MonoBehaviour
         {
             camera.GetComponent<CameraBehavior>().StealthBreak();
         }
-        mainLight.StealthBreak();
 
         foreach (GameObject temp in doorsave)
         {
