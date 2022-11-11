@@ -112,33 +112,17 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1462074971966862156}
     m_Modifications:
-    - target: {fileID: 210523251, guid: af04135326ff0fb449293355e5c6ac01, type: 3}
-      propertyPath: m_Layer
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 548293692, guid: af04135326ff0fb449293355e5c6ac01, type: 3}
-      propertyPath: tooFarRange
-      value: 0.8
-      objectReference: {fileID: 0}
-    - target: {fileID: 1482258612694509290, guid: af04135326ff0fb449293355e5c6ac01, type: 3}
-      propertyPath: m_Layer
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 2407746671680765805, guid: af04135326ff0fb449293355e5c6ac01, type: 3}
-      propertyPath: m_Layer
-      value: 6
-      objectReference: {fileID: 0}
     - target: {fileID: 5179965857752857570, guid: af04135326ff0fb449293355e5c6ac01, type: 3}
       propertyPath: m_Name
       value: ShieldEnemy
       objectReference: {fileID: 0}
     - target: {fileID: 5179965857752857571, guid: af04135326ff0fb449293355e5c6ac01, type: 3}
       propertyPath: m_Size.x
-      value: 0.20213298
+      value: 0.12601072
       objectReference: {fileID: 0}
     - target: {fileID: 5179965857752857571, guid: af04135326ff0fb449293355e5c6ac01, type: 3}
       propertyPath: m_Offset.x
-      value: 0.08660912
+      value: 0.04854801
       objectReference: {fileID: 0}
     - target: {fileID: 5179965857752857576, guid: af04135326ff0fb449293355e5c6ac01, type: 3}
       propertyPath: m_RootOrder

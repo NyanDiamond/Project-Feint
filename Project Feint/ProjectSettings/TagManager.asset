@@ -23,6 +23,7 @@ TagManager:
   - Cooldown
   - Arrow
   - GroundCheck
+  - Generator
   layers:
   - Default
   - TransparentFX
@@ -38,7 +39,7 @@ TagManager:
   - Obstacle
   - Teleporter Phasable
   - Turret
-  - 
+  - Generator
   - 
   - 
   - 

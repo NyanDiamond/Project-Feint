@@ -281,6 +281,7 @@ public class ExperimentalEnemyMovement : MonoBehaviour
             //Debug.Log("Moving");
             an.SetBool("Walking", true);
             an.SetBool("Forward", true);
+
             float wayPointDistance = Vector2.Distance(centerPoint.position, path.vectorPath[currentWaypoint]);
             if(wayPointDistance < nextWaypointDistance)
             {
@@ -391,6 +392,10 @@ public class ExperimentalEnemyMovement : MonoBehaviour
     {
         aware = true;
         alarmSounded = true;
+        if(au == null)
+        {
+            au = GetComponent<AlarmUI>();
+        }
         au.AlarmRaised();
         StartCoroutine(DeleteAlarm());
     }
@@ -503,7 +508,7 @@ public class ExperimentalEnemyMovement : MonoBehaviour
 
     private IEnumerator DeleteAlarm()
     {
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(1f);
         Destroy(au);
         alarmDestroyed = true;
     }

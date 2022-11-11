@@ -14,7 +14,8 @@ public class EnemyCounter : MonoBehaviour
     public static bool stealth = true;
     public static bool doorClosed = false;
 
-    private void Awake()
+
+    protected virtual void Awake()
     {
         enemies = new List<GameObject>();
         count = 0;
@@ -26,7 +27,7 @@ public class EnemyCounter : MonoBehaviour
         //doorsave = GameObject.FindGameObjectsWithTag("Door");
         enemyInfoScript = GameObject.FindGameObjectWithTag("GameController").GetComponent<EnemyInfoController>();
     }
-    private void LateUpdate()
+    protected virtual void LateUpdate()
     {
         if (count <= 0 && countChanged && !stealth)
         {
@@ -126,7 +127,7 @@ public class EnemyCounter : MonoBehaviour
     {
         foreach(GameObject enemy in enemies)
         {
-            enemy.GetComponent<ExperimentalEnemyMovement>().TeleporterCheck();
+            enemy.GetComponentInChildren<ExperimentalEnemyMovement>().TeleporterCheck();
         }
     }
 }

@@ -96,12 +96,12 @@ public class PlayerMovement : MonoBehaviour
         }
 
         grounded = GroundCheck();
-        if (!grounded && rb.velocity.y > 0)
+        if (!grounded && rb.velocity.y > 0.1)
         {
             //Debug.Log("Jumping");
             an.SetBool("Jumping", true);
         }
-        if (grounded && rb.velocity.y <= 0)
+        if (grounded && rb.velocity.y <= 0.1)
         {
             //Debug.Log("Landed");
             an.SetBool("Jumping", false);

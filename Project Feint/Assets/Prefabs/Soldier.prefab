@@ -532,7 +532,7 @@ MonoBehaviour:
   viewPoint: {fileID: 2881424221114852466}
   layermask:
     serializedVersion: 2
-    m_Bits: 2057
+    m_Bits: 18441
   centerPoint: {fileID: 3796673790352763290}
   rotationFix: 90
   hitstun: 0.5

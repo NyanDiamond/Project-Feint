@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 210523252}
   - component: {fileID: 210523253}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Light 2D (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -120,7 +120,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5451462094590933763}
   - component: {fileID: 1544461792}
-  m_Layer: 7
+  m_Layer: 6
   m_Name: Attack
   m_TagString: Enemy_Attack
   m_Icon: {fileID: 0}
@@ -178,7 +178,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3403115458913862832}
   - component: {fileID: 5471327714099528662}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Alarm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -354,7 +354,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d738ca16f4f2f2945997f76a565f5acc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  grounded: 1
+  grounded: 0
 --- !u!1 &4848175177217112539
 GameObject:
   m_ObjectHideFlags: 0
@@ -554,7 +554,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.056355722, y: 0.15143833}
+  m_Offset: {x: 0.08660912, y: 0.15143833}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.07428255, y: 0.01814044}
@@ -565,7 +565,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.14162613, y: 0.31}
+  m_Size: {x: 0.20213298, y: 0.31}
   m_EdgeRadius: 0
 --- !u!114 &4460816336778399355
 MonoBehaviour:
@@ -624,14 +624,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movementSpeed: 1.5
-  tooFarRange: 1
+  tooFarRange: 0.8
   attackSpeed: 1
   bullet: {fileID: 2429738046576863917, guid: 3d0aabac98b0528488428dcf49ee627c, type: 3}
   shootPoint: {fileID: 1482258612694509290}
   viewPoint: {fileID: 2881424221114852466}
   layermask:
     serializedVersion: 2
-    m_Bits: 2057
+    m_Bits: 18441
   centerPoint: {fileID: 3796673790352763290}
   rotationFix: 90
   hitstun: 0.5
