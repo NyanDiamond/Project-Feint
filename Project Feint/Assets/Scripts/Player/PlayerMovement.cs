@@ -32,6 +32,8 @@ public class PlayerMovement : MonoBehaviour
     public float teleportCDTimer;
     private float teleportCD = 2f;
     private Image cooldownIndicator;
+
+    private float gravity;
     
     private Coroutine combo;
     // Start is called before the first frame update
@@ -44,6 +46,7 @@ public class PlayerMovement : MonoBehaviour
         an = GetComponent<Animator>();
         gr = transform.Find("GroundCheck").GetComponent<GroundChecker>();
         combo = null;
+        gravity = rb.gravityScale;
     }
 
     private void OnEnable()
@@ -51,9 +54,12 @@ public class PlayerMovement : MonoBehaviour
         
         pc.Enable();
         pc.Default.Jump.performed += _ => Jump();
-        pc.Default.Teleport.performed += _ => TeleportMK();
+        pc.Default.TeleportMK.performed += _ => TeleportMK();
+        pc.Default.TeleportCT.performed += _ => TeleportCT();
         pc.Default.Attack.performed += _ => Attack();
         pc.Default.ReturnTeleporter.performed += _ => ReturnTP();
+        pc.Default.FastFall.performed += _ => FastFallStart();
+        pc.Default.FastFall.canceled += _ => FastFallEnd();
     }
 
     private void OnDisable()
@@ -76,6 +82,7 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+
         if (!isHit)
         {
             movement = pc.Default.Move.ReadValue<float>();
@@ -139,6 +146,37 @@ public class PlayerMovement : MonoBehaviour
         //Debug.Log(gr.grounded);
         return gr.grounded;
         
+    }
+
+    private void FastFallStart()
+    {
+        rb.gravityScale *= 1.5f;
+    }
+
+    private void FastFallEnd()
+    {
+        rb.gravityScale = gravity;
+    }
+    private void TeleportCT()
+    {
+        GameObject tp = GameObject.FindGameObjectWithTag("Teleporter");
+        if (canTP && !isHit && teleportCD >= teleportCDTimer)
+            {
+
+                //jumping = true;
+                if (tp == null)
+                {
+                Vector2 lookPos = pc.Default.TeleportAiming.ReadValue<Vector2>();
+                if (lookPos == Vector2.zero)
+                    lookPos = transform.right;
+                tp = Instantiate(teleporter, throwPoint.transform.position, Quaternion.identity);
+                tp.GetComponent<Rigidbody2D>().AddForce(lookPos.normalized * throwPower * tp.GetComponent<Rigidbody2D>().mass);
+            }
+                else
+                {
+                    Teleport(tp);
+                }
+            }
     }
 
     private void TeleportMK()
@@ -207,7 +245,7 @@ public class PlayerMovement : MonoBehaviour
                 StopCoroutine(combo);
             canAttack = false;
             isAttacking = true;
-            rb.velocity = (-transform.forward) * 0.1f;
+            //rb.velocity = (Vector2)(transform.right) * 0.4f + new Vector2 (0,rb.velocity.y);
             hit = false;
             SoundPlayer sp = GameObject.Find("GameController").GetComponent<SoundPlayer>();
             an.SetTrigger("Attack2");

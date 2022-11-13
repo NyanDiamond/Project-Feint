@@ -2,9 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 public class PauseMenu : MonoBehaviour
 {
     [SerializeField] GameObject pauseMenu;
+    [SerializeField] Button firstButton;
     // Start is called before the first frame update
     public void OnPause()
     {
@@ -12,6 +14,7 @@ public class PauseMenu : MonoBehaviour
         {
             Time.timeScale = 0f;
             pauseMenu.SetActive(true);
+            firstButton.Select();
         }
         else
         {

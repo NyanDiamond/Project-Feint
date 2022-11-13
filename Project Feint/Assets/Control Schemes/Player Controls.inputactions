@@ -24,9 +24,18 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Teleport",
+                    "name": "TeleportMK",
                     "type": "Button",
                     "id": "c2544d34-8812-4a06-83cc-a450b53bed2d",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "TeleportCT",
+                    "type": "Button",
+                    "id": "6962babb-274d-4fe8-9d10-fb98a8b6a633",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -45,6 +54,24 @@
                     "name": "ReturnTeleporter",
                     "type": "Button",
                     "id": "a6d677f2-ef9c-4064-ac8b-fb36af30cdd1",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "TeleportAiming",
+                    "type": "Value",
+                    "id": "8ddb5eda-1056-41be-8d9e-1d9c94ab54e5",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "FastFall",
+                    "type": "Button",
+                    "id": "f3cebf4c-08e6-430b-84df-1aa47e435be4",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -119,6 +146,39 @@
                     "isPartOfComposite": true
                 },
                 {
+                    "name": "Left Stick",
+                    "id": "da258b9a-bcf0-4564-9236-c439951b38ed",
+                    "path": "1DAxis",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Move",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "negative",
+                    "id": "91ea915d-302c-44b1-83d7-0b9f776a8613",
+                    "path": "<Gamepad>/leftStick/left",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "positive",
+                    "id": "c4514222-62ab-4530-b40f-873a2328cdc5",
+                    "path": "<Gamepad>/leftStick/right",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
                     "name": "",
                     "id": "c3f9bacc-4b95-4cb6-9dc7-3f80d36a3800",
                     "path": "<Keyboard>/space",
@@ -153,12 +213,23 @@
                 },
                 {
                     "name": "",
+                    "id": "92e2c9c3-4d0d-4dd6-bee9-d1ef66b73636",
+                    "path": "<Gamepad>/buttonSouth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Jump",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "8b124246-d79a-45bd-b0ef-29bfad1a82d9",
                     "path": "<Mouse>/rightButton",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Teleport",
+                    "action": "TeleportMK",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -175,12 +246,89 @@
                 },
                 {
                     "name": "",
+                    "id": "4e42486e-580e-4fe5-b032-d3cbd0b2ac10",
+                    "path": "<Gamepad>/buttonWest",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Attack",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "cf23e7e2-63d6-431f-9a64-8f5657a4b77a",
                     "path": "<Keyboard>/r",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
                     "action": "ReturnTeleporter",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "843799b7-d279-417d-a39d-d7f197c63b73",
+                    "path": "<Gamepad>/rightShoulder",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ReturnTeleporter",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "ea5fcbd5-b5f1-4c3e-afdb-9a19a617ee12",
+                    "path": "<Gamepad>/rightStick",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "TeleportAiming",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "de94ffdf-d1c0-4689-964a-4d9be49482c5",
+                    "path": "<Gamepad>/leftStick/down",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "FastFall",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "56e5c0e4-ebb4-40e7-b6e5-46bd5acb0ef7",
+                    "path": "<Keyboard>/s",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "FastFall",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "bc5dd5ef-aa30-43a5-9557-fa1d387a79b9",
+                    "path": "<Gamepad>/rightTrigger",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "TeleportCT",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "01b80e73-7ef1-4ec2-89fb-bac40886b57d",
+                    "path": "<Gamepad>/leftTrigger",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "TeleportCT",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
