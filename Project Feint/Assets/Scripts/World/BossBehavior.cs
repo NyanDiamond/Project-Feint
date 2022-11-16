@@ -1,27 +1,38 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class BossBehavior: MonoBehaviour
 {
     bool shieldUp = false;
-    int health = 4;
+    float maxHealth = 18;
+    float health = 18;
     [SerializeField] SpawnableEnemy[] wave1;
     [SerializeField] SpawnableEnemy[] wave2;
     [SerializeField] SpawnableEnemy[] wave3;
     [SerializeField] Vector2[] spawnPoints;
-    [SerializeField] GameObject shield, explosions, finalBarrier;
+    [SerializeField] GameObject shield, explosions, finalBarrier, healthBar;
 
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        if (health == maxHealth && collision.CompareTag("Player_Attack"))
+		{
+            healthBar.SetActive(true);
+		}
         if (!shieldUp && collision.CompareTag("Player_Attack"))
         {
-            shieldUp = true;
-            shield.SetActive(true);
             health--;
-            SpawnWave();
+            healthBar.GetComponent<Slider>().value = health / maxHealth;
+            if ((health+2) % 5 == 0)
+            {
+                shieldUp = true;
+                shield.SetActive(true);
+                SpawnWave();
+            }
         }
+        
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -44,20 +55,20 @@ public class BossBehavior: MonoBehaviour
     {
         switch(health)
         {
-            case 3:
+            case 13:
                 foreach(SpawnableEnemy enemy in wave1)
                 {
                     Debug.Log("spawning");
                     SpawnEnemy(enemy);
                 }
                 break;
-            case 2:
+            case 8:
                 foreach (SpawnableEnemy enemy in wave2)
                 {
                     SpawnEnemy(enemy);
                 }
                 break;
-            case 1:
+            case 3:
                 foreach (SpawnableEnemy enemy in wave3)
                 {
                     SpawnEnemy(enemy);
@@ -88,15 +99,27 @@ public class BossBehavior: MonoBehaviour
     {
         shield.SetActive(false);
         shieldUp = false;
-        if(health==1)
+        if(health<=5)
         {
+            shieldUp = true;
             finalBarrier.SetActive(true);
         }
     }
 
     void Finish()
     {
+        StartCoroutine(Explosions());
         Debug.Log("Game Over");
         return;
+    }
+    
+    private IEnumerator Explosions()
+	{
+        while (true)
+		{
+            yield return new WaitForSeconds(Random.Range(0.1f, 1));
+            Instantiate(explosions, new Vector3(Random.Range(3.5f, 7.5f), Random.Range(-3.5f, -1), 0), Quaternion.identity);
+
+        }
     }
 }
