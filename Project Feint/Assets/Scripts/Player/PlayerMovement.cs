@@ -12,7 +12,9 @@ public class PlayerMovement : MonoBehaviour
     public float throwPower;
     public GameObject teleporter;
     public GameObject throwPoint;
+    public float aimLength = 2f;
     private GroundChecker gr;
+    private LineRenderer lr;
     private float movement;
     //player components
     private Animator an;
@@ -45,6 +47,7 @@ public class PlayerMovement : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         an = GetComponent<Animator>();
         gr = transform.Find("GroundCheck").GetComponent<GroundChecker>();
+        lr = GetComponent<LineRenderer>();
         combo = null;
         gravity = rb.gravityScale;
     }
@@ -116,6 +119,22 @@ public class PlayerMovement : MonoBehaviour
             {
                 canTP = true;
             }
+        }
+
+        Vector2 lookpos = pc.Default.TeleportAiming.ReadValue<Vector2>();
+        //Debug.Log(lookpos);
+        if(lookpos != Vector2.zero && teleportCD>=teleportCDTimer)
+        {
+            //Debug.Log("Making line");
+            Vector2 currentPos = throwPoint.transform.position;
+            Vector2 target = (Vector2)throwPoint.transform.position + lookpos.normalized * aimLength;
+
+            lr.SetPositions(new Vector3[] {currentPos, target});
+            lr.enabled = true;
+        }
+        else
+        {
+            lr.enabled = false;
         }
     }
 

@@ -8,15 +8,16 @@ public class PauseMenu : MonoBehaviour
     [SerializeField] GameObject pauseMenu;
     [SerializeField] Button firstButton;
     // Start is called before the first frame update
+
     public void OnPause()
     {
-        if (!pauseMenu.activeInHierarchy)
+        if (!pauseMenu.activeInHierarchy && Time.timeScale == 1)
         {
             Time.timeScale = 0f;
             pauseMenu.SetActive(true);
             firstButton.Select();
         }
-        else
+        else if (pauseMenu.activeInHierarchy)
         {
             Time.timeScale = 1f;
             pauseMenu.SetActive(false);
