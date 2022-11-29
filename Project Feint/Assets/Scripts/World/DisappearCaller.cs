@@ -36,6 +36,7 @@ public class DisappearCaller : MonoBehaviour
 	{
         StopAllCoroutines();
 	}
+    //private IEnumerator ()
 }
 [System.Serializable] public class DisappearStats
 {

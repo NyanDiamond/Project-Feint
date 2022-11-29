@@ -19,6 +19,7 @@ public class DoorTrigger : MonoBehaviour
             EnemyCounter.count = 0;
             collision.gameObject.transform.SetPositionAndRotation(nextRoomEntryZone.transform.position, Quaternion.identity);
             environment.transform.GetChild(currentRoom - 1).gameObject.SetActive(false);
+            GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerHealthBehavior>().RecoverHealth();
         }
     }
 	private void OnDisable()

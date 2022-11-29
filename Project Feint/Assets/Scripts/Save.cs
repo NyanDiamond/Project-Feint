@@ -8,6 +8,8 @@ public class Save : MonoBehaviour
     public static void SaveCheckpoint(int value)
 	{
         PlayerPrefs.SetInt("checkpoint", value);
+        //saves a bool so that when the game loads the next scene it can display the checkpoint notice on start
+        //this only takes effect when a scene is loaded without using the LoadCheckpoint method
         PlayerPrefs.SetInt("NewCheckpoint", 1);
 	}
 

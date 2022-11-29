@@ -11,9 +11,13 @@ public class TutorialSign : MonoBehaviour
     private int textPos;
     [SerializeField] GameObject textBox;
     [SerializeField] TextMeshPro textBoxText;
-    
+    private Animator anim;
 
-    void OnContinue()
+	private void Start()
+	{
+        anim = GetComponent<Animator>();
+	}
+	void OnContinue()
     {
         if(textBox.activeInHierarchy)
         {
@@ -22,6 +26,10 @@ public class TutorialSign : MonoBehaviour
             {
                 textPos = 0;
                 textBox.SetActive(false);
+			}
+			else
+			{
+                anim.SetTrigger("Play");
             }
             textBoxText.text = text[textPos];
         }
@@ -35,6 +43,7 @@ public class TutorialSign : MonoBehaviour
             textPos = 0;
             textBoxText.text = text[textPos];
             textBox.SetActive(true);
+            anim.SetTrigger("Play");
         }
     }
 

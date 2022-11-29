@@ -19,7 +19,7 @@ public class Checkpoint : MonoBehaviour
             environment.transform.GetChild(currentRoom - 1).gameObject.SetActive(false);*/
             Debug.Log("Saving checkpoint " + checkpointNumber);
             Save.SaveCheckpoint(checkpointNumber);
-            GameObject.FindGameObjectWithTag("GameController").GetComponent<EnemyInfoController>().CheckpointNotice();
+            GameObject.FindGameObjectWithTag("GameController").GetComponent<EnemyInfoController>().CheckpointNotice(checkpointNumber);
             Destroy(gameObject);
         }
     }

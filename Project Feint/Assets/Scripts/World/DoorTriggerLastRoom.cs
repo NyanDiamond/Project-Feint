@@ -28,6 +28,7 @@ public class DoorTriggerLastRoom : MonoBehaviour
                 Save.SaveCheckpoint(checkpointNumber);
                 SceneManager.LoadScene(nextLevel);
             }
+            GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerHealthBehavior>().RecoverHealth();
         }
     }
 	private void OnDisable()

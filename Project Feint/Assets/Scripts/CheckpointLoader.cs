@@ -22,13 +22,17 @@ public class CheckpointLoader : MonoBehaviour
 		}
 		else if (checkpoint == 3)
 		{
-			SceneManager.LoadScene("Level 2");
+			SceneManager.LoadScene("Level 1C");
 		}
 		else if (checkpoint == 4)
 		{
-			SceneManager.LoadScene("Level 2B");
+			SceneManager.LoadScene("Level 2");
 		}
 		else if (checkpoint == 5)
+		{
+			SceneManager.LoadScene("Level 2B");
+		}
+		else if (checkpoint == 6)
 		{
 			SceneManager.LoadScene("Boss Level");
 		}

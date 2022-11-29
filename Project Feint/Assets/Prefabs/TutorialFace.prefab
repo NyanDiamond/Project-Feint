@@ -185,6 +185,7 @@ GameObject:
   - component: {fileID: 3857883335637084189}
   - component: {fileID: 1111586980}
   - component: {fileID: 1111586977}
+  - component: {fileID: 3018065055726216757}
   m_Layer: 0
   m_Name: TutorialFace
   m_TagString: Untagged
@@ -333,6 +334,26 @@ MonoBehaviour:
   m_DefaultActionMap: Default
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
+--- !u!95 &3018065055726216757
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3857883335637084193}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: ebacd819a5d01b949b1776d131e6024f, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &3857883335774645725
 GameObject:
   m_ObjectHideFlags: 0

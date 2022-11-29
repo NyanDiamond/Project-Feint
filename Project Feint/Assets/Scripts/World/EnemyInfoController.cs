@@ -19,13 +19,14 @@ public class EnemyInfoController : MonoBehaviour
 	public Image alarmFill;
 	public GameObject screenFilm;
 	public Light2D mainLight;
+	public Text areaNumber;
 	private bool stealthBroken = false;
 	private void Start()
 	{
 		StealthStart();
 		if (PlayerPrefs.GetInt("NewCheckpoint") == 1)
 		{
-			CheckpointNotice();
+			CheckpointNotice(PlayerPrefs.GetInt("checkpoint"));
 		}
 	}
 	public void StealthBreak()
@@ -102,10 +103,11 @@ public class EnemyInfoController : MonoBehaviour
 		//enemyInfoText.text = "! [ALL ENEMIES DEAD] !     -escape through the door on the right-";
 		//enemyInfoText.color = Color.green;
 	}
-	public void CheckpointNotice()
+	public void CheckpointNotice(int checkpointNumber)
 	{
 		checkpointInfo.gameObject.SetActive(true);
 		StartCoroutine(SlowDisappear(checkpointInfo));
+		areaNumber.text = "AREA 0" + checkpointNumber;
 	}
 	public void StealthStart()
 	{

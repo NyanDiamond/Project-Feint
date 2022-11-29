@@ -23,14 +23,14 @@ public class BackgroundParallax : MonoBehaviour
     /// </summary>
     void Start()
     {
-        cam = GameObject.FindObjectOfType<Camera>();
+        cam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
         startPos = transform.position.x;
     }
 
     /// <summary>
     /// Moves background object based on parallaxFX value
     /// </summary>
-    void Update()
+    void FixedUpdate()
     {
         float distance = (cam.transform.position.x * parallaxFX);
         transform.position = new Vector3(startPos + distance, transform.position.y, transform.position.z);

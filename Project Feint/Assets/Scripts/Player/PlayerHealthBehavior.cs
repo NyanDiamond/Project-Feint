@@ -65,7 +65,14 @@ public class PlayerHealthBehavior : MonoBehaviour
             }
         }
     }
-
+    public void RecoverHealth()
+	{
+        if (health < 3)
+		{
+            healthVisuals[health].sprite = undamaged;
+            health++;
+        }
+	}
     IEnumerator InvulnerabilityCD()
     {
         int temp = 0;
