@@ -708,7 +708,7 @@ MonoBehaviour:
     Space - Jump
 
     Escape
-    - Pause'
+    - Pause00FFD3'
 --- !u!222 &291491735
 CanvasRenderer:
   m_ObjectHideFlags: 0
