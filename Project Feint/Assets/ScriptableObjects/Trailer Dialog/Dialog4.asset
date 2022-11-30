@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9d550182be179f4098f7be0ae6ce054, type: 3}
   m_Name: Dialog4
   m_EditorClassIdentifier: 
-  text: How do you expect to get around all of that for this revenge of yours
+  text: How do you expect to get around all of that?
   color: {r: 0, g: 1, b: 0.972549, a: 1}

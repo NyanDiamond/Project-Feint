@@ -2,9 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class MainMenu : MonoBehaviour
 {
+    private Button mainMenuButton, creditsMenuButton;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,6 +22,18 @@ public class MainMenu : MonoBehaviour
     {
         //Debug.Log("Not implemented yet");
         Save.LoadCheckpoint();
+    }
+
+    public void OpenCredits()
+    {
+        creditsMenuButton = GameObject.FindGameObjectWithTag("CreditsMenu").GetComponent<Button>();
+        creditsMenuButton.Select();
+    }
+
+    public void CloseCredits()
+    {
+        mainMenuButton = GameObject.FindGameObjectWithTag("MainMenu").GetComponent<Button>();
+        mainMenuButton.Select();
     }
 
     public void QuitGame()

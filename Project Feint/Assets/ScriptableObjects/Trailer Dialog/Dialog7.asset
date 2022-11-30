@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9d550182be179f4098f7be0ae6ce054, type: 3}
   m_Name: Dialog7
   m_EditorClassIdentifier: 
-  text: I do, it's called
+  text: I do, it's called...
   color: {r: 1, g: 0.4768409, b: 0, a: 1}

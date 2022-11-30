@@ -500,7 +500,7 @@ public class ExperimentalEnemyMovement : MonoBehaviour
             awareness += 0.1f;
             if (aware && !alarmSounded)
             {
-                if (awareness >= 0.7f)
+                if (awareness >= 0.5f)
                     Alarm();
             }
         }

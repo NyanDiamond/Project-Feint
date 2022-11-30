@@ -36,6 +36,7 @@ public class PlayerMovement : MonoBehaviour
     private Image cooldownIndicator;
 
     private float gravity;
+    [SerializeField] private float gravMult;
     
     private Coroutine combo;
     // Start is called before the first frame update
@@ -77,6 +78,8 @@ public class PlayerMovement : MonoBehaviour
         {
             Destroy(teleporter);
             cooldownIndicator.transform.GetChild(0).gameObject.SetActive(true);
+            SoundPlayer sp = GameObject.Find("GameController").GetComponent<SoundPlayer>();
+            sp.PlaySound12();
         }
     }
     // Update is called once per frame
@@ -166,7 +169,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void FastFallStart()
     {
-        rb.gravityScale *= 1.5f;
+        rb.gravityScale *= gravMult;
     }
 
     private void FastFallEnd()
@@ -250,6 +253,8 @@ public class PlayerMovement : MonoBehaviour
             tp.transform.parent.GetComponent<EnemyHealthBehavior>().instantDeath();
         }
         Destroy(tp);
+        SoundPlayer sp = GameObject.Find("GameController").GetComponent<SoundPlayer>();
+        sp.PlaySound11();
         cooldownIndicator.transform.GetChild(0).gameObject.SetActive(true);
         //teleporterOut = false;
         teleporting = false;
@@ -265,6 +270,7 @@ public class PlayerMovement : MonoBehaviour
             canAttack = false;
             isAttacking = true;
             //rb.velocity = (Vector2)(transform.right) * 0.4f + new Vector2 (0,rb.velocity.y);
+            rb.velocity = Vector2.zero;
             hit = false;
             SoundPlayer sp = GameObject.Find("GameController").GetComponent<SoundPlayer>();
             an.SetTrigger("Attack2");
