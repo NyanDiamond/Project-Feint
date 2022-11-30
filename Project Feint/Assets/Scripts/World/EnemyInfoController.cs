@@ -21,6 +21,7 @@ public class EnemyInfoController : MonoBehaviour
 	public Light2D mainLight;
 	public Text areaNumber;
 	private bool stealthBroken = false;
+	private bool timerEndEarly = false;
 	private void Start()
 	{
 		StealthStart();
@@ -131,12 +132,23 @@ public class EnemyInfoController : MonoBehaviour
 		mainLight.pointLightOuterRadius = 6;
 		StealthStart();
 	}
+	public void EndTimerEarly()
+	{
+		timerEndEarly = true;
+	}
 	private IEnumerator TimerCountdown(int t)
 	{
 		for (int i = t; i > 0; i--)
 		{
-			timer.text = i.ToString();
-			yield return new WaitForSeconds(1f);
+			if (!timerEndEarly)
+			{
+				timer.text = i.ToString();
+				yield return new WaitForSeconds(1f);
+			}
+			else
+			{
+				timer.text = "0";
+			}
 		}
 		timer.gameObject.SetActive(false);
 
@@ -145,6 +157,7 @@ public class EnemyInfoController : MonoBehaviour
 
 		exitInfo1.gameObject.SetActive(true);
 		StartCoroutine(SlowDisappear(exitInfo1));
+		timerEndEarly = false;
 		
 	}
 	private IEnumerator GuardCount()

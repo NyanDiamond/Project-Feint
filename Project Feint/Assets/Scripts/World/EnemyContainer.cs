@@ -19,6 +19,7 @@ public class EnemyContainer : MonoBehaviour
             if(teleporter!=null)
             {
                 Destroy(teleporter);
+                GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>().EnterRoom();
             }
 
             EnemyCounter.enemies.Clear();

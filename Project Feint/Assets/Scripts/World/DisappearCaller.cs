@@ -11,7 +11,7 @@ public class DisappearCaller : MonoBehaviour
     private void Start()
 	{
         enemyInfoScript = GameObject.FindGameObjectWithTag("GameController").GetComponent<EnemyInfoController>();
-	}
+    }
 	private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("GroundCheck"))
@@ -22,6 +22,7 @@ public class DisappearCaller : MonoBehaviour
                     StartCoroutine(HandleDisappear(objects[i].waitTime, objects[i].obj));
             }
             enemyInfoScript.EnterTimedRoom(time);
+            StartCoroutine(HandleDisappearEarly());
             GetComponent<Collider2D>().enabled = false;
         }
     }
@@ -36,7 +37,29 @@ public class DisappearCaller : MonoBehaviour
 	{
         StopAllCoroutines();
 	}
-    //private IEnumerator ()
+	private IEnumerator HandleDisappearEarly()
+	{
+        while (true)
+        {
+            yield return new WaitForSeconds(1f);
+            {
+                if (EnemyCounter.cameras.Count == 0 && !EnemyCounter.TurretsActive())
+                {
+                    Debug.Log("Cameras gone!");
+                    enemyInfoScript.EndTimerEarly();
+                    yield return new WaitForSeconds(1f);
+                    for (int i = 0; i < objects.Count; i++)
+                    {
+                        if (objects[i].obj.isActiveAndEnabled)
+                            objects[i].obj.StartDisappearing();
+                    }
+                    StopAllCoroutines();
+                    break;
+                }
+            }
+        }
+        
+    }
 }
 [System.Serializable] public class DisappearStats
 {

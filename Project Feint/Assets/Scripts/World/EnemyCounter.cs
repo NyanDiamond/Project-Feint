@@ -92,7 +92,17 @@ public class EnemyCounter : MonoBehaviour
         stealth = true;
         doorClosed = false;
     }
-
+    public static bool TurretsActive()
+	{
+        foreach (GameObject turret in turrets)
+        {
+            if (turret.GetComponent<TurretBehavior>().IsActive())
+			{
+                return true;
+			}
+        }
+        return false;
+    }
     public static void StealthBreak()
     {
         enemyInfoScript.StealthBreak();

@@ -50,6 +50,18 @@ public class TurretBehavior : MonoBehaviour
         an.SetBool("Spawned", true);
     }
 
+    public bool IsActive()
+	{
+        if (active)
+		{
+            return true;
+		}
+		else
+		{
+            return false;
+		}
+	}
+
     private void Activated()
     {
         active = true;

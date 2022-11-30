@@ -75,11 +75,8 @@ public class PlayerMovement : MonoBehaviour
         GameObject teleporter = GameObject.FindGameObjectWithTag("Teleporter");
         if (teleporter != null)
         {
-            if (teleporter.GetComponent<TeleporterBehavior>().attached == false)
-            {
-                //teleporter.GetComponent<TeleporterBehavior>().Teleported();
-                Destroy(teleporter);
-            }
+            Destroy(teleporter);
+            cooldownIndicator.transform.GetChild(0).gameObject.SetActive(true);
         }
     }
     // Update is called once per frame
@@ -213,6 +210,8 @@ public class PlayerMovement : MonoBehaviour
                 //create teleporter and add a force to throw it
                 tp = Instantiate(teleporter, throwPoint.transform.position, Quaternion.identity);
                 tp.GetComponent<Rigidbody2D>().AddForce(lookPos.normalized * throwPower * tp.GetComponent<Rigidbody2D>().mass);
+
+                cooldownIndicator.transform.GetChild(0).gameObject.SetActive(false);
                 //tp.GetComponent<TeleporterBehavior>().Teleported();
                 //teleporterOut = true;
             }
@@ -251,6 +250,7 @@ public class PlayerMovement : MonoBehaviour
             tp.transform.parent.GetComponent<EnemyHealthBehavior>().instantDeath();
         }
         Destroy(tp);
+        cooldownIndicator.transform.GetChild(0).gameObject.SetActive(true);
         //teleporterOut = false;
         teleporting = false;
 
@@ -308,8 +308,11 @@ public class PlayerMovement : MonoBehaviour
     {
         hit = true;
     }
-
-    private void OnCollisionStay2D(Collision2D collision)
+	public void EnterRoom()
+	{
+        cooldownIndicator.transform.GetChild(0).gameObject.SetActive(true);
+	}
+    private void OnCollisionExit2D(Collision2D collision)
     {
         //if the player lands while jumping
         /*if (jumping && collision.gameObject.CompareTag("Floor") && transform.Find("Target").position.y > collision.gameObject.transform.position.y)

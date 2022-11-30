@@ -34,7 +34,7 @@ public class CheckpointLoader : MonoBehaviour
 		}
 		else if (checkpoint == 6)
 		{
-			SceneManager.LoadScene("Boss Level");
+			SceneManager.LoadScene("Level 3");
 		}
 	}
 }
