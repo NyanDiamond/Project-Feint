@@ -190,6 +190,7 @@ public class PlayerMovement : MonoBehaviour
                     lookPos = transform.right;
                 tp = Instantiate(teleporter, throwPoint.transform.position, Quaternion.identity);
                 tp.GetComponent<Rigidbody2D>().AddForce(lookPos.normalized * throwPower * tp.GetComponent<Rigidbody2D>().mass);
+                cooldownIndicator.transform.GetChild(0).gameObject.SetActive(false);
             }
                 else
                 {
