@@ -203,7 +203,6 @@ GameObject:
   - component: {fileID: 5148934879911158275}
   - component: {fileID: 5148934879911158272}
   - component: {fileID: 378143127}
-  - component: {fileID: 5148934879734604695}
   - component: {fileID: 5531632614007648038}
   m_Layer: 3
   m_Name: Player
@@ -343,6 +342,7 @@ MonoBehaviour:
   throwPoint: {fileID: 5148934879775044895}
   aimLength: 2
   teleportCDTimer: 1.5
+  restricted: 0
   gravMult: 3
 --- !u!114 &5148934879911158275
 MonoBehaviour:
@@ -484,31 +484,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &5148934879734604695
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5148934879911158297}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e1510eec7125f8a4bbf02e144a35e397, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  clips:
-  - {fileID: 8300000, guid: 6b45d4d756331934190a4c151a849323, type: 3}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
 --- !u!120 &5531632614007648038
 LineRenderer:
   m_ObjectHideFlags: 0

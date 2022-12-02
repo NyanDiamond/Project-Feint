@@ -132,10 +132,10 @@ public class BossBehavior: MonoBehaviour
         while(fadeOut.color.a < 1)
         {
             yield return new WaitForSeconds(.1f);
-            fadeOut.color += new Color(0,0,0,.005f);
+            fadeOut.color += new Color(0,0,0,.01f);
         }
 
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(0.5f);
         SoundPlayer sp = GameObject.Find("GameController").GetComponent<SoundPlayer>();
         sp.PlaySound11();
         yield return new WaitForSeconds(3f);
