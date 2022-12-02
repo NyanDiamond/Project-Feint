@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class BossBehavior: MonoBehaviour
 {
@@ -13,6 +14,8 @@ public class BossBehavior: MonoBehaviour
     [SerializeField] SpawnableEnemy[] wave3;
     [SerializeField] Vector2[] spawnPoints;
     [SerializeField] GameObject shield, explosions, finalBarrier, healthBar;
+    [SerializeField] SpriteRenderer fadeOut;
+    [SerializeField] string nextLevel;
 
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -41,7 +44,8 @@ public class BossBehavior: MonoBehaviour
         {
             Destroy(collision.gameObject);
             GameObject.FindGameObjectWithTag("Player").GetComponent<Rigidbody2D>().velocity = Vector2.zero;
-            GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>().enabled = false;
+            GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>().restricted = true;
+            healthBar.GetComponent<Slider>().value = 0;
             Finish();
         }
         else if (collision.gameObject.CompareTag("Teleporter"))
@@ -109,6 +113,7 @@ public class BossBehavior: MonoBehaviour
     void Finish()
     {
         StartCoroutine(Explosions());
+        StartCoroutine(Fade());
         Debug.Log("Game Over");
         return;
     }
@@ -119,7 +124,21 @@ public class BossBehavior: MonoBehaviour
 		{
             yield return new WaitForSeconds(Random.Range(0.1f, 1));
             Instantiate(explosions, new Vector3(Random.Range(3.5f, 7.5f), Random.Range(-3.5f, -1), 0), Quaternion.identity);
-
         }
+    }
+
+    private IEnumerator Fade()
+    {
+        while(fadeOut.color.a < 1)
+        {
+            yield return new WaitForSeconds(.1f);
+            fadeOut.color += new Color(0,0,0,.005f);
+        }
+
+        yield return new WaitForSeconds(2f);
+        SoundPlayer sp = GameObject.Find("GameController").GetComponent<SoundPlayer>();
+        sp.PlaySound11();
+        yield return new WaitForSeconds(3f);
+        SceneManager.LoadScene(nextLevel);
     }
 }

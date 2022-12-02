@@ -35,6 +35,7 @@ public class PlayerMovement : MonoBehaviour
     private float teleportCD = 2f;
     private Image cooldownIndicator;
 
+    public bool restricted = false;
     private float gravity;
     [SerializeField] private float gravMult;
     
@@ -178,50 +179,56 @@ public class PlayerMovement : MonoBehaviour
     }
     private void TeleportCT()
     {
-        GameObject tp = GameObject.FindGameObjectWithTag("Teleporter");
-        if (canTP && !isHit && teleportCD >= teleportCDTimer)
+        if (!restricted)
+        {
+            GameObject tp = GameObject.FindGameObjectWithTag("Teleporter");
+            if (canTP && !isHit && teleportCD >= teleportCDTimer)
             {
 
                 //jumping = true;
                 if (tp == null)
                 {
-                Vector2 lookPos = pc.Default.TeleportAiming.ReadValue<Vector2>();
-                if (lookPos == Vector2.zero)
-                    lookPos = transform.right;
-                tp = Instantiate(teleporter, throwPoint.transform.position, Quaternion.identity);
-                tp.GetComponent<Rigidbody2D>().AddForce(lookPos.normalized * throwPower * tp.GetComponent<Rigidbody2D>().mass);
-                cooldownIndicator.transform.GetChild(0).gameObject.SetActive(false);
-            }
+                    Vector2 lookPos = pc.Default.TeleportAiming.ReadValue<Vector2>();
+                    if (lookPos == Vector2.zero)
+                        lookPos = transform.right;
+                    tp = Instantiate(teleporter, throwPoint.transform.position, Quaternion.identity);
+                    tp.GetComponent<Rigidbody2D>().AddForce(lookPos.normalized * throwPower * tp.GetComponent<Rigidbody2D>().mass);
+                    cooldownIndicator.transform.GetChild(0).gameObject.SetActive(false);
+                }
                 else
                 {
                     Teleport(tp);
                 }
             }
+        }
     }
 
     private void TeleportMK()
     {
-        GameObject tp = GameObject.FindGameObjectWithTag("Teleporter");
-        
-        if (canTP && !isHit && teleportCD>=teleportCDTimer)
+        if (!restricted)
         {
-            
-            //jumping = true;
-            if (tp == null)
-            {
-                Camera cam = GameObject.FindObjectOfType<Camera>();
-                Vector2 lookPos = cam.ScreenToWorldPoint(Mouse.current.position.ReadValue()) - throwPoint.transform.position;
-                //create teleporter and add a force to throw it
-                tp = Instantiate(teleporter, throwPoint.transform.position, Quaternion.identity);
-                tp.GetComponent<Rigidbody2D>().AddForce(lookPos.normalized * throwPower * tp.GetComponent<Rigidbody2D>().mass);
+            GameObject tp = GameObject.FindGameObjectWithTag("Teleporter");
 
-                cooldownIndicator.transform.GetChild(0).gameObject.SetActive(false);
-                //tp.GetComponent<TeleporterBehavior>().Teleported();
-                //teleporterOut = true;
-            }
-            else
+            if (canTP && !isHit && teleportCD >= teleportCDTimer)
             {
-                Teleport(tp);
+
+                //jumping = true;
+                if (tp == null)
+                {
+                    Camera cam = GameObject.FindObjectOfType<Camera>();
+                    Vector2 lookPos = cam.ScreenToWorldPoint(Mouse.current.position.ReadValue()) - throwPoint.transform.position;
+                    //create teleporter and add a force to throw it
+                    tp = Instantiate(teleporter, throwPoint.transform.position, Quaternion.identity);
+                    tp.GetComponent<Rigidbody2D>().AddForce(lookPos.normalized * throwPower * tp.GetComponent<Rigidbody2D>().mass);
+
+                    cooldownIndicator.transform.GetChild(0).gameObject.SetActive(false);
+                    //tp.GetComponent<TeleporterBehavior>().Teleported();
+                    //teleporterOut = true;
+                }
+                else
+                {
+                    Teleport(tp);
+                }
             }
         }
     }
@@ -253,6 +260,8 @@ public class PlayerMovement : MonoBehaviour
         {
             tp.transform.parent.GetComponent<EnemyHealthBehavior>().instantDeath();
         }
+        transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
+        StartCoroutine(Grow());
         Destroy(tp);
         SoundPlayer sp = GameObject.Find("GameController").GetComponent<SoundPlayer>();
         sp.PlaySound11();
@@ -260,6 +269,15 @@ public class PlayerMovement : MonoBehaviour
         //teleporterOut = false;
         teleporting = false;
 
+    }
+
+    private IEnumerator Grow()
+    {
+        while (transform.localScale.x < 2f)
+        {
+            yield return new WaitForSeconds(0.001f);
+            transform.localScale += new Vector3 (0.1f, 0.1f, 0.1f);
+        }
     }
 
     private void Attack()

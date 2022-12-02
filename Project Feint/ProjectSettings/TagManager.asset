@@ -26,6 +26,7 @@ TagManager:
   - Generator
   - MainMenu
   - CreditsMenu
+  - Fade
   layers:
   - Default
   - TransparentFX
