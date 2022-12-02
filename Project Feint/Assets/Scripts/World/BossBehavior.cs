@@ -9,6 +9,7 @@ public class BossBehavior: MonoBehaviour
     bool shieldUp = false;
     float maxHealth = 18;
     float health = 18;
+    bool lastHit = false;
     [SerializeField] SpawnableEnemy[] wave1;
     [SerializeField] SpawnableEnemy[] wave2;
     [SerializeField] SpawnableEnemy[] wave3;
@@ -16,6 +17,13 @@ public class BossBehavior: MonoBehaviour
     [SerializeField] GameObject shield, explosions, finalBarrier, healthBar;
     [SerializeField] SpriteRenderer fadeOut;
     [SerializeField] string nextLevel;
+    private AudioSource player;
+
+    private void Start()
+    {
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<AudioSource>();
+        player.Stop();
+    }
 
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -23,8 +31,10 @@ public class BossBehavior: MonoBehaviour
         if (health == maxHealth && collision.CompareTag("Player_Attack"))
 		{
             healthBar.SetActive(true);
+            player.Play();
+
 		}
-        if (!shieldUp && collision.CompareTag("Player_Attack"))
+        if (!shieldUp && collision.CompareTag("Player_Attack") && !lastHit)
         {
             health--;
             healthBar.GetComponent<Slider>().value = health / maxHealth;
@@ -34,6 +44,13 @@ public class BossBehavior: MonoBehaviour
                 shield.SetActive(true);
                 SpawnWave();
             }
+        }
+        else if(lastHit)
+        {
+            shieldUp = true;
+            lastHit = false;
+            finalBarrier.SetActive(true);
+            player.Stop();
         }
         
     }
@@ -105,8 +122,7 @@ public class BossBehavior: MonoBehaviour
         shieldUp = false;
         if(health<=5)
         {
-            shieldUp = true;
-            finalBarrier.SetActive(true);
+            lastHit = true;
         }
     }
 
@@ -132,7 +148,7 @@ public class BossBehavior: MonoBehaviour
         while(fadeOut.color.a < 1)
         {
             yield return new WaitForSeconds(.1f);
-            fadeOut.color += new Color(0,0,0,.01f);
+            fadeOut.color += new Color(0,0,0,.015f);
         }
 
         yield return new WaitForSeconds(0.5f);
