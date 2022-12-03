@@ -158,8 +158,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.000019073, y: 0.0013733}
-  m_SizeDelta: {x: 800, y: 450.16}
+  m_AnchoredPosition: {x: -0.000019073, y: -50}
+  m_SizeDelta: {x: 750, y: 450.16}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &158390617
 MonoBehaviour:
@@ -208,8 +208,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 30
-  m_fontSizeBase: 30
+  m_fontSize: 20
+  m_fontSizeBase: 20
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -292,9 +292,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   textDisplay: {fileID: 158390617}
-  delay: 0.1
-  dialog: []
-  nextScene: TrailerText
+  delay: 0.05
+  dialog:
+  - {fileID: 11400000, guid: 42407cf1812e4494bb134f330129879c, type: 2}
+  - {fileID: 11400000, guid: b9ff7fb7e5cea1f4ea0886dc20b9b0f1, type: 2}
+  nextScene: Level 2
 --- !u!114 &552414288
 MonoBehaviour:
   m_ObjectHideFlags: 0

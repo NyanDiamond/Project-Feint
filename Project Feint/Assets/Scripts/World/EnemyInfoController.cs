@@ -135,6 +135,7 @@ public class EnemyInfoController : MonoBehaviour
 	public void EndTimerEarly()
 	{
 		timerEndEarly = true;
+		timer.text = "0";
 	}
 	private IEnumerator TimerCountdown(int t)
 	{

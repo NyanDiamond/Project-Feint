@@ -158,8 +158,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.000019073, y: 0.0013733}
-  m_SizeDelta: {x: 800, y: 450.16}
+  m_AnchoredPosition: {x: -0.000019073, y: -50}
+  m_SizeDelta: {x: 750, y: 450.16}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &158390617
 MonoBehaviour:
@@ -208,8 +208,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 30
-  m_fontSizeBase: 30
+  m_fontSize: 20
+  m_fontSizeBase: 20
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -292,9 +292,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   textDisplay: {fileID: 158390617}
-  delay: 0.1
-  dialog: []
-  nextScene: TrailerText
+  delay: 0.05
+  dialog:
+  - {fileID: 11400000, guid: 7efd50e9da584e84d82a1c2e322eae70, type: 2}
+  - {fileID: 11400000, guid: d8d1b25954f21c34c8f899b4749b00d4, type: 2}
+  - {fileID: 11400000, guid: b3484275805c73341b70b7121d4abcd7, type: 2}
+  - {fileID: 11400000, guid: e4ed37b5cd57acf4b8bd67ca15609190, type: 2}
+  - {fileID: 11400000, guid: 9d1f1aac499619e4c84686277c3f4991, type: 2}
+  - {fileID: 11400000, guid: d91591b5c9d3fac40a19fc21d0c6b63f, type: 2}
+  nextScene: Tutorial
 --- !u!114 &552414288
 MonoBehaviour:
   m_ObjectHideFlags: 0

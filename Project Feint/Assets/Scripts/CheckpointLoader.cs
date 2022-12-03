@@ -37,4 +37,19 @@ public class CheckpointLoader : MonoBehaviour
 			SceneManager.LoadScene("Level 3");
 		}
 	}
+	public static void LoadCutscene(int number)
+	{
+		if (number == 0)
+		{
+			SceneManager.LoadScene("Cutscene1");
+		}
+		else if (number == 1)
+		{
+			SceneManager.LoadScene("Cutscene2");
+		}
+		else if (number == 2)
+		{
+			SceneManager.LoadScene("Cutscene3");
+		}
+	}
 }

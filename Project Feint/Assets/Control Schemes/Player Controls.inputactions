@@ -279,6 +279,17 @@
                 },
                 {
                     "name": "",
+                    "id": "54a1e08c-c137-4734-8d96-6eeeed9e887c",
+                    "path": "<Gamepad>/leftShoulder",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ReturnTeleporter",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "ea5fcbd5-b5f1-4c3e-afdb-9a19a617ee12",
                     "path": "<Gamepad>/rightStick",
                     "interactions": "",

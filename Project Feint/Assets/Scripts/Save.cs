@@ -24,7 +24,7 @@ public class Save : MonoBehaviour
     }
     public static void LoadFirstCheckpoint()
 	{
-        CheckpointLoader.Load(0);
+        CheckpointLoader.LoadCutscene(0);
         PlayerPrefs.SetInt("NewCheckpoint", 0);
     }
 }

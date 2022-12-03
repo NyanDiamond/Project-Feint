@@ -24,9 +24,10 @@ public class DialogBehavior : MonoBehaviour
         currentText = dialog[current].text;
         currentColor = "#" + ColorUtility.ToHtmlStringRGBA(dialog[current].color);
         StartCoroutine(Scroll());
+
     }
-    //Increments current to keep track of what dialog line we are dealing with, and if there is more dialog we update the necessary private variables and run the corroutine again
-    void Next()
+	//Increments current to keep track of what dialog line we are dealing with, and if there is more dialog we update the necessary private variables and run the corroutine again
+	void Next()
     {
         current++;
         if(current < dialog.Length)
@@ -43,7 +44,7 @@ public class DialogBehavior : MonoBehaviour
         textDisplay.text = loggedText[0];
         for (int i = 1; i< loggedText.Length; i++)
         {
-            textDisplay.text += "\n" + loggedText[i];
+            textDisplay.text += "\n\n" + loggedText[i];
         }
     }
 

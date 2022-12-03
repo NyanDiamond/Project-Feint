@@ -47,7 +47,7 @@ public class DisappearCaller : MonoBehaviour
                 {
                     Debug.Log("Cameras gone!");
                     enemyInfoScript.EndTimerEarly();
-                    yield return new WaitForSeconds(1f);
+                    //yield return new WaitForSeconds(1f);
                     for (int i = 0; i < objects.Count; i++)
                     {
                         if (objects[i].obj.isActiveAndEnabled)

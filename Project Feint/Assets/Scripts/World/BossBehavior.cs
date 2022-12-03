@@ -7,8 +7,8 @@ using UnityEngine.SceneManagement;
 public class BossBehavior: MonoBehaviour
 {
     bool shieldUp = false;
-    float maxHealth = 18;
-    float health = 18;
+    float maxHealth = 14;
+    float health = 14;
     bool lastHit = false;
     [SerializeField] SpawnableEnemy[] wave1;
     [SerializeField] SpawnableEnemy[] wave2;
@@ -31,15 +31,16 @@ public class BossBehavior: MonoBehaviour
         if (health == maxHealth && collision.CompareTag("Player_Attack"))
 		{
             healthBar.SetActive(true);
-            player.Play();
 
 		}
         if (!shieldUp && collision.CompareTag("Player_Attack") && !lastHit)
         {
             health--;
             healthBar.GetComponent<Slider>().value = health / maxHealth;
-            if ((health+2) % 5 == 0)
+            if ((health+2) % 4 == 0)
             {
+                if (!player.isPlaying)
+                    player.Play();
                 shieldUp = true;
                 shield.SetActive(true);
                 SpawnWave();
@@ -76,20 +77,20 @@ public class BossBehavior: MonoBehaviour
     {
         switch(health)
         {
-            case 13:
+            case 10:
                 foreach(SpawnableEnemy enemy in wave1)
                 {
                     Debug.Log("spawning");
                     SpawnEnemy(enemy);
                 }
                 break;
-            case 8:
+            case 6:
                 foreach (SpawnableEnemy enemy in wave2)
                 {
                     SpawnEnemy(enemy);
                 }
                 break;
-            case 3:
+            case 2:
                 foreach (SpawnableEnemy enemy in wave3)
                 {
                     SpawnEnemy(enemy);
@@ -120,7 +121,7 @@ public class BossBehavior: MonoBehaviour
     {
         shield.SetActive(false);
         shieldUp = false;
-        if(health<=5)
+        if(health<=2)
         {
             lastHit = true;
         }
