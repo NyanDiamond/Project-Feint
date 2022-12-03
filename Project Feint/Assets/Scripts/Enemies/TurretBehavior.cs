@@ -2,6 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/*
+ * Josh Bonovich 
+ * Project: F.E.I.N.T
+ * This code is used to control the turrets behavior (shooting at the player at fixed intervals, locating the player to shoot, etc)
+*/
 public class TurretBehavior : MonoBehaviour
 {
     public GameObject bullet;

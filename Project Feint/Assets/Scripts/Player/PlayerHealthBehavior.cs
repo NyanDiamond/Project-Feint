@@ -2,6 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+
+/*
+ * Josh Bonovich & Ian Connors
+ * Project: F.E.I.N.T
+ * This code is used to contol the total health of the player as well as produce a loss state when the player loses all of their hp
+*/
 public class PlayerHealthBehavior : MonoBehaviour
 {
     public Color normal;

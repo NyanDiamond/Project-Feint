@@ -3,6 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.U2D;
+
+/*
+ * Ian Connors 
+ * Project: F.E.I.N.T
+ * This code is used to contol the dissapearing lasers found on certain levels
+*/
 public class DisappearAfterSeconds : MonoBehaviour
 {
     [Header("Set lifetime with a DisappearCaller script")]

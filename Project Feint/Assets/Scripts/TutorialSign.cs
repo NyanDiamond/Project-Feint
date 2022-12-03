@@ -4,6 +4,11 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
+/*
+ * Josh Bonovich 
+ * Project: F.E.I.N.T
+ * This code is used have an interactable sign that displays information 
+*/
 public class TutorialSign : MonoBehaviour
 {
     [SerializeField] List<string> text = new List<string>();

@@ -2,6 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+
+/*
+ * Ian Connors
+ * Project: F.E.I.N.T
+ * This code controls the rooms moving in and out of existance when activated
+*/
 public class DoorTrigger : MonoBehaviour
 {
     // Start is called before the first frame update

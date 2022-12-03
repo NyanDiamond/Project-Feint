@@ -2,6 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/*
+ * Josh Bonovich 
+ * Project: F.E.I.N.T
+ * This code is used to contol the enemies health, and also other instances that will kill them
+*/
 public class EnemyHealthBehavior : MonoBehaviour
 {
 

@@ -2,6 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/*
+ * Josh Bonovich 
+ * Project: F.E.I.N.T
+ * This code is used to have an arrow point towards a thrown teleporter if it manages to get off screen
+*/
 public class ArrowBehavior : MonoBehaviour
 {
     private GameObject arrow;

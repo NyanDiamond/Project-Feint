@@ -3,6 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+/*
+ * Ian Connors 
+ * Project: F.E.I.N.T
+ * This code is used to save the current checkpoint
+*/
 public class Checkpoint : MonoBehaviour
 {
     // Start is called before the first frame update

@@ -3,6 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using Pathfinding;
 
+/*
+ * Josh Bonovich 
+ * Project: F.E.I.N.T
+ * This code is used to contol multiple aspects of the enemy
+ * First it uses A* pathing in order to find the player
+ * It also has a line of sight code that will activate the enemies tracking script once it is tripped
+ * This script also controls when the enemy will attack and how far away they must be in order to attack
+ * Works in conjunction with the Enemy Container in order to sound the alarm
+*/
 public class ExperimentalEnemyMovement : MonoBehaviour
 {
     private GameObject playerObject;

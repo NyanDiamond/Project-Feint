@@ -2,6 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/*
+ * Josh Bonovich 
+ * Project: F.E.I.N.T
+ * This code is used to hold and use a set list of audio clips
+ * Origionally this was going to be used with Animation Events, which at the time I wasn't sure could take a variable...hence why they are seperated like this and not just one method that takes 
+ * an integer parameter. Though at one point it was used directly in the code and by the time it was in so many places I felt changing it would have done more work than what it would have saved
+*/
 public class SoundPlayer : MonoBehaviour
 {
     private AudioSource audioSource;

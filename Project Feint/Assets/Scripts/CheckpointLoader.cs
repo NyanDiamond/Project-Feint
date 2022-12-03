@@ -3,8 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+/*
+ * Ian Connors 
+ * Project: F.E.I.N.T
+ * This code is used load certain levels based on the current checkpoint or cutscene
+*/
+
 public class CheckpointLoader : MonoBehaviour
 {
+
+
     public static void Load(int checkpoint)
 	{
 		if (checkpoint == 0)
@@ -36,6 +44,7 @@ public class CheckpointLoader : MonoBehaviour
 		{
 			SceneManager.LoadScene("Level 3");
 		}
+
 	}
 	public static void LoadCutscene(int number)
 	{

@@ -5,6 +5,14 @@ using UnityEngine.Animations;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
+/*
+ * Josh Bonovich 
+ * Project: F.E.I.N.T
+ * This code is used to contol the various actions the player can make
+ * First, controls genric movement such as jumping and running
+ * Also controls throwing and using the teleporter
+ * As well, it controls attacking and a now depricated combo system which was later scrapped in the final build
+*/
 public class PlayerMovement : MonoBehaviour
 {
     public float maxSpeed;
