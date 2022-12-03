@@ -296,6 +296,11 @@ MonoBehaviour:
   dialog:
   - {fileID: 11400000, guid: ac4a1c3981653e744bcf69c13e06a8b1, type: 2}
   - {fileID: 11400000, guid: 3b2a039a05898ea42961e899d211e1e5, type: 2}
+  - {fileID: 11400000, guid: 9fb2ee896e7d4d34c97d9694ff6bffec, type: 2}
+  - {fileID: 11400000, guid: 12430c7d1b42cff4b91583cf2df9bae4, type: 2}
+  - {fileID: 11400000, guid: d3f02f18579a4194e8871bd8f80804b3, type: 2}
+  - {fileID: 11400000, guid: c5f39704bc378d942863d0a2b7280cb5, type: 2}
+  - {fileID: 11400000, guid: 4a9f08ba27c42a84b9d05db7130780c2, type: 2}
   nextScene: Final Scene
 --- !u!114 &552414288
 MonoBehaviour:

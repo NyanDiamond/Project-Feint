@@ -12,5 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9d550182be179f4098f7be0ae6ce054, type: 3}
   m_Name: C3D1
   m_EditorClassIdentifier: 
-  text: Wow, you actually did it! Coolbeans!
+  text: It's a miracle you didn't get caught in that explosion. Too bad your device
+    did...
   color: {r: 0, g: 1, b: 0.972549, a: 1}

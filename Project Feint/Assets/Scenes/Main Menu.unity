@@ -1508,7 +1508,7 @@ GameObject:
   - component: {fileID: 619678214}
   - component: {fileID: 619678213}
   m_Layer: 5
-  m_Name: Music Credits (1)
+  m_Name: Sound Credits (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1567,7 +1567,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1.5
-  m_Text: '- '
+  m_Text: "- Main Menu: \"Cyberpunk\" by jiglr\n- Level 1 / 2: \n- Final level: \"Sci-Fi
+    Platformer 02\" by Pascal Belisle\n- Sound Effects: "
 --- !u!222 &619678214
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3733,7 +3734,7 @@ GameObject:
   - component: {fileID: 2146844440}
   - component: {fileID: 2146844439}
   m_Layer: 5
-  m_Name: Music Credits
+  m_Name: Sound Credits
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3793,7 +3794,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1.5
-  m_Text: Music
+  m_Text: Sound
 --- !u!222 &2146844440
 CanvasRenderer:
   m_ObjectHideFlags: 0
