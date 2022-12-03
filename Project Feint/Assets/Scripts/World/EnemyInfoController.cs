@@ -4,6 +4,11 @@ using UnityEngine;
 using UnityEngine.Rendering.Universal;
 using UnityEngine.UI;
 
+/*
+ * Ian Connors
+ * Project: F.E.I.N.T
+ * This code is used to contol all the UI elements that are connected to the stealth mechanics and door locking mechanics
+*/
 public class EnemyInfoController : MonoBehaviour
 {
 	public Text exitInfo;

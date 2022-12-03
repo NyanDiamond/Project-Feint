@@ -4,6 +4,12 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
+/*
+ * Josh Bonovich 
+ * Project: F.E.I.N.T
+ * This code is used to hold the wave data and control how the final boss performs
+ * This code also triggers the ending sequence once the required variables are met
+*/
 public class BossBehavior: MonoBehaviour
 {
     bool shieldUp = false;

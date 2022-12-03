@@ -2,6 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/*
+ * Josh Bonovich 
+ * Project: F.E.I.N.T
+ * This code is used to control movable platforms by having them move to a set of multiple points until they reach the end, in which case they will then move in the opposite direction along those same points
+*/
 public class MovingPlatform : MonoBehaviour
 {
     [Tooltip("Start with its starting position")]

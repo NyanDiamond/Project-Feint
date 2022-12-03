@@ -2,6 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/*
+ * Josh Bonovich 
+ * Project: F.E.I.N.T
+ * This code is used to keep track of all active enemies in a room and also calls them all when it is time to break out of stealth or to tell the doors that all the enemies have been destroyed
+*/
 public class EnemyCounter : MonoBehaviour
 {
     public static int count=0;

@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.SceneManagement;
-
+//Josh Bonovich
+//Project F.E.I.N.T.
 //This script slowly types out an array of dialog with multiple colors to depict multiple people
 //If button(s) are pressed it will skip to the next line or go to the next scene if the dialog is complete
 public class DialogBehavior : MonoBehaviour

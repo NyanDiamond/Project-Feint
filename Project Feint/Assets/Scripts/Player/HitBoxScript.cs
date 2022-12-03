@@ -2,6 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/*
+ * Josh Bonovich 
+ * Project: F.E.I.N.T
+ * This code is used to just control taking damage from an enemy attack when it connects
+*/
+
 public class HitBoxScript : MonoBehaviour
 {
     

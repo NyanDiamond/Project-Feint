@@ -2,6 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+
+/*
+ * Ian Connors
+ * Project: F.E.I.N.T
+ * This code is used to have the player jump between matching portals on a small cooldown
+*/
 public class Portal : MonoBehaviour
 {
     // Start is called before the first frame update

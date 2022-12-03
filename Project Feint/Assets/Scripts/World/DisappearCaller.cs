@@ -2,6 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/*
+ * Ian Connors
+ * Project: F.E.I.N.T
+ * This code is used to help control the dissapear lasers, working with DisappearAfterSeconds
+*/
 public class DisappearCaller : MonoBehaviour
 {
     public List<DisappearStats> objects = new List<DisappearStats>();

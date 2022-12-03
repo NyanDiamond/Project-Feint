@@ -2,6 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/*
+ * Ian Connors
+ * Project: F.E.I.N.T
+ * This code is used to contol the alarm coloring and disapearing in terms of the stealth mechanics
+*/
 public class CameraBehavior : MonoBehaviour
 {
     //All variables for alarm

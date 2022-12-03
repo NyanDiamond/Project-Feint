@@ -2,6 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+/*
+ * Ian Connors
+ * Project: F.E.I.N.T
+ * This code is used to move you to the next scene when activated and saves a checkpoint
+*/
 public class DoorTriggerLastRoom : MonoBehaviour
 {
     // Start is called before the first frame update

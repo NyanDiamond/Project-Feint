@@ -2,6 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/*
+ * Josh Bonovich 
+ * Project: F.E.I.N.T
+ * This code is used to contol the bullets the enemies shoot
+*/
 public class BulletBehavior : MonoBehaviour
 {
     public float speed;

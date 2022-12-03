@@ -2,6 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/*
+ * Josh Bonovich 
+ * Project: F.E.I.N.T
+ * This is a scriptable object that holds the data for enemies to be spawned in the final boss arena
+*/
 [CreateAssetMenu(fileName = "Enemy", menuName = "Spawnable Enemy")]
 public class SpawnableEnemy : ScriptableObject
 {

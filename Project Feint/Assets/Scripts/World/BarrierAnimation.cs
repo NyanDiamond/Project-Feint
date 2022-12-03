@@ -3,6 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.U2D;
 
+/*
+ * Ian Connors
+ * Project: F.E.I.N.T
+ * This code is used to contol the animation of the barries when they open up
+*/
 public class BarrierAnimation : MonoBehaviour
 {
 	private SpriteShapeController ssController;

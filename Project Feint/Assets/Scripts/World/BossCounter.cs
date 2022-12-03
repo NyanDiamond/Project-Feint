@@ -2,6 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/*
+ * Josh Bonovich 
+ * Project: F.E.I.N.T
+ * This code is derived from the Enemy Counter and is used to supplement the special aspects of the final boss
+*/
 public class BossCounter : EnemyCounter
 {
     private BossBehavior bb;

@@ -3,6 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+/*
+ * Josh Bonovich 
+ * Project: F.E.I.N.T
+ * This code is used to how the teleporter reacts to hitting certain objects
+*/
 public class TeleporterBehavior : MonoBehaviour
 {
 

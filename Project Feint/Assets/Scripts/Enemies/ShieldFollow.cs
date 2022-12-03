@@ -2,6 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/*
+ * Josh Bonovich 
+ * Project: F.E.I.N.T
+ * This code is used to make sure the seperate shield object follows the shield enemy at all times as child objects were reacting weirdly due to some game mechanics
+*/
 public class ShieldFollow : MonoBehaviour
 {
     private Transform shieldEnemy;

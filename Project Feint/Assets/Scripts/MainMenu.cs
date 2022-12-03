@@ -4,6 +4,11 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
+/*
+ * Josh Bonovich 
+ * Project: F.E.I.N.T
+ * This code is used to keep track of all the button presses the player can do on the main menu
+*/
 public class MainMenu : MonoBehaviour
 {
     private Button mainMenuButton, creditsMenuButton;

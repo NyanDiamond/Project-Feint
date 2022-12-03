@@ -2,6 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/*
+ * Josh Bonovich 
+ * Project: F.E.I.N.T
+ * This code is found at the beginning of every room and is used to contain all of the relevant enemy data for the room
+ */
+
 public class EnemyContainer : MonoBehaviour
 {
 

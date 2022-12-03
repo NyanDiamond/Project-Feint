@@ -3,6 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+
+/*
+ * Josh Bonovich 
+ * Project: F.E.I.N.T
+ * This code is used to contol the pause menu and all the aspects used by the buttons
+*/
 public class PauseMenu : MonoBehaviour
 {
     [SerializeField] GameObject pauseMenu;
