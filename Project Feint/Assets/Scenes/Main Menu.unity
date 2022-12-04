@@ -981,7 +981,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 0, y: -48.280003}
+  m_AnchoredPosition: {x: 268.3, y: -48.280003}
   m_SizeDelta: {x: 336.65, y: 207.6}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!114 &338014554
@@ -1531,8 +1531,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: -1.4, y: -33.6}
-  m_SizeDelta: {x: 212.4, y: 207.6}
+  m_AnchoredPosition: {x: 0, y: -30.2}
+  m_SizeDelta: {x: 332.2, y: 207.6}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!114 &619678213
 MonoBehaviour:
@@ -1567,8 +1567,15 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1.5
-  m_Text: "- Main Menu: \"Cyberpunk\" by jiglr\n- Level 1 / 2: \n- Final level: \"Sci-Fi
-    Platformer 02\" by Pascal Belisle\n- Sound Effects: "
+  m_Text: '- Main Menu: "Cyberpunk" by jiglr
+
+    - Level 1 / 2 songs by Chubbz
+
+    -
+    Final level: "Sci-Fi Platformer 02" by Pascal Belisle
+
+    - Sound Effects by
+    Chubbz'
 --- !u!222 &619678214
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3758,7 +3765,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 256.28, y: -48.280003}
+  m_AnchoredPosition: {x: 0, y: -48.280003}
   m_SizeDelta: {x: 336.65, y: 207.6}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!114 &2146844439
