@@ -13,13 +13,15 @@ using UnityEngine.SceneManagement;
 public class BossBehavior: MonoBehaviour
 {
     bool shieldUp = false;
-    float maxHealth = 14;
-    float health = 14;
+    float maxHealth = 18;
+    float health = 18;
     bool lastHit = false;
     [SerializeField] SpawnableEnemy[] wave1;
     [SerializeField] SpawnableEnemy[] wave2;
     [SerializeField] SpawnableEnemy[] wave3;
+    [SerializeField] SpawnableEnemy[] wave4;
     [SerializeField] Vector2[] spawnPoints;
+    [SerializeField] TurretBehavior[] turrets;
     [SerializeField] GameObject shield, explosions, finalBarrier, healthBar;
     [SerializeField] SpriteRenderer fadeOut;
     [SerializeField] string nextLevel;
@@ -83,21 +85,32 @@ public class BossBehavior: MonoBehaviour
     {
         switch(health)
         {
+            case 14:
+                foreach (SpawnableEnemy enemy in wave1)
+                {
+                    Debug.Log("spawning");
+                    SpawnEnemy(enemy);
+                }
+                break;
             case 10:
-                foreach(SpawnableEnemy enemy in wave1)
+                foreach(SpawnableEnemy enemy in wave2)
                 {
                     Debug.Log("spawning");
                     SpawnEnemy(enemy);
                 }
                 break;
             case 6:
-                foreach (SpawnableEnemy enemy in wave2)
+                foreach (SpawnableEnemy enemy in wave3)
                 {
                     SpawnEnemy(enemy);
+                    foreach (TurretBehavior turret in turrets)
+					{
+                        turret.Activate();
+					}
                 }
                 break;
             case 2:
-                foreach (SpawnableEnemy enemy in wave3)
+                foreach (SpawnableEnemy enemy in wave4)
                 {
                     SpawnEnemy(enemy);
                 }
@@ -130,6 +143,10 @@ public class BossBehavior: MonoBehaviour
         if(health<=2)
         {
             lastHit = true;
+            foreach (TurretBehavior turret in turrets)
+            {
+                turret.viewDistance = 0;
+            }
         }
     }
 
