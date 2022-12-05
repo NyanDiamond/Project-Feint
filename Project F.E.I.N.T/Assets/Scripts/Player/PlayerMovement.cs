@@ -159,7 +159,7 @@ public class PlayerMovement : MonoBehaviour
     private void Jump()
     {
         
-        if (grounded && !isHit)
+        if (grounded && !isHit && Time.timeScale!=0)
         {
             //jumping = true;
             //an.SetBool("Jumping", true);
