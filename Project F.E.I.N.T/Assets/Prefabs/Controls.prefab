@@ -125,7 +125,7 @@ MonoBehaviour:
   m_Text: "Controls:\n\nLeft Click   (X)   (Square)              \nRight Click  
     LT & RT   L2 & R2                    \nMouse   Right Joystick                         
     \nR   LB & RB   L1 & R1                               \nA &  D   Left Joystick                               
-    \nSpace   (A)   (X)            \nEscape   Start               \n\nMenu Controls:\nKeyboard
+    \nSpace   (A)   (X)            \nP   Start               \n\nMenu Controls:\nKeyboard
     & Mouse: Use W/S to navigate and Enter to select\nController: Use left joystick
     to navigate and A/X to select"
 --- !u!114 &5855256907464386171
@@ -600,7 +600,7 @@ MonoBehaviour:
     /                - Attack\n                 /                /              
     - Teleporter\n             /                         - Aim Teleporter\n    /               
     /               - Return Teleporter\n            /                      - Move
-    Left & Right\n            /       /       - Jump\n            /          - Pause\n\nMenu
+    Left & Right\n            /       /       - Jump\n  /          - Pause\n\nMenu
     Controls:\nKeyboard & Mouse: Use W/S to navigate and Enter to select\nController:
     Use left joystick to navigate and A/X to select"
 --- !u!114 &5855256909088670100

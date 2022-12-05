@@ -1631,7 +1631,7 @@ MonoBehaviour:
   m_ScrollWheelAction: {fileID: 0}
   m_TrackedDevicePositionAction: {fileID: 0}
   m_TrackedDeviceOrientationAction: {fileID: 0}
-  m_DeselectOnBackgroundClick: 1
+  m_DeselectOnBackgroundClick: 0
   m_PointerBehavior: 0
 --- !u!1 &6659569523318239822
 GameObject:
@@ -2203,6 +2203,15 @@ PrefabInstance:
     - target: {fileID: 6910326090594982370, guid: 14076c389878f4d41b29dbff49ef1a91, type: 3}
       propertyPath: m_Color.r
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6910326090945723801, guid: 14076c389878f4d41b29dbff49ef1a91, type: 3}
+      propertyPath: m_Text
+      value: "Controls:\n\nLeft Click   (X)   (Square)              \nRight Click  
+        LT & RT   L2 & R2                    \nMouse   Right Joystick                         
+        \nR   LB & RB   L1 & R1                               \nA &  D   Left Joystick                               
+        \nSpace   (A)   (X)            \nP   Start               \n\nMenu Controls:\nKeyboard
+        & Mouse: Use W/S to navigate and Enter to select\nController: Use left joystick
+        to navigate and A/X to select"
       objectReference: {fileID: 0}
     - target: {fileID: 6910326092542646903, guid: 14076c389878f4d41b29dbff49ef1a91, type: 3}
       propertyPath: m_Color.b

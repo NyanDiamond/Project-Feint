@@ -187,7 +187,7 @@ public class PlayerMovement : MonoBehaviour
     }
     private void TeleportCT()
     {
-        if (!restricted)
+        if (!restricted && Time.timeScale !=0 )
         {
             GameObject tp = GameObject.FindGameObjectWithTag("Teleporter");
             if (canTP && !isHit && teleportCD >= teleportCDTimer)
@@ -213,7 +213,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void TeleportMK()
     {
-        if (!restricted)
+        if (!restricted && Time.timeScale != 0)
         {
             GameObject tp = GameObject.FindGameObjectWithTag("Teleporter");
 
@@ -290,7 +290,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Attack()
     {
-        if (canAttack && !isHit)
+        if (canAttack && !isHit && Time.timeScale != 0)
         {
             if(combo != null)
                 StopCoroutine(combo);

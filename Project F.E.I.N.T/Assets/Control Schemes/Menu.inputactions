@@ -55,7 +55,7 @@
                 {
                     "name": "",
                     "id": "4fae5b79-8e90-4b47-9033-fc797ab35151",
-                    "path": "<Keyboard>/escape",
+                    "path": "<Keyboard>/p",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -309,17 +309,6 @@
                     "name": "",
                     "id": "164caf15-4ead-4686-8ad1-01d9247e7037",
                     "path": "<Keyboard>/enter",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Select",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "83ddd551-1fe0-4c65-8a63-214a99dac0e6",
-                    "path": "<Mouse>/leftButton",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
