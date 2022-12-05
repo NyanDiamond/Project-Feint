@@ -13,7 +13,7 @@ public class GroundChecker : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if (collision.CompareTag("Floor") || collision.CompareTag("Enemy") || collision.CompareTag("Generator"))
+        if (collision.CompareTag("Floor") /*|| collision.CompareTag("Generator")*/)
         {
             grounded = true;
         }
@@ -21,7 +21,7 @@ public class GroundChecker : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.CompareTag("Floor") || collision.CompareTag("Enemy") || collision.CompareTag("Generator"))
+        if (collision.CompareTag("Floor") /*|| collision.CompareTag("Generator")*/)
         {
             grounded = false;
         }
